@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WebApplication.Web.DAL;
-using WebApplication.Web.Providers;
+using WebApplication.Web.Providers.Auth;
 
 namespace WebApplication.Web
 {
@@ -47,7 +47,7 @@ namespace WebApplication.Web
             // For Authentication
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddTransient<IAuthProvider, SessionAuthProvider>();
-            services.AddTransient<IUserDAL>(m => new UserSqlDAL(@"Data Source=.\SQLEXPRESS;Initial Catalog=DemoDB;Integrated Security=True"));
+            services.AddTransient<IUserDAL>(m => new UserSqlDAL(@"Your Connection String"));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
