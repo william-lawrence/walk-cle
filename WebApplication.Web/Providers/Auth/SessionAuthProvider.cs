@@ -29,6 +29,11 @@ namespace WebApplication.Web.Providers.Auth
         ISession Session => contextAccessor.HttpContext.Session;
 
         /// <summary>
+        /// Returns true if the user is logged in.
+        /// </summary>
+        public bool IsLoggedIn => !String.IsNullOrEmpty(Session.GetString(SessionKey));
+
+        /// <summary>
         /// Signs the user in and saves their username in session.
         /// </summary>
         /// <param name="username"></param>
@@ -122,6 +127,18 @@ namespace WebApplication.Web.Providers.Auth
 
             userDAL.CreateUser(user);
             Session.SetString(SessionKey, user.Username);            
+        }
+
+        /// <summary>
+        /// Checks to see if the user has a given role.
+        /// </summary>
+        /// <param name="roles"></param>
+        /// <returns></returns>
+        public bool UserHasRole(string[] roles)
+        {            
+            var user = GetCurrentUser();
+            return (user != null) && 
+                roles.Any(r => r.ToLower() == user.Role.ToLower());
         }
     }
 }

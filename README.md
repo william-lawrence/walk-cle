@@ -67,3 +67,10 @@ Once you have an instance of the `IAuthProvider` you can invoke methods on it.
 * `LogOff()` - will log the user out of the system
 * `ChangePassword(string existingPassword, string newPassword)` - will validate the user's existing credentials and change their password
 * `Register(string username, string password, string role)` - will create a new user with the provided credentials and role
+
+
+If you want to restrict access to a specific controller or controller action, you can use the `AuthorizationFilter`.
+The filter provides two different usage options:
+
+* `[AuthorizationFilter]` - ensures that the user is logged in to access the controller action
+* `[AuthorizationFilter('role1', 'role2', ...)]` - ensures that the user is logged in and has AT LEAST ONE of the provided roles to access the controller action

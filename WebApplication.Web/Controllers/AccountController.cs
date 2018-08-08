@@ -7,7 +7,7 @@ using WebApplication.Web.Models.Account;
 using WebApplication.Web.Providers.Auth;
 
 namespace WebApplication.Web.Controllers
-{
+{    
     public class AccountController : Controller
     {
         private readonly IAuthProvider authProvider;
@@ -15,10 +15,10 @@ namespace WebApplication.Web.Controllers
         {
             this.authProvider = authProvider;
         }
-
+        
         [HttpGet]
         public IActionResult Login()
-        {
+        {            
             return View();
         }
 
@@ -52,6 +52,7 @@ namespace WebApplication.Web.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        [AuthorizationFilter("admin")]
         [HttpGet]
         public IActionResult Register()
         {
@@ -65,7 +66,7 @@ namespace WebApplication.Web.Controllers
             if (ModelState.IsValid)
             {
                 // Register them as a new user (and set default role)
-                authProvider.Register(registerViewModel.Email, registerViewModel.Password, "user");
+                authProvider.Register(registerViewModel.Email, registerViewModel.Password, "Role");
 
                 // Redirect the user where you want them to go after registering
                 return RedirectToAction("Index", "Home");

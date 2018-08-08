@@ -31,6 +31,23 @@ namespace WebApplication.Tests.Providers
         }
 
         [TestMethod]
+        public void IsLoggedIn_Should_ReturnFalseIfSessionIsEmpty()
+        {
+            var provider = new SessionAuthProvider(mockAccessor.Object, mockUserDal.Object);
+
+            Assert.IsFalse(provider.IsLoggedIn);
+        }
+
+        [TestMethod]
+        public void IsLoggedIn_Should_ReturnTrueIfUserInSession()
+        {
+            AddUserToSession("test");
+            var provider = new SessionAuthProvider(mockAccessor.Object, mockUserDal.Object);
+
+            Assert.IsTrue(provider.IsLoggedIn);
+        }
+
+        [TestMethod]
         public void GetCurrentUser_Should_ReturnsNullIfNotLoggedIn()
         {
             // Arrange DAL to always return null ensuring that user does not exist           

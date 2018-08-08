@@ -9,6 +9,12 @@ namespace WebApplication.Web.Providers.Auth
     public interface IAuthProvider
     {
         /// <summary>
+        /// Returns true if a current user is logged in.
+        /// </summary>
+        /// <returns></returns>
+        bool IsLoggedIn { get; }
+
+        /// <summary>
         /// Returns the current signed in user.
         /// </summary>
         /// <returns></returns>
@@ -42,5 +48,12 @@ namespace WebApplication.Web.Providers.Auth
         /// <param name="role"></param>
         /// <returns></returns>
         void Register(string username, string password, string role);
+
+        /// <summary>
+        /// Checks to see if a user has a given role.
+        /// </summary>
+        /// <param name="roles">One of the roles that the user can belong to.</param>
+        /// <returns></returns>
+        bool UserHasRole(string[] roles);
     }
 }
