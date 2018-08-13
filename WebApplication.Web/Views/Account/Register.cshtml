@@ -9,8 +9,10 @@
         <form class="login-container" asp-controller="Account" asp-action="Register" method="post">
             <h2 class="center-text">Register</h2>
 
+            <element class="error-message"><strong>@Html.ValidationMessage("username-taken")</strong></element>
             <label asp-for="Username"></label>
             <input asp-for="Username" />
+
             <br />
 
             <label asp-for="Email">Email</label>

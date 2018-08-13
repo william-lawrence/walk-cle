@@ -1,19 +1,26 @@
 ﻿.container.body-content {
-    padding-top: 30px;
+    padding-top: 25px;
 }
 
 body {
     background-color: rgb(12, 12, 62);
 }
 
+
 /*Banner*/
 #white-font {
     color: #fff;
 }
 
+#title-font {
+    color: #fff;
+    font-size: 75px;
+    padding-top: 40px;
+}
+
 .navbar-inverse {
-    background-color: #000;
-    border-color: #000;
+    background-color: rgb(12, 12, 62);
+    border-color: rgb(12, 12, 62);
 }
 
 .navbar-header {
@@ -40,7 +47,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 500px;
-    padding-top: 40px;
+    padding-top: 70px;
 }
 
 .login-container {
@@ -63,7 +70,10 @@ input, select, textarea {
     color: #000;
 }
 
-
+.error-message {
+    display: block;
+    color: yellow;
+}
 
 .center-text {
     text-align: center;
