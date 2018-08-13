@@ -6,8 +6,25 @@ body {
     background-color: rgb(12, 12, 62);
 }
 
+/*Banner*/
+#white-font {
+    color: #fff;
+}
 
-/*Background Images*/
+.navbar-inverse {
+    background-color: #000;
+    border-color: #000;
+}
+
+.navbar-header {
+    font-family: "Merienda";
+}
+
+.nav .navbar-nav {
+    color: #fff;
+}
+
+/*Login-in/Register Styling*/
 .login-background-img {
     background-image: url(../images/CLESkylineNight.jpg);
     background-position: center;
@@ -15,6 +32,15 @@ body {
     background-size: cover;
     min-height: 500px;
     padding-top: 70px;
+}
+
+.register-background-img {
+    background-image: url(../images/CLESkylineNight.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 500px;
+    padding-top: 40px;
 }
 
 .login-container {
@@ -25,18 +51,19 @@ body {
     padding: 10px;
 }
 
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=email] {
     width: 100%;
     padding: 15px;
-    margin: 5px 0 22px 0;
+    margin: 5px 0 5px 0;
     border: none;
     background: #f1f1f1;
 }
 
-input[type=text]::after focus, input[type=password]:focus {
-    background-color: blue;
-    outline: none;
+input, select, textarea {
+    color: #000;
 }
+
+
 
 .center-text {
     text-align: center;

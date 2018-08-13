@@ -4,28 +4,28 @@
 }
 
 <body>
-    <h2>Register</h2>
+    <div class="register-background-img">
 
-    <form asp-controller="Account" asp-action="Register" method="post">
-        <label asp-for="Username"></label>
-        <input asp-for="Username"/>
-        <br />
+        <form class="login-container" asp-controller="Account" asp-action="Register" method="post">
+            <h2 class="center-text">Register</h2>
 
-        <label asp-for="Email">Email</label>
-        <input asp-for="Email" />
-        <br />
+            <label asp-for="Username"></label>
+            <input asp-for="Username" />
+            <br />
 
-        <label asp-for="Password">Password</label>
-        <input asp-for="Password" />
-        <br />
+            <label asp-for="Email">Email</label>
+            <input asp-for="Email" />
+            <br />
 
-        <label asp-for="Password">Confirm Password</label>
-        <input asp-for="ConfirmPassword" />
-        <br />
+            <label asp-for="Password">Password</label>
+            <input asp-for="Password" />
+            <br />
 
-        <input type="submit" value="Register" />
-    </form>
+            <label asp-for="Password">Confirm Password</label>
+            <input asp-for="ConfirmPassword" />
+            <br />
 
-
-
+            <input class="button" type="submit" value="Register" />
+        </form>
+    </div>
 </body>
