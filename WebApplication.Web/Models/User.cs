@@ -50,7 +50,7 @@ namespace WebApplication.Web.Models
         public string Email { get; set; }
 
         /// <summary>
-        /// The file name for the user's avatar
+        /// The location of the image file for the user.
         /// </summary>
         public string Avater { get; set; }
     }
