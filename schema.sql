@@ -56,7 +56,7 @@ CREATE TABLE locations_categories
 	category	varchar(25)	not null
 
 	constraint pk_location_category primary key (location_id, category),
-	constraint fk_location foreign key (location_id) references location (id),
+	constraint fk_location foreign key (location_id) references locations (id),
 	CONSTRAINT ck_category_check CHECK (category IN ('bars', 'restaurants', 'sports', 'parks', 'shopping', 'arts & culture', 'historical', 'activities'))
 );
 
