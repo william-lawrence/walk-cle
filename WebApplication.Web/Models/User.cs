@@ -37,5 +37,21 @@ namespace WebApplication.Web.Models
         /// The user's role.
         /// </summary>
         public string Role { get; set; }
+        
+        /// <summary>
+        /// Boolean representing if a user is visitor or not.
+        /// </summary>
+        public bool Visitor { get; set; }
+        
+        /// <summary>
+        /// The uesr's email
+        /// </summary>
+        [Required]
+        public string Email { get; set; }
+
+        /// <summary>
+        /// The location of the image file for the user.
+        /// </summary>
+        public string Avater { get; set; }
     }
 }
