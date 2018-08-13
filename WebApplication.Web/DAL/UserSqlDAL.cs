@@ -27,11 +27,14 @@ namespace WebApplication.Web.DAL
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("INSERT INTO users VALUES (@username, @password, @salt, @role);", conn);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO users VALUES (@username, @password, @salt, @role, @visitor, @email, @avatar);", conn);
                     cmd.Parameters.AddWithValue("@username", user.Username);
                     cmd.Parameters.AddWithValue("@password", user.Password);
                     cmd.Parameters.AddWithValue("@salt", user.Salt);
                     cmd.Parameters.AddWithValue("@role", user.Role);
+                    cmd.Parameters.AddWithValue("@visitor", user.Visitor);
+                    cmd.Parameters.AddWithValue("@email", user.Email);
+                    cmd.Parameters.AddWithValue("@avatar", user.Avatar);
 
                     cmd.ExecuteNonQuery();
 
@@ -118,6 +121,7 @@ namespace WebApplication.Web.DAL
                     cmd.Parameters.AddWithValue("@role", user.Role);
                     cmd.Parameters.AddWithValue("@id", user.Id);
 
+
                     cmd.ExecuteNonQuery();
 
                     return;
@@ -137,7 +141,10 @@ namespace WebApplication.Web.DAL
                 Username = Convert.ToString(reader["username"]),
                 Password = Convert.ToString(reader["password"]),
                 Salt = Convert.ToString(reader["salt"]),
-                Role = Convert.ToString(reader["role"])
+                Role = Convert.ToString(reader["role"]),
+                Visitor = Convert.ToBoolean(reader["visitor"]),
+                Email = Convert.ToString(reader["email"]),
+                Avatar = Convert.ToString(reader["avatar"])
             };
         }
     }

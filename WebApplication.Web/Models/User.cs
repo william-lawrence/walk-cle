@@ -52,6 +52,6 @@ namespace WebApplication.Web.Models
         /// <summary>
         /// The location of the image file for the user.
         /// </summary>
-        public string Avater { get; set; }
+        public string Avatar { get; set; }
     }
 }
