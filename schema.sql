@@ -35,6 +35,7 @@ CREATE TABLE users
 CREATE TABLE locations
 (
 	id			int			identity(1,1),
+	name		varchar(50) not null,
 	streetAddy	varchar(50)	not null,
 	city		varchar(25) not null,
 	state		varchar(2)	not null,
@@ -87,5 +88,9 @@ CREATE TABLE check_ins
 
 	constraint pk_check_ins_user_id_location_id primary key (user_id, location_id)
 );
+
+INSERT INTO locations (name, streetAddy, city, state, zip, photo, description)
+VALUES ('Progressive Field', '2401 Ontario St.', 'Cleveland', 'OH', '44115', 'progressive', 'Major League Baseball is exciting at Progressive Field, home of the two-time defending American League Central champion Indians. 81 home games from early April through September give baseball fans and thrill seekers plenty of options to be entertained in a family-friendly atmosphere. Tours are available. For more information: (216) 420-HITS or indians.com.');
+
 
 COMMIT TRANSACTION;
