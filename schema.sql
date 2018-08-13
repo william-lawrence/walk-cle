@@ -50,7 +50,7 @@ CREATE TABLE locations
 	constraint pk_locations primary key (id),
 );
 
-CREATE TABLE location_categories
+CREATE TABLE locations_categories
 (
 	location_id	int			not null,
 	category	varchar(25)	not null
