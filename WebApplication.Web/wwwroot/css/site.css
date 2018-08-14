@@ -6,6 +6,18 @@ body {
     background-color: rgb(12, 12, 62);
 }
 
+/*for map container*/
+#map {
+    height: 350px;
+    width: 750px;
+}
+/* for div that map sits within*/
+.nearby-map {
+    height: 90%;
+    width: 90%;
+    margin: 0;
+    padding: 5% 5% 5%;
+}
 
 /*Banner*/
 #white-font {
