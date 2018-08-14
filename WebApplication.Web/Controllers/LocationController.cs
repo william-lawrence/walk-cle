@@ -22,14 +22,17 @@ namespace WebApplication.Web.Controllers
 			this.categoryDal = categoryDal;
         }
 
+        //decimal latitude, decimal longitude
         public JsonResult NearbyLocations(decimal latitude, decimal longitude)
         {
-            List<Location> locations = new List<Location>();
+            IList<Location> locations = new List<Location>();
 
             // The maximum distnace in miles.
             double maxDistance = 1;
 
-            dal.GetNeabyLocations(latitude, longitude, maxDistance);
+
+
+            locations = dal.GetNeabyLocations(latitude, longitude, maxDistance);
 
             return Json(locations);
         }
