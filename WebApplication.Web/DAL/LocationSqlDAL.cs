@@ -49,7 +49,6 @@ namespace WebApplication.Web.DAL
                     {
                         nearbyLocations.Add(MapRowtoLocation(reader));
                     }
-                    
                 }
             }
             catch (SqlException ex)
@@ -67,14 +66,21 @@ namespace WebApplication.Web.DAL
         /// <returns></returns>
         private Location MapRowtoLocation(SqlDataReader reader)
         {
-            Location location = new Location
-            {
-                Id = Convert.ToInt32(reader["id"]),
-                Latitude = Convert.ToDecimal(reader["latitude"]),
-                Longitude = Convert.ToDecimal(reader["longitude"])
-            };
+			Location location = new Location
+			{
+				Id = Convert.ToInt32(reader["id"]),
+				Name = Convert.ToString(reader["name"]),
+				Address = Convert.ToString(reader["streetAddy"]),
+				City = Convert.ToString(reader["city"]),
+				State = Convert.ToString(reader["state"]),
+				Zip = Convert.ToString(reader["zip"]),
+				Latitude = Convert.ToDecimal(reader["latitude"]),
+				Longitude = Convert.ToDecimal(reader["longitude"]),
+				Photo = Convert.ToString(reader["photo"]),
+				Description = Convert.ToString(reader["description"])
+			};
 
-            return location;
+			return location;
         }
     }
 }

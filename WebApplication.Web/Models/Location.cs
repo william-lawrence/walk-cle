@@ -76,5 +76,7 @@ namespace WebApplication.Web.Models
         /// The twitter page for a given location, if it exists.
         /// </summary>
         public string Twitter { get; set; }
+
+		public IList<string> Categories { get; set; }
     }
 }
