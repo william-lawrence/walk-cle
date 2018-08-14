@@ -1,7 +1,15 @@
-﻿
+﻿@model Location
+
 @{
     ViewData["Title"] = "Detail";
 }
 
-<h2>Detail</h2>
-
+<body>
+    <div class="image-details-container">
+        <img src="~/images/@(Model.Photo)" alt="@(Model.Photo) Image" />
+        <div>
+            <h2>@Model.Name</h2>
+            <p></p>
+        </div>
+    </div>
+</body>
