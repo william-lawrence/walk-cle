@@ -48,6 +48,7 @@ namespace WebApplication.Web
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddTransient<IAuthProvider, SessionAuthProvider>();
             services.AddTransient<IUserDAL>(m => new UserSqlDAL(@"Data Source=.\sqlexpress;Initial Catalog=WalkCLE;Integrated Security=True"));
+            services.AddTransient<ILocationDAL>(m => new LocationSqlDAL(@"Data Source=.\sqlexpress;Initial Catalog=WalkCLE;Integrated Security=True"));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
