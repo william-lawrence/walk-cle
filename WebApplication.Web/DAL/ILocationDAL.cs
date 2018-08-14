@@ -8,6 +8,6 @@ namespace WebApplication.Web.DAL
 {
     public interface ILocationDAL
     {
-        IList<Location> GetNeabyLocations(Location userLocation, double maxDistance);
+        IList<Location> GetNeabyLocations(decimal Llatitude, decimal longitude, double maxDistance);
     }
 }

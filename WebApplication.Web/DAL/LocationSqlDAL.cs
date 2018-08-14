@@ -25,7 +25,7 @@ namespace WebApplication.Web.DAL
         /// <param name="userLocation">The location of the user. Requires latitude and longitude.</param>
         /// <param name="maxDistance">The max dstnace form the user in miles. </param>
         /// <returns></returns>
-        public IList<Location> GetNeabyLocations(Location userLocation, double maxDistance)
+        public IList<Location> GetNeabyLocations(decimal latitude, decimal longitude, double maxDistance)
         {
             IList<Location> nearbyLocations = new List<Location>();
 
@@ -36,11 +36,11 @@ namespace WebApplication.Web.DAL
                     connection.Open();
 
                     // The SQL query that is used to get all the locations that are near a certain locations
-                    string sql = "SELECT latitude, longitude, POW(69.1 * (latitude - @userLatitude), 2) + POW(69.1 * (@userLongitude - longitude) * COS(latitude / 57.3), 2) AS distance FROM TableName HAVING distance < @maxDistance ORDER BY distance; ";
+                    string sql = "SELECT latitude, longitude, POWER(69.1 * (latitude - @userLatitude), 2) + POWER(69.1 * (@userLongitude - longitude) * COS(latitude / 57.3), 2) AS distance FROM TableName HAVING distance < @maxDistance ORDER BY distance; ";
 
                     SqlCommand command = new SqlCommand(sql, connection);
-                    command.Parameters.AddWithValue("@userLatitude", userLocation.Latitude);
-                    command.Parameters.AddWithValue("@userLongitude", userLocation.Longitude);
+                    command.Parameters.AddWithValue("@userLatitude", latitude);
+                    command.Parameters.AddWithValue("@userLongitude", longitude);
                     command.Parameters.AddWithValue("@maxDistance", maxDistance);
 
                     SqlDataReader reader = command.ExecuteReader();

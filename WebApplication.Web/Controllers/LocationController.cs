@@ -12,9 +12,9 @@ namespace WebApplication.Web.Controllers
     public class LocationController : Controller
     {
         private readonly IAuthProvider authProvider;
-        private readonly IUserDAL dal;
+        private readonly ILocationDAL dal;
 
-        public LocationController(IAuthProvider authProvider, IUserDAL dal)
+        public LocationController(IAuthProvider authProvider, ILocationDAL dal)
         {
             this.authProvider = authProvider;
             this.dal = dal;
@@ -24,7 +24,10 @@ namespace WebApplication.Web.Controllers
         {
             List<Location> locations = new List<Location>();
 
+            // The maximum distnace in miles.
+            double maxDistance = 1;
 
+            dal.GetNeabyLocations(latitude, longitude, maxDistance);
 
             return Json(locations);
         }
