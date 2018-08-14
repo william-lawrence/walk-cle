@@ -36,7 +36,7 @@ namespace WebApplication.Web.DAL
                     connection.Open();
 
                     // The SQL query that is used to get all the locations that are near a certain locations
-                    string sql = "SELECT latitude, longitude, POWER(69.1 * (latitude - @userLatitude), 2) + POWER(69.1 * (@userLongitude - longitude) * COS(latitude / 57.3), 2) AS distance FROM TableName HAVING distance < @maxDistance ORDER BY distance; ";
+                    string sql = "SELECT * FROM (SELECT id, longitude, latitude, POWER(69.1 * (latitude - @userLatitude), 2) + POWER(69.1 * (@userLongitude - longitude) * COS(latitude / 57.3), 2) AS distance FROM locations) AS nearby WHERE distance < @maxDistance; ";
 
                     SqlCommand command = new SqlCommand(sql, connection);
                     command.Parameters.AddWithValue("@userLatitude", latitude);
