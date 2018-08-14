@@ -13,11 +13,13 @@ namespace WebApplication.Web.Controllers
     {
         private readonly IAuthProvider authProvider;
         private readonly ILocationDAL dal;
+		private readonly ICategorySqlDAL categoryDal;
 
-        public LocationController(IAuthProvider authProvider, ILocationDAL dal)
+        public LocationController(IAuthProvider authProvider, ILocationDAL dal, ICategorySqlDAL categoryDal)
         {
             this.authProvider = authProvider;
             this.dal = dal;
+			this.categoryDal = categoryDal;
         }
 
         //decimal latitude, decimal longitude
@@ -35,8 +37,12 @@ namespace WebApplication.Web.Controllers
             return Json(locations);
         }
 
-        public IActionResult Detail()
+        public IActionResult Detail(Location location)
         {
+			// Need to create a singular location return in the LocationDAL
+
+			location.Categories = categoryDal.GetCategoriesForLocation(location.Id);
+			
             return View();
         }
     }
