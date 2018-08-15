@@ -20,10 +20,10 @@ namespace WebApplication.Web.DAL
 		}
 
 		/// <summary>
-		/// Gets categories for specific location
+		/// Gets categories for specific location.
 		/// </summary>
-		/// <param name="locationId"></param>
-		/// <returns></returns>
+		/// <param name="locationId">The id of the location in the database.</param>
+		/// <returns>A list of catagories that the location falls under.</returns>
 		public IList<string> GetCategoriesForLocation(int locationId)
 		{
 			IList<string> categoryNames = new List<string>();
@@ -54,10 +54,10 @@ namespace WebApplication.Web.DAL
 		}
 
 		/// <summary>
-		/// Gets all locations within a particular category
+		/// Gets all locations with that fall under a particular category.
 		/// </summary>
-		/// <param name="category"></param>
-		/// <returns></returns>
+		/// <param name="category">The category that you are searching by</param>
+		/// <returns>A list of all the locations that have a particular catagory.</returns>
 		public IList<Location> CategorySearch(string category)
 		{
 			IList<Location> locationsByCategory = new List<Location>();
@@ -92,10 +92,10 @@ namespace WebApplication.Web.DAL
 		}
 
 		/// <summary>
-		/// 
+		/// Maps the row from a database to the a location object
 		/// </summary>
 		/// <param name="reader">The reader that is being used to map the info in the database to the location object.</param>
-		/// <returns></returns>
+		/// <returns>A location object with the data from the database.</returns>
 		private Location MapRowtoLocation(SqlDataReader reader)
 		{
 			Location location = new Location
