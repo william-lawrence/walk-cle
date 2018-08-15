@@ -67,6 +67,40 @@ namespace WebApplication.Web.DAL
             return nearbyLocations;
         }
 
+		public Location GetLocationById(int id)
+		{
+			Location location = new Location();
+			try
+			{
+				using (SqlConnection connection = new SqlConnection(connectionString))
+				{
+					connection.Open();
+
+					// The SQL query that is used to get all the locations that are near the user locations. 
+					// The inner query gets all the table data and the distance from the user.
+					// The outer query get all the rows where the distance is < maxdistnace
+					string sql = "SELECT * FROM locations WHERE id = @id;";
+
+					SqlCommand command = new SqlCommand(sql, connection);
+					command.Parameters.AddWithValue("@id", id);
+
+					SqlDataReader reader = command.ExecuteReader();
+
+					while (reader.Read())
+					{
+						location = MapRowtoLocation(reader);
+					}
+				}
+			}
+			catch (SqlException ex)
+			{
+				throw ex;
+			}
+
+			return location;
+
+		}
+
         /// <summary>
         /// Maps the rows in the database to a location object.
         /// </summary>

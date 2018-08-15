@@ -4,6 +4,8 @@
 
 body {
     background-color: rgb(12, 12, 62);
+    font-family: Montserrat;
+    font-weight: bold;
 }
 
 /*for map container*/
@@ -129,6 +131,18 @@ input, select, textarea {
 #location-number, #location-name {
     font-size: 1.5em;
     font-family: Merienda;
+}
+
+#location-desc {
+    font-family: Montserrat;
+    font-weight: 100;
+}
+a.click-link {
+    color: aqua;
+}
+a.click-link:hover {
+    color: #fff;
+    text-shadow: 2px 2px 4px #cad4da;
 }
 
 
