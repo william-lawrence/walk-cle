@@ -15,11 +15,12 @@
 
 //variable to hold our google map API call object
 let map;
+let youAreHere;
 /**
  * A function that calls google's maps API and returns a map centered on the user's position (comes from html getLocation function) and puts a marker on the map to denote where they are on the map.  We use the map.setOptions property to hide the standard point of interest markers so that we can throw up our own poi's that we will get from the locations database.
  * @param {Object} position (has latitude and longitude properties)
  */
-function initMap(position) {
+async function initMap(position) {
     youAreHere = { lat: position.coords.latitude, lng: position.coords.longitude };
     map = new google.maps.Map(document.getElementById('map'), {
         center: youAreHere,
@@ -33,39 +34,27 @@ function initMap(position) {
         title: 'You Are Here!'
     });
 
-    // NEED TO CALL GET NEARBY FUNCTION IN SCOPE HERE?
 
-    let dummies = [{ name: "galuccis", latitude: 41.503404, longitude: -81.642882 },
+    const locationArray = await getNearbyLocations(youAreHere);
+
+    /*let dummies = [{ name: "galuccis", latitude: 41.503404, longitude: -81.642882 },
     { name: "dunham", latitude: 41.5044482, longitude: -81.6473448 },
-    { name: "popeyes", latitude: 41.5044482, longitude: -81.6473448 }
-    ];
-
-    for (let i = 0; i < dummies.length; i++) {
+        { name: "popeyes", latitude: 41.5013711, longitude: -81.7100359 }
+    ];*/
+    
+    for (let i = 0; i < locationArray.length; i++) {
         let marker = new google.maps.Marker({
-            position: { lat: dummies[i].latitude, lng: dummies[i].longitude },
+            position: { lat: locationArray[i].latitude, lng: locationArray[i].longitude },
             map: map,
-            title: dummies[i].name,
+            title: locationArray[i].name,
             label: {
-                text: dummies[i].name,
-                color: "white",
+                text: locationArray[i].name,
+                color: "red",
                 fontWeight: "bold",
                 fontSize: "16px"
             }
         });
     };
-
-    /*let galuccis = { lat: 41.503404, lng: -81.642882 };
-    let markerGaluccis = new google.maps.Marker({
-        position: galuccis,
-        map: map,
-        title: 'Galuccis',
-        label: {
-            text: galuccis,
-            color: "red",
-            fontWeight: "bold",
-            fontSize: "16px"
-        }
-    });*/
 
     //declares a style to apply to the map object that hides standard poi's
     let noPoi = [
@@ -92,23 +81,27 @@ function getLocation() {
 
 
 let locations;
+let locationArray;
 /**
  * a function that will call our own api and return a json "array" with all of the locations in our db that are within 1km of the user's current position.
  */
 function getNearbyLocations(youAreHere) {
-    const url = 'https://walkCLE.com/api/locations/nearbylocations/?latitude=${youAreHere.lat}&longitude=${youAreHere.lng}';
+    const url = `https://localhost:44392/location/nearbylocations?latitude=${youAreHere.lat}&longitude=${youAreHere.lng}`;
     const settings = {
         method: 'GET'
     };
 
-    // Send the request
-    fetch(url, settings)
-        .then(response => response.json())
-        .then(json => {
-            console.log(json);  //<-- it may take a while until this runs
-            locations = json.locations;
-            const locationArray = Array.from(locations);
-        });
+    return new Promise((resolve, reject) => {
+        // Send the request
+        fetch(url, settings)
+            .then(response => response.json())
+            .then(json => {
+                console.log(json);  //<-- it may take a while until this runs
+                resolve(Array.from(json));
+            });
+    });
+
+    
 }
 
 
