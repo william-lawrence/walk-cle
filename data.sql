@@ -220,6 +220,9 @@ INSERT INTO locations_categories (location_id, category)
 VALUES (22, 'activities');
 
 INSERT INTO locations_categories (location_id, category)
+VALUES (22, 'parks');
+
+INSERT INTO locations_categories (location_id, category)
 VALUES (23, 'arts & culture');
 
 INSERT INTO locations_categories (location_id, category)

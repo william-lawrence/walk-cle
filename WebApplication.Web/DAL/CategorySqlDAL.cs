@@ -19,6 +19,11 @@ namespace WebApplication.Web.DAL
 			this.connectionString = connectionString;
 		}
 
+		/// <summary>
+		/// Gets categories for specific location
+		/// </summary>
+		/// <param name="locationId"></param>
+		/// <returns></returns>
 		public IList<string> GetCategoriesForLocation(int locationId)
 		{
 			IList<string> categoryNames = new List<string>();
@@ -48,6 +53,11 @@ namespace WebApplication.Web.DAL
 			return categoryNames;
 		}
 
+		/// <summary>
+		/// Gets all locations within a particular category
+		/// </summary>
+		/// <param name="category"></param>
+		/// <returns></returns>
 		public IList<Location> CategorySearch(string category)
 		{
 			IList<Location> locationsByCategory = new List<Location>();

@@ -8,15 +8,15 @@ body {
 
 /*for map container*/
 #map {
-    height: 350px;
-    width: 750px;
+    height: 400px;
+    width: 650px;
 }
 /* for div that map sits within*/
 .nearby-map {
     height: 90%;
     width: 90%;
     margin: 0;
-    padding: 5% 5% 5%;
+    grid-area: map;
 }
 
 /*Banner*/
@@ -107,4 +107,45 @@ input, select, textarea {
 .button:hover {
      background-color: #008CBA;
      color: white;
+}
+
+/*Home page styling*/
+.home-wrapper {
+    display: grid;
+}
+
+.location-info {
+    grid-area: info;
+    height: 400px;
+    overflow: scroll;
+    background: transparent;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/*Media queries*/
+@media only screen and (min-width: 768px) {
+    div.home-wrapper {
+        grid-template-columns: 1fr 1fr;
+
+        grid-gap: 15px;
+
+        grid-template-areas:
+            'map info';
+    }
 }
