@@ -28,6 +28,11 @@ namespace WebApplication.Web.DAL
         public IList<Location> GetNeabyLocations(decimal latitude, decimal longitude, double maxDistance)
         {
             IList<Location> nearbyLocations = new List<Location>();
+            
+           // In order to prevent a huge amount of calculations on the server, the distnace is squared. 
+           // The formula used technically returs the distance squared, so you need to square the max distance
+           // so that the calculation is performed correctly.
+            maxDistance = Math.Pow(maxDistance, 2);
 
             try
             {
@@ -35,8 +40,10 @@ namespace WebApplication.Web.DAL
                 {
                     connection.Open();
 
-                    // The SQL query that is used to get all the locations that are near a certain locations
-                    string sql = "SELECT * FROM (SELECT id, name, streetAddy, city, state, zip, latitude, longitude, photo, description, url, facebook, twitter, POWER(69.1 * (latitude - @userLatitude), 2) + POWER(69.1 * (@userLongitude - longitude) * COS(latitude / 57.3), 2) AS distance FROM locations) AS nearby WHERE distance < @maxDistance; ";
+                    // The SQL query that is used to get all the locations that are near the user locations. 
+                    // The inner query gets all the table data and the distance from the user.
+                    // The outer query get all the rows where the distance is < maxdistnace
+                    string sql = "SELECT TOP 5 * FROM(SELECT id, name, streetAddy, city, state, zip, latitude, longitude, photo, description, url, facebook, twitter, POWER(69.1 * (latitude - @userLatitude), 2) + POWER(69.1 * (@userLongitude - longitude) * COS(latitude / 57.3), 2) AS distance FROM locations) AS nearby WHERE distance < @maxDistance ORDER BY distance; ";
 
                     SqlCommand command = new SqlCommand(sql, connection);
                     command.Parameters.AddWithValue("@userLatitude", latitude);
@@ -60,10 +67,10 @@ namespace WebApplication.Web.DAL
         }
 
         /// <summary>
-        /// 
+        /// Maps the rows in the database to a location object.
         /// </summary>
         /// <param name="reader">The reader that is being used to map the info in the database to the location object.</param>
-        /// <returns></returns>
+        /// <returns>A location object that has all the properties in the row.</returns>
         private Location MapRowtoLocation(SqlDataReader reader)
         {
 			Location location = new Location
