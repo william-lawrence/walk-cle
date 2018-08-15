@@ -23,11 +23,11 @@ namespace WebApplication.Web.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Takes the users current position and get all the locations of interest near them.
         /// </summary>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        /// <returns></returns>
+        /// <returns>A list of nearby locations</returns>
         [HttpGet]
         public JsonResult NearbyLocations(decimal latitude, decimal longitude)
         {
@@ -36,13 +36,16 @@ namespace WebApplication.Web.Controllers
             // The maximum distnace in miles.
             double maxDistance = 1;
 
-
-
             locations = dal.GetNeabyLocations(latitude, longitude, maxDistance);
 
             return Json(locations);
         }
 
+        /// <summary>
+        /// Shows te details for a selected location.
+        /// </summary>
+        /// <param name="location">The location to get the details for.</param>
+        /// <returns></returns>
         public IActionResult Detail(Location location)
         {
 			// Need to create a singular location return in the LocationDAL
