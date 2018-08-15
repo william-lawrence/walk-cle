@@ -10,11 +10,16 @@ namespace WebApplication.Web.Controllers
 {
     public class HomeController : Controller
     {
+        /// <summary>
+        /// Shows the home page
+        /// </summary>
+        /// <returns>The view with the home page</returns>
         public IActionResult Index()
         {            
             return View();
         }
 
+        #region Microsoft Boilerplate
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
@@ -33,6 +38,7 @@ namespace WebApplication.Web.Controllers
         {
             return View();
         }
+        #endregion
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

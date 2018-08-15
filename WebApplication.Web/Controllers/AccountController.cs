@@ -20,12 +20,21 @@ namespace WebApplication.Web.Controllers
 			this.dal = dal;
         }
         
+        /// <summary>
+        /// Displays the login page that the user can use to login.
+        /// </summary>
+        /// <returns>View of the login page.</returns>
         [HttpGet]
         public IActionResult Login()
         {            
             return View();
         }
 
+        /// <summary>
+        /// Logs the user in to the system if they used te correct credentials
+        /// </summary>
+        /// <param name="loginViewModel">The LoginViewModel from the Login view</param>
+        /// <returns>The homepage if the credentials are correct, an error if they are not correct.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Login(LoginViewModel loginViewModel)
@@ -50,6 +59,10 @@ namespace WebApplication.Web.Controllers
             return View(loginViewModel);
         }
 
+        /// <summary>
+        /// Logs the user off.
+        /// </summary>
+        /// <returns>The view of the home page</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult LogOff()
@@ -61,19 +74,28 @@ namespace WebApplication.Web.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        /// <summary>
+        /// Shows the registration page for a new user
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Register()
         {
             return View();
         }
 
+        /// <summary>
+        /// Registers the new user provided the parameters tey entered are valid
+        /// </summary>
+        /// <param name="registerViewModel">The register view model from the view that as the information that the user provided.</param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Register(RegisterViewModel registerViewModel)
         {
             if (ModelState.IsValid)
             {
-				//Check to see if username is available
+				// Check to see if username is available
 				if (dal.GetUser(registerViewModel.Username) == null)
 				{
 
@@ -83,6 +105,7 @@ namespace WebApplication.Web.Controllers
 					// Redirect the user where you want them to go after registering
 					return RedirectToAction("Index", "Home");
 				}
+                // Displays an errors if the user name is taken.
 				else
 				{
 					ModelState.AddModelError("username-taken", "That username is not available");
