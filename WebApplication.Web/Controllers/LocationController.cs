@@ -22,7 +22,13 @@ namespace WebApplication.Web.Controllers
 			this.categoryDal = categoryDal;
         }
 
-        //decimal latitude, decimal longitude
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="latitude"></param>
+        /// <param name="longitude"></param>
+        /// <returns></returns>
+        [HttpGet]
         public JsonResult NearbyLocations(decimal latitude, decimal longitude)
         {
             IList<Location> locations = new List<Location>();
