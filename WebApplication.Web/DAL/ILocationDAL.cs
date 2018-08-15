@@ -9,5 +9,8 @@ namespace WebApplication.Web.DAL
     public interface ILocationDAL
     {
         IList<Location> GetNeabyLocations(decimal Llatitude, decimal longitude, double maxDistance);
-    }
+
+		Location GetLocationById(int id);
+
+	}
 }
