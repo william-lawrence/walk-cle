@@ -43,7 +43,7 @@ namespace WebApplication.Web.DAL
                     // The SQL query that is used to get all the locations that are near the user locations. 
                     // The inner query gets all the table data and the distance from the user.
                     // The outer query get all the rows where the distance is < maxdistnace
-                    string sql = "SELECT * FROM (SELECT id, name, streetAddy, city, state, zip, latitude, longitude, photo, description, url, facebook, twitter, POWER(69.1 * (latitude - @userLatitude), 2) + POWER(69.1 * (@userLongitude - longitude) * COS(latitude / 57.3), 2) AS distance FROM locations) AS nearby WHERE distance < @maxDistance; ";
+                    string sql = "SELECT TOP 5 * FROM(SELECT id, name, streetAddy, city, state, zip, latitude, longitude, photo, description, url, facebook, twitter, POWER(69.1 * (latitude - @userLatitude), 2) + POWER(69.1 * (@userLongitude - longitude) * COS(latitude / 57.3), 2) AS distance FROM locations) AS nearby WHERE distance < @maxDistance ORDER BY distance; ";
 
                     SqlCommand command = new SqlCommand(sql, connection);
                     command.Parameters.AddWithValue("@userLatitude", latitude);
