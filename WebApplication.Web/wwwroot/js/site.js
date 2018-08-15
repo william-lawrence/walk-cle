@@ -1,16 +1,13 @@
-﻿document.addEventListener('DOMContentLoaded', () => {
+﻿function getElementFromTemplate(id) {
+    let domNode = document.importNode(document.getElementById(id).content, true).firstElementChild;
+
+    return domNode;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
     // Code that runs when the DOM is loaded and verifies we have attached event handlers
     console.log('DOM Loaded');
     getLocation();
-
-    /*
-  
-    1. create function that makes an api call to our own api controller and returns all the locations we have in DB within 1k of user's current position.
-    2. create for loop within a map function (probably a new one that responds to button click event?) that creates a marker each time through the for loop 
-    3. call function that makes an api call to our own api controller and returns all the locations we have within 1k of user's current position.
-  
-    */
-
 });
 
 //variable to hold our google map API call object
@@ -48,12 +45,17 @@ async function initMap(position) {
             map: map,
             title: locationArray[i].name,
             label: {
-                text: locationArray[i].name,
-                color: "red",
+                text: `${i+1}`,
+                color: "white",
                 fontWeight: "bold",
                 fontSize: "16px"
             }
         });
+        const newLocationDiv = getElementFromTemplate('nearbyLocation');
+
+        newLocationDiv.querySelector('label').innerText = locationArray[i].name;
+
+        document.querySelector('div.location-info').insertAdjacentElement('beforeend', newLocationDiv);
     };
 
     //declares a style to apply to the map object that hides standard poi's
@@ -99,7 +101,13 @@ function getNearbyLocations(youAreHere) {
                 console.log(json);  //<-- it may take a while until this runs
                 resolve(Array.from(json));
             });
-    });
+    });   
+}
+
+function createLocationData(locationArray) {
+    for (let i = 0; i < locationArray.length; i++) {
+        
+    }
 
     
 }
