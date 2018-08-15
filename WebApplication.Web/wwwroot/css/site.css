@@ -19,10 +19,15 @@ body {
     width: 90%;
     margin: 0;
     grid-area: map;
+    font-weight:
 }
 
 /*Banner*/
-#white-font {
+li.white-font {
+    color: #fff;
+}
+
+li a {
     color: #fff;
 }
 

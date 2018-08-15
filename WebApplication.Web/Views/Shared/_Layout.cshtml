@@ -33,11 +33,12 @@
                 <a id="title-font" asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Walk CLE</a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+                @await Component.InvokeAsync("AuthenticatedUser", new { User })
+                <!--<ul class="nav navbar-nav navbar-right">
                     <li><a id="white-font" asp-area="" asp-controller="Account" asp-action="Login">Login</a></li>
                     <li><a id="white-font" asp-area="" asp-controller="Account" asp-action="Register">Register</a></li>
                     <li><a id="white-font" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                </ul>
+                </ul>-->
             </div>
         </div>
     </nav>
