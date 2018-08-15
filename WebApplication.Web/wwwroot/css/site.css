@@ -114,13 +114,25 @@ input, select, textarea {
     display: grid;
 }
 
-.location-info {
+.location-name {
     grid-area: info;
     height: 400px;
     overflow: scroll;
     background: transparent;
+    padding: 15px;
 }
 
+.location {
+    color: #fff;
+}
+
+#location-number, #location-name {
+    font-size: 1.5em;
+    font-family: Merienda;
+}
+
+
+/*Scrollbar styling*/
 ::-webkit-scrollbar {
     width: 10px;
 }
