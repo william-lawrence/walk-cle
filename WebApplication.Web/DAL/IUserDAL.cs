@@ -11,20 +11,20 @@ namespace WebApplication.Web.DAL
         /// <summary>
         /// Retrieves a user from the system by username.
         /// </summary>
-        /// <param name="username"></param>
+        /// <param name="username">The username of the user to get.</param>
         /// <returns></returns>
         User GetUser(string username);
 
         /// <summary>
         /// Creates a new user.
         /// </summary>
-        /// <param name="user"></param>
+        /// <param name="user">The user object to create in the database</param>
         void CreateUser(User user);
 
         /// <summary>
         /// Updates a user.
         /// </summary>
-        /// <param name="user"></param>
+        /// <param name="user">The user object that represents the </param>
         void UpdateUser(User user);
 
         /// <summary>
