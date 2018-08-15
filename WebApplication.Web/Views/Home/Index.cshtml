@@ -6,14 +6,19 @@
     <div class="nearby-map">
         <div id="map"></div>
     </div>
-    <div class="location-info">
-        
+    <div class="location-name">
     </div>
 </div>
 
 <template id="nearbyLocation">
     <div class="location">
-        <label class="location-label" id="white-font">Name</label>
+        <label id="location-number">Number</label>
+        <a href="" class="click-link">
+        <!--<a asp-controller="location" asp-action="detail" asp-route-id="">-->
+            <label id="location-name">Name</label>
+        </a>
+        <label id="location-desc">Description</label>
+        <hr />
     </div>
 </template>
 

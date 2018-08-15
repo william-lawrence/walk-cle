@@ -42,17 +42,17 @@ namespace WebApplication.Web.Controllers
         }
 
         /// <summary>
-        /// Shows te details for a selected location.
+        /// Shows the details for a selected location.
         /// </summary>
         /// <param name="location">The location to get the details for.</param>
         /// <returns></returns>
-        public IActionResult Detail(Location location)
+        public IActionResult Detail(int id)
         {
-			// Need to create a singular location return in the LocationDAL
+			Location location = dal.GetLocationById(id);
 
-			location.Categories = categoryDal.GetCategoriesForLocation(location.Id);
+			location.Categories = categoryDal.GetCategoriesForLocation(id);
 			
-            return View();
+            return View(location);
         }
     }
 }

@@ -21,7 +21,7 @@ async function initMap(position) {
     youAreHere = { lat: position.coords.latitude, lng: position.coords.longitude };
     map = new google.maps.Map(document.getElementById('map'), {
         center: youAreHere,
-        zoom: 16,
+        zoom: 15,
         mapTypeControl: true
     });
     //puts a marker on the map with the user's position
@@ -53,9 +53,12 @@ async function initMap(position) {
         });
         const newLocationDiv = getElementFromTemplate('nearbyLocation');
 
-        newLocationDiv.querySelector('label').innerText = locationArray[i].name;
+        newLocationDiv.querySelector('label#location-name').innerText = locationArray[i].name;
+        newLocationDiv.querySelector('label#location-number').innerText = `${i + 1}.`;
+        newLocationDiv.querySelector('label#location-desc').innerText = ellipsify(locationArray[i].description);
+        newLocationDiv.querySelector('a.click-link').href = `https://localhost:44392/location/detail?${locationArray[i].id}`;
 
-        document.querySelector('div.location-info').insertAdjacentElement('beforeend', newLocationDiv);
+        document.querySelector('div.location-name').insertAdjacentElement('beforeend', newLocationDiv);
     };
 
     //declares a style to apply to the map object that hides standard poi's
@@ -85,7 +88,7 @@ function getLocation() {
 let locations;
 let locationArray;
 /**
- * a function that will call our own api and return a json "array" with all of the locations in our db that are within 1km of the user's current position.
+ * a function that will call our own api and return a json "array" with all of the locations in our db that are within 1mile of the user's current position.
  */
 function getNearbyLocations(youAreHere) {
     const url = `https://localhost:44392/location/nearbylocations?latitude=${youAreHere.lat}&longitude=${youAreHere.lng}`;
@@ -101,15 +104,14 @@ function getNearbyLocations(youAreHere) {
                 console.log(json);  //<-- it may take a while until this runs
                 resolve(Array.from(json));
             });
-    });   
+    });    
 }
 
-function createLocationData(locationArray) {
-    for (let i = 0; i < locationArray.length; i++) {
-        
+function ellipsify(str) {
+    if (str.length > 100) {
+        return (str.substring(0, 100) + ". . .");
     }
-
-    
+    else {
+        return str;
+    }
 }
-
-

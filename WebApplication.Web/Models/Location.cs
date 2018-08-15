@@ -77,6 +77,9 @@ namespace WebApplication.Web.Models
         /// </summary>
         public string Twitter { get; set; }
 
+        /// <summary>
+        /// A list of categories that a location falls under.
+        /// </summary>
 		public IList<string> Categories { get; set; }
     }
 }

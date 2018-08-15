@@ -20,11 +20,12 @@ namespace WebApplication.Web.DAL
         }
 
         /// <summary>
-        /// Gets all the locations that are within a set distance of the user.
+        /// Gets all the 5 closest locations that are within a set distance of the user.
         /// </summary>
-        /// <param name="userLocation">The location of the user. Requires latitude and longitude.</param>
+        /// <param name="latitude">The latitude of the user's location.</param>
+        /// <param name="longitude">The longitude of the user's location</param>
         /// <param name="maxDistance">The max dstnace form the user in miles. </param>
-        /// <returns></returns>
+        /// <returns>A list of the 5 closest locations within 1 mile</returns>
         public IList<Location> GetNeabyLocations(decimal latitude, decimal longitude, double maxDistance)
         {
             IList<Location> nearbyLocations = new List<Location>();
@@ -42,7 +43,7 @@ namespace WebApplication.Web.DAL
 
                     // The SQL query that is used to get all the locations that are near the user locations. 
                     // The inner query gets all the table data and the distance from the user.
-                    // The outer query get all the rows where the distance is < maxdistnace
+                    // The outer query get all the rows where the distance is less than maxdistance
                     string sql = "SELECT TOP 5 * FROM(SELECT id, name, streetAddy, city, state, zip, latitude, longitude, photo, description, url, facebook, twitter, POWER(69.1 * (latitude - @userLatitude), 2) + POWER(69.1 * (@userLongitude - longitude) * COS(latitude / 57.3), 2) AS distance FROM locations) AS nearby WHERE distance < @maxDistance ORDER BY distance; ";
 
                     SqlCommand command = new SqlCommand(sql, connection);
@@ -65,6 +66,40 @@ namespace WebApplication.Web.DAL
 
             return nearbyLocations;
         }
+
+		public Location GetLocationById(int id)
+		{
+			Location location = new Location();
+			try
+			{
+				using (SqlConnection connection = new SqlConnection(connectionString))
+				{
+					connection.Open();
+
+					// The SQL query that is used to get all the locations that are near the user locations. 
+					// The inner query gets all the table data and the distance from the user.
+					// The outer query get all the rows where the distance is < maxdistnace
+					string sql = "SELECT * FROM locations WHERE id = @id;";
+
+					SqlCommand command = new SqlCommand(sql, connection);
+					command.Parameters.AddWithValue("@id", id);
+
+					SqlDataReader reader = command.ExecuteReader();
+
+					while (reader.Read())
+					{
+						location = MapRowtoLocation(reader);
+					}
+				}
+			}
+			catch (SqlException ex)
+			{
+				throw ex;
+			}
+
+			return location;
+
+		}
 
         /// <summary>
         /// Maps the rows in the database to a location object.
