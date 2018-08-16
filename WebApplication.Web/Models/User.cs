@@ -25,6 +25,7 @@ namespace WebApplication.Web.Models
         /// The user's password.
         /// </summary>
         [Required]
+		[MinLength(6)]
         public string Password { get; set; }
 
         /// <summary>

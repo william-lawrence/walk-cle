@@ -9,6 +9,7 @@ namespace WebApplication.Web.Models.Account
     public class RegisterViewModel
     {
         [Required]
+		[StringLength(50, ErrorMessage = "The Username must be between 6 and 50 characters long.", MinimumLength = 6)]
         [Display(Name = "Username")]
         public string Username { get; set; }
 

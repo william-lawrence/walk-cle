@@ -17,14 +17,17 @@
 
             <label asp-for="Email">Email</label>
             <input asp-for="Email" />
+            <span asp-validation-for="Email"></span>
             <br />
 
             <label asp-for="Password">Password</label>
             <input asp-for="Password" />
+            <span asp-validation-for="Password"></span>
             <br />
 
             <label asp-for="Password">Confirm Password</label>
             <input asp-for="ConfirmPassword" />
+            <span asp-validation-for="ConfirmPassword"></span>
             <br />
 
             <input class="button" type="submit" value="Register" />
