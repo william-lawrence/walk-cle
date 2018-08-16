@@ -200,3 +200,12 @@ div.image-details-container i {
             'map info';
     }
 }
+
+li input#logout {
+    padding: 15px;
+    border-style: none;
+    border-width: 0px;
+    background-color: rgb(12, 12, 62);
+    color: white;
+    font-size: 14px;
+}
