@@ -6,11 +6,11 @@
 
 <body>
     <div class="image-details-container">
-        <img src="~/images/@(Model.Photo).jpg" alt="Description Image" />
-        <div>
+        <img src="~/images/@(Model.Photo).jpg" alt="Description Image" class="detail-image"/>
+        <div class="details">
             <h2>@Model.Name</h2>
             <p>@Model.Description</p>
-            <p>@Model.Street</p>
+            <p>@Model.Address, @Model.Street</p>
             <p>@(Model.City), @Model.State @Model.Zip</p>
             @foreach(var cat in Model.Categories)
             {

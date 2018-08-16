@@ -19,7 +19,6 @@ body {
     width: 90%;
     margin: 0;
     grid-area: map;
-    font-weight:
 }
 
 /*Banner*/
@@ -35,7 +34,6 @@ li a {
 #title-font {
     color: #fff;
     font-size: 75px;
-    padding-top: 40px;
 }
 
 .navbar-inverse {
@@ -49,6 +47,61 @@ li a {
 
 .nav .navbar-nav {
     color: #fff;
+}
+
+.search-bar {
+    margin-top: 50px;
+    background-color: #fff;
+}
+
+/*Banner Radio Buttons*/
+.checkbox-container {
+    display: inline-block;
+    position: relative;
+    padding-left: 27px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: #000;
+    border-radius: 50%;
+}
+.checkbox-container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+.checkbox-container:checked ~ .checkmark {
+    background-color: aqua;
+}
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+.checkbox-container input:checked ~ .checkmark:after {
+    display: inline-block ;
+}
+.checkbox-container .checkmark:after {
+    top: 4px;
+    left: 4px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: white;
 }
 
 /*Login-in/Register Styling*/
@@ -174,6 +227,7 @@ a.click-link:hover {
 div.image-details-container {
     font-family: Montserrat;
     color: white;
+    display: grid;
 }
 
 div.image-details-container h2 {
@@ -182,7 +236,7 @@ div.image-details-container h2 {
 
 div.image-details-container img {
     position: relative;
-    width: 50%;
+    width: 100%;
 }
 
 div.image-details-container i {
@@ -198,6 +252,31 @@ div.image-details-container i {
     border-width: 1px;
 }
 
+.detail-image {
+    box-shadow: 8px 8px 5px black;
+}
+
+.details {
+    grid-area: details;
+}
+
+/*Category Search Styles*/
+.category-container {
+    display: grid;
+}
+
+.category-image {
+    grid-area: category-image;
+    position: relative;
+    width: 100%;
+}
+.location-info {
+    grid-area: location-info;
+    color: #fff;
+}
+
+
+
 /*Media queries*/
 @media only screen and (min-width: 768px) {
     div .home-wrapper {
@@ -207,6 +286,18 @@ div.image-details-container i {
 
         grid-template-areas:
             'map info';
+    }
+    div.image-details-container {
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+        grid-template-areas:
+            'image details';
+    }
+    div.category-container {
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+        grid-template-areas:
+            'category-image location-info';
     }
 }
 

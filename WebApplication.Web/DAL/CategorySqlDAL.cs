@@ -79,7 +79,7 @@ namespace WebApplication.Web.DAL
 
 					while (reader.Read())
 					{
-						locationsByCategory.Add(MapRowtoLocation(reader));
+						locationsByCategory.Add(MapRowtoLocation(reader, category));
 					}
 				}
 			}
@@ -111,6 +111,28 @@ namespace WebApplication.Web.DAL
 				Photo = Convert.ToString(reader["photo"]),
 				Description = Convert.ToString(reader["description"])
 			};
+
+			return location;
+		}
+
+		private Location MapRowtoLocation(SqlDataReader reader, string category)
+		{
+			Location location = new Location
+			{
+				Id = Convert.ToInt32(reader["id"]),
+				Name = Convert.ToString(reader["name"]),
+				Address = Convert.ToString(reader["streetAddy"]),
+				City = Convert.ToString(reader["city"]),
+				State = Convert.ToString(reader["state"]),
+				Zip = Convert.ToString(reader["zip"]),
+				Latitude = Convert.ToDecimal(reader["latitude"]),
+				Longitude = Convert.ToDecimal(reader["longitude"]),
+				Photo = Convert.ToString(reader["photo"]),
+				Description = Convert.ToString(reader["description"]),
+				Categories = new List<string>()
+			};
+
+			location.Categories.Add(category);
 
 			return location;
 		}
