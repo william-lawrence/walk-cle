@@ -16,6 +16,11 @@ else
 {
     <ul class="nav navbar-nav navbar-right">
         <li class="white-font">Greetings and Salutations, @Model.Username</li>
+        <li>
+            <form asp-controller="Account" asp-action="LogOff" method="post">
+                <input id="logout" type="submit" value="Logout">
+            </form>
+        </li>
         <li><a class="white-font" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-        </ul>
+    </ul>
 }
