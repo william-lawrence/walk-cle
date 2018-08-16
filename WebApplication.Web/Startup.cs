@@ -43,13 +43,14 @@ namespace WebApplication.Web
                 options.Cookie.HttpOnly = true;
             });
 
-            // Dependency Injection
-            // For Authentication
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+			string connectionString = Configuration["ConnectionStrings:default"];
+			// Dependency Injection
+			// For Authentication
+			services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddTransient<IAuthProvider, SessionAuthProvider>();
-            services.AddTransient<IUserDAL>(m => new UserSqlDAL(@"Data Source=.\sqlexpress;Initial Catalog=WalkCLE;Integrated Security=True"));
-            services.AddTransient<ILocationDAL>(m => new LocationSqlDAL(@"Data Source=.\sqlexpress;Initial Catalog=WalkCLE;Integrated Security=True"));
-			services.AddTransient<ICategorySqlDAL>(m => new CategorySqlDAL(@"Data Source=.\sqlexpress;Initial Catalog=WalkCLE;Integrated Security=True"));
+            services.AddTransient<IUserDAL>(m => new UserSqlDAL(connectionString));
+            services.AddTransient<ILocationDAL>(m => new LocationSqlDAL(connectionString));
+			services.AddTransient<ICategorySqlDAL>(m => new CategorySqlDAL(connectionString));
 
 			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
