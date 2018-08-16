@@ -12,7 +12,7 @@
             <p>@Model.Description</p>
             <p>@Model.Address, @Model.Street</p>
             <p>@(Model.City), @Model.State @Model.Zip</p>
-            @foreach(var cat in Model.Categories)
+            @foreach (var cat in Model.Categories)
             {
                 @if (cat == "bars")
                 {
@@ -56,6 +56,7 @@
                 }
                 <p>@cat</p>
             }
-     </div>
+            <div class="directions-button">Get Directions</div>
+        </div>
     </div>
 </body>
