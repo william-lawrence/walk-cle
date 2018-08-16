@@ -1,0 +1,19 @@
+﻿@model List<Location>
+@{
+    ViewData["Title"] = "Category";
+}
+
+
+@foreach (var location in Model)
+{
+    <div class="category-container">
+        <img src="~/images/@(location.Photo).jpg" alt="Location Photo" class="category-image" />
+        <div class="location-info">
+            <p>@location.Name</p>
+            <p>@(location.Address), @(location.City) @(location.Zip)</p>
+            <p>@(location.Description)</p>
+        </div>
+    </div>
+}
+
+
