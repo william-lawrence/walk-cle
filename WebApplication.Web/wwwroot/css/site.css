@@ -25,6 +25,7 @@ body {
 /*Banner*/
 li.white-font {
     color: #fff;
+    padding-top: 15px;
 }
 
 li a {
