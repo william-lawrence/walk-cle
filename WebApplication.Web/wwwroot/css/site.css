@@ -189,9 +189,18 @@ div.image-details-container i {
     font-size: 3em;
 }
 
+.directions-button {
+    display: inline-block;
+    color: white;
+    padding: 10px;
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
+}
+
 /*Media queries*/
 @media only screen and (min-width: 768px) {
-    div.home-wrapper {
+    div .home-wrapper {
         grid-template-columns: 1fr 1fr;
 
         grid-gap: 15px;
@@ -209,3 +218,4 @@ li input#logout {
     color: white;
     font-size: 14px;
 }
+

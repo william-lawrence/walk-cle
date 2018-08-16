@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Code that runs when the DOM is loaded and verifies we have attached event handlers
     console.log('DOM Loaded');
     getLocation();
+    document.querySelector('div.directions-button').addEventListener('click', (event) => {
+        getDirections();
+    });
 });
 
 //variable to hold our google map API call object
