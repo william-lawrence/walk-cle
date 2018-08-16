@@ -23,10 +23,11 @@ namespace WebApplication.Web.Controllers
         }
 
         /// <summary>
-        /// Takes the users current position and get all the locations of interest near them.
+        /// Takes the users current position and the five locations nearest to them.
         /// </summary>
-        /// <param name="latitude"></param>
-        /// <param name="longitude"></param>
+        /// <param name="latitude">The latitude of the user</param>
+        /// <param name="longitude">The longitude of the user</param>
+        /// <param name="numberOfLocations"
         /// <returns>A list of nearby locations</returns>
         [HttpGet]
         public JsonResult NearbyLocations(decimal latitude, decimal longitude)
@@ -39,6 +40,24 @@ namespace WebApplication.Web.Controllers
             locations = dal.GetNeabyLocations(latitude, longitude, maxDistance);
 
             return Json(locations);
+        }
+
+        /// <summary>
+        /// Takes the users location and finds the N closest location nearest to to them within one mile
+        /// </summary>
+        /// <param name="latitude">The latitude of the user</param>
+        /// <param name="longitude">The longitude of the user</param>
+        /// <param name="numberOfLocations">The number of users that the user wants to see near them</param>
+        /// <returns></returns>
+        [HttpGet]
+        public JsonResult NearbyLocations(decimal latitude, decimal longitude, int numberOfLocations)
+        {
+            IList<Location> locations = new List<Location>();
+
+
+
+            return Json(locations);
+
         }
 
         /// <summary>

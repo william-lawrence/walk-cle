@@ -14,6 +14,7 @@ namespace WebApplication.Web.DAL
         /// <param name="latitude">The latitude of the user.</param>
         /// <param name="longitude">The longitude of the user.</param>
         /// <param name="maxDistance">The max  distnace the user is willing to travel, in miles.</param>
+        /// <param name="numberOfLocations">The number of locations to return within the set distance.</param>
         /// <returns>A list of the 5 closest locations within 1 mile</returns>
         IList<Location> GetNeabyLocations(decimal latitude, decimal longitude, double maxDistance);
 
