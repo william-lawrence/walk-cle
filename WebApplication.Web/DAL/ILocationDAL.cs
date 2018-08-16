@@ -18,7 +18,17 @@ namespace WebApplication.Web.DAL
         /// <returns>A list of the 5 closest locations within 1 mile</returns>
         IList<Location> GetNeabyLocations(decimal latitude, decimal longitude, double maxDistance);
 
-		Location GetLocationById(int id);
+        /// <summary>
+        /// Gets the N closest locations that are within a set distance of the user.
+        /// </summary>
+        /// <param name="latitude">The latitude of the user's location.</param>
+        /// <param name="longitude">The longitude of the user's location</param>
+        /// <param name="maxDistance">The max dstnace form the user in miles. </param>
+        /// <param name="numberOfLocations">The number of locations to return within the set distance.</param>
+        /// <returns>A list of the 5 closest locations within 1 mile</returns>
+        IList<Location> GetNeabyNLocations(decimal latitude, decimal longitude, double maxDistance, int numberOfLocations);
+
+        Location GetLocationById(int id);
 
 	}
 }

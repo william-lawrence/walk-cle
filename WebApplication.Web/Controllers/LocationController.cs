@@ -50,14 +50,15 @@ namespace WebApplication.Web.Controllers
         /// <param name="numberOfLocations">The number of users that the user wants to see near them</param>
         /// <returns></returns>
         [HttpGet]
-        public JsonResult NearbyLocations(decimal latitude, decimal longitude, int numberOfLocations)
+        public JsonResult NearbyNLocations(decimal latitude, decimal longitude, int numberOfLocations)
         {
             IList<Location> locations = new List<Location>();
 
+            double maxDistance = 1;
 
+            locations = dal.GetNeabyNLocations(latitude, longitude, maxDistance, numberOfLocations);
 
             return Json(locations);
-
         }
 
         /// <summary>

@@ -13,7 +13,10 @@ namespace WebApplication.Web.DAL
         /// The connection string for the database.
         /// </summary>
         private readonly string connectionString;
-
+        /// <summary>
+        /// Constructor that injects the connection string.
+        /// </summary>
+        /// <param name="connectionString">The connection string for the data source</param>
         public LocationSqlDAL(string connectionString)
         {
             this.connectionString = connectionString;
@@ -75,7 +78,7 @@ namespace WebApplication.Web.DAL
         /// <param name="maxDistance">The max dstnace form the user in miles. </param>
         /// <param name="numberOfLocations">The number of locations to return within the set distance.</param>
         /// <returns>A list of the 5 closest locations within 1 mile</returns>
-        public IList<Location> GetNeabyLocations(decimal latitude, decimal longitude, double maxDistance, int numberOfLocations)
+        public IList<Location> GetNeabyNLocations(decimal latitude, decimal longitude, double maxDistance, int numberOfLocations)
         {
             IList<Location> nearbyLocations = new List<Location>();
 
@@ -93,7 +96,7 @@ namespace WebApplication.Web.DAL
                     // The SQL query that is used to get all the locations that are near the user locations. 
                     // The inner query gets all the table data and the distance from the user.
                     // The outer query get all the rows where the distance is less than maxdistance
-                    string sql = "SELECT TOP @numberOfLocations * FROM(SELECT id, name, streetAddy, city, state, zip, latitude, longitude, photo, description, url, facebook, twitter, POWER(69.1 * (latitude - @userLatitude), 2) + POWER(69.1 * (@userLongitude - longitude) * COS(latitude / 57.3), 2) AS distance FROM locations) AS nearby WHERE distance < @maxDistance ORDER BY distance; ";
+                    string sql = "SELECT TOP (@numberOfLocations) * FROM(SELECT id, name, streetAddy, city, state, zip, latitude, longitude, photo, description, url, facebook, twitter, POWER(69.1 * (latitude - @userLatitude), 2) + POWER(69.1 * (@userLongitude - longitude) * COS(latitude / 57.3), 2) AS distance FROM locations) AS nearby WHERE distance < @maxDistance ORDER BY distance;";
 
                     SqlCommand command = new SqlCommand(sql, connection);
                     command.Parameters.AddWithValue("@userLatitude", latitude);
