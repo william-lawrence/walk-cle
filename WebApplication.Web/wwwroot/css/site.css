@@ -169,6 +169,25 @@ a.click-link:hover {
     background: #555;
 }
 
+/*Detail page style*/
+div.image-details-container {
+    font-family: Montserrat;
+    color: white;
+}
+
+div.image-details-container h2 {
+    font-family: Merienda;
+}
+
+div.image-details-container img {
+    position: relative;
+    width: 50%;
+}
+
+div.image-details-container i {
+    font-size: 3em;
+}
+
 /*Media queries*/
 @media only screen and (min-width: 768px) {
     div.home-wrapper {
