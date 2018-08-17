@@ -1,9 +1,10 @@
-﻿@model List<Location>
+﻿@model Category
+
 @{
     ViewData["Title"] = "Category";
 }
 
-
+<p class="hidden">@Model.Name</p>
 <div class="home-wrapper">
     <div class="nearby-map">
         <div id="map"></div>
@@ -25,5 +26,5 @@
 
 <script src="https://maps.googleapis.com/maps/api/js?key="
         async defer></script>
-
+<script src="~/js/category.js"></script>
 
