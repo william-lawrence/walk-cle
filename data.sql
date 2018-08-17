@@ -181,7 +181,7 @@ INSERT INTO locations_categories (location_id, category)
 VALUES (5, 'activities');
 
 INSERT INTO locations_categories (location_id, category)
-VALUEs (5, 'arts & culture');
+VALUEs (5, 'artsculture');
 
 INSERT INTO locations_categories (location_id, category)
 VALUES (6, 'restaurants');
@@ -232,13 +232,13 @@ INSERT INTO locations_categories (location_id, category)
 VALUES (14, 'activities');
 
 INSERT INTO locations_categories (location_id, category)
-VALUES (15, 'arts & culture');
+VALUES (15, 'artsculture');
 
 INSERT INTO locations_categories (location_id, category)
 VALUES (15, 'historical');
 
 INSERT INTO locations_categories (location_id, category)
-VALUES (16, 'arts & culture');
+VALUES (16, 'artsculture');
 
 INSERT INTO locations_categories (location_id, category)
 VALUES (16, 'historical');
@@ -247,10 +247,10 @@ INSERT INTO locations_categories (location_id, category)
 VALUES (17, 'activities');
 
 INSERT INTO locations_categories (location_id, category)
-VALUES (17, 'arts & culture');
+VALUES (17, 'artsculture');
 
 INSERT INTO locations_categories (location_id, category)
-VALUES (18, 'arts & culture');
+VALUES (18, 'artsculture');
 
 INSERT INTO locations_categories (location_id, category)
 VALUES (18, 'activities');
@@ -274,13 +274,13 @@ INSERT INTO locations_categories (location_id, category)
 VALUES (22, 'parks');
 
 INSERT INTO locations_categories (location_id, category)
-VALUES (23, 'arts & culture');
+VALUES (23, 'artsculture');
 
 INSERT INTO locations_categories (location_id, category)
 VALUES (23, 'historical');
 
 INSERT INTO locations_categories (location_id, category)
-VALUES (24, 'arts & culture');
+VALUES (24, 'artsculture');
 
 INSERT INTO locations_categories (location_id, category)
 VALUES (24, 'historical');
@@ -328,28 +328,28 @@ INSERT INTO locations_categories (location_id, category)
 VALUES (33, 'restaurants');
 
 INSERT INTO locations_categories (location_id, category)
-VALUES (34, 'arts & culture');
+VALUES (34, 'artsculture');
 
 INSERT INTO locations_categories (location_id, category)
 VALUES (34, 'historical');
 
 INSERT INTO locations_categories (location_id, category)
-VALUES (35, 'arts & culture');
+VALUES (35, 'artsculture');
 
 INSERT INTO locations_categories (location_id, category)
-VALUES (36, 'arts & culture');
+VALUES (36, 'artsculture');
 
 INSERT INTO locations_categories (location_id, category)
-VALUES (37, 'arts & culture');
+VALUES (37, 'artsculture');
 
 INSERT INTO locations_categories (location_id, category)
-VALUES (38, 'arts & culture');
+VALUES (38, 'artsculture');
 
 INSERT INTO locations_categories (location_id, category)
-VALUES (39, 'arts & culture');
+VALUES (39, 'artsculture');
 
 INSERT INTO locations_categories (location_id, category)
-VALUES (40, 'arts & culture');
+VALUES (40, 'artsculture');
 
 INSERT INTO locations_categories (location_id, category)
 VALUES (40, 'historical');
@@ -388,6 +388,6 @@ INSERT INTO locations_categories (location_id, category)
 VALUES (48, 'historical');
 
 INSERT INTO locations_categories (location_id, category)
-VALUES (48, 'arts & culture');
+VALUES (48, 'artsculture');
 
 COMMIT TRANSACTION;
