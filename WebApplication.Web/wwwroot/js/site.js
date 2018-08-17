@@ -145,6 +145,8 @@ async function reloadMarkers() {
         markers[i].setMap(null);
     }
 
+    document.querySelector('nearbyLocation').removeChild();
+
     // Reset the markers array
     markers = [];
 
