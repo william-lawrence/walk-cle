@@ -58,7 +58,8 @@ li a {
 .checkbox-container {
     display: inline-block;
     position: relative;
-    padding-left: 27px;
+    padding-left: 20px;
+    padding-right: 5px;
     margin-bottom: 12px;
     cursor: pointer;
     font-size: 15px;
@@ -78,7 +79,7 @@ li a {
     left: 0;
     height: 15px;
     width: 15px;
-    background-color: #000;
+    background-color: black;
     border-radius: 50%;
 }
 .checkbox-container:hover input ~ .checkmark {
