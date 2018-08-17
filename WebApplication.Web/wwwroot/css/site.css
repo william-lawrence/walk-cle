@@ -21,6 +21,36 @@ body {
     grid-area: map;
 }
 
+.directions-container {
+    padding: 50px 0 0 0;
+    height: 500px;
+    width: 1000px;
+    margin: 0;
+    grid-area: map;
+}
+
+
+
+.latent {
+    display: none;
+}
+
+.directions-map {
+    display: inline-block;
+    height: 300px;
+    width: 500px;
+}
+
+.directions-route {
+    display: inline-block;
+    background-color: white;
+    height: 300px;
+    width: 400px;
+    overflow: scroll;
+}
+
+
+
 /*Banner*/
 li.white-font {
     color: #fff;
@@ -259,6 +289,15 @@ div.image-details-container i {
 
 .details {
     grid-area: details;
+}
+
+.directions-button {
+    display: inline-block;
+    color: white;
+    padding: 10px;
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
 }
 
 /*Category Search Styles*/
