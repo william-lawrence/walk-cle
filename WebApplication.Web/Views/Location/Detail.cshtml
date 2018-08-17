@@ -6,13 +6,15 @@
 
 <body>
     <div class="image-details-container">
-        <img src="~/images/@(Model.Photo).jpg" alt="Description Image" class="detail-image"/>
+        <img src="~/images/@(Model.Photo).jpg" alt="Description Image" class="detail-image" />
         <div class="details">
             <h2>@Model.Name</h2>
             <p>@Model.Description</p>
             <p>@Model.Address, @Model.Street</p>
             <p>@(Model.City), @Model.State @Model.Zip</p>
-            @foreach(var cat in Model.Categories)
+            <p id="lat" class="latent">@Model.Latitude</p>
+            <p id="lng" class="latent">@Model.Longitude</p>
+            @foreach (var cat in Model.Categories)
             {
                 @if (cat == "bars")
                 {
@@ -56,6 +58,23 @@
                 }
                 <p>@cat</p>
             }
-     </div>
+            <div class="directions-button">Get Directions</div>
+        </div>
     </div>
+
+    <div class="directions-container">
+        <div id="directions-map" class="latent directions-map"></div>
+        <div id="directions-route" class="latent"></div>
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key="
+            async defer></script>
 </body>
+
+@section Scripts {
+
+    <script src="~/js/detail.js">
+
+    </script>
+
+}
