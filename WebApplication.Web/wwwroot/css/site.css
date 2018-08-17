@@ -1,11 +1,12 @@
 ﻿.container.body-content {
-    padding-top: 25px;
+    /*padding-top: 25px;*/
 }
 
 body {
     background-color: rgb(12, 12, 62);
     font-family: Montserrat;
     font-weight: bold;
+    color: white;
 }
 
 /*for map container*/
@@ -54,13 +55,13 @@ li a {
     background-color: #fff;
 }
 
-/*Banner Radio Buttons*/
+/*Radio Buttons*/
 .checkbox-container {
     display: inline-block;
     position: relative;
     padding-left: 20px;
-    padding-right: 5px;
-    margin-bottom: 12px;
+    padding-right: 25px;
+    margin: 0 10px 10px 10px;
     cursor: pointer;
     font-size: 15px;
     -webkit-user-select: none;
@@ -68,39 +69,45 @@ li a {
     -ms-user-select: none;
     user-select: none;
 }
+
 .checkbox-container input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
 }
+
 .checkmark {
     position: absolute;
     top: 0;
     left: 0;
-    height: 15px;
-    width: 15px;
-    background-color: black;
+    height: 20px;
+    width: 20px;
+    background-color: transparent;
     border-radius: 50%;
+    border: solid;
+    border-color: white;
+    border-width: 1px;
 }
+
 .checkbox-container:hover input ~ .checkmark {
     background-color: #ccc;
 }
-.checkbox-container:checked ~ .checkmark {
-    background-color: aqua;
-}
+
 .checkmark:after {
     content: "";
     position: absolute;
     display: none;
 }
+
 .checkbox-container input:checked ~ .checkmark:after {
     display: inline-block ;
 }
+
 .checkbox-container .checkmark:after {
-    top: 4px;
-    left: 4px;
-    width: 7px;
-    height: 7px;
+    top: 5px;
+    left: 5px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     background: white;
 }
@@ -182,10 +189,17 @@ input, select, textarea {
     overflow: scroll;
     background: transparent;
     padding: 15px;
+    margin-top: 35px;
 }
 
 .location {
     color: #fff;
+}
+
+.location hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-color: lightgray;
 }
 
 #location-number, #location-name {
