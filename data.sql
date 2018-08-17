@@ -122,7 +122,7 @@ INSERT INTO locations (id, name, streetAddy, city, state, zip, latitude, longitu
 VALUES (40, 'Western Reserve Historical Society', '10825 East Blvd', 'Cleveland', 'OH', '44106', 41.5133686, -81.6107857, 'wrhs', 'Founded in May 1867, the Western Reserve Historical Society is Cleveland’s oldest existing cultural institution. It was established as the historical branch of the Cleveland Library Association which dated from 1848. The Society’s creation was part of an important trend in the United States, the establishment of private organizations to oversee the collection and preservation of documents and objects relating to various aspects of national, regional and local history. While its original focus was on the history of “…Cleveland and the Western Reserve, and generally what relates to the history of Ohio and the Great West,” it now concentrates on the history of Northeast Ohio.');
 
 INSERT INTO locations (id, name, streetAddy, city, state, zip, latitude, longitude, photo, description)
-VALUES (41, 'Tremont Taphouse', '2572 Scranton Rd', 'Cleveland', '44113', 41.4771844, -81.6953077, 'tremonttaphouse', 'Upscale bar fare is offered along with a long list of craft beers in a warm multilevel space.');
+VALUES (41, 'Tremont Taphouse', '2572 Scranton Rd', 'Cleveland', 'OH', '44113', 41.4771844, -81.6953077, 'tremonttaphouse', 'Upscale bar fare is offered along with a long list of craft beers in a warm multilevel space.');
 
 INSERT INTO locations (id, name, streetAddy, city, state, zip, latitude, longitude, photo, description)
 VALUES (42, 'Parallax', '2179 W 11th St', 'Cleveland', 'OH', '44113', 41.4823982, -81.6890059, 'parallax', 'Parallax, located in Cleveland’s Tremont neighborhood, is Chef Zachary Bruell’s flagship restaurant, with a strong emphasis on fusion seafood and sushi.');
@@ -181,7 +181,7 @@ INSERT INTO locations_categories (location_id, category)
 VALUES (5, 'activities');
 
 INSERT INTO locations_categories (location_id, category)
-VALUEs (5, 'arts & culture');
+VALUEs (5, 'artsculture');
 
 INSERT INTO locations_categories (location_id, category)
 VALUES (6, 'restaurants');
@@ -232,13 +232,13 @@ INSERT INTO locations_categories (location_id, category)
 VALUES (14, 'activities');
 
 INSERT INTO locations_categories (location_id, category)
-VALUES (15, 'arts & culture');
+VALUES (15, 'artsculture');
 
 INSERT INTO locations_categories (location_id, category)
 VALUES (15, 'historical');
 
 INSERT INTO locations_categories (location_id, category)
-VALUES (16, 'arts & culture');
+VALUES (16, 'artsculture');
 
 INSERT INTO locations_categories (location_id, category)
 VALUES (16, 'historical');
@@ -247,10 +247,10 @@ INSERT INTO locations_categories (location_id, category)
 VALUES (17, 'activities');
 
 INSERT INTO locations_categories (location_id, category)
-VALUES (17, 'arts & culture');
+VALUES (17, 'artsculture');
 
 INSERT INTO locations_categories (location_id, category)
-VALUES (18, 'arts & culture');
+VALUES (18, 'artsculture');
 
 INSERT INTO locations_categories (location_id, category)
 VALUES (18, 'activities');
@@ -274,13 +274,13 @@ INSERT INTO locations_categories (location_id, category)
 VALUES (22, 'parks');
 
 INSERT INTO locations_categories (location_id, category)
-VALUES (23, 'arts & culture');
+VALUES (23, 'artsculture');
 
 INSERT INTO locations_categories (location_id, category)
 VALUES (23, 'historical');
 
 INSERT INTO locations_categories (location_id, category)
-VALUES (24, 'arts & culture');
+VALUES (24, 'artsculture');
 
 INSERT INTO locations_categories (location_id, category)
 VALUES (24, 'historical');
@@ -328,28 +328,28 @@ INSERT INTO locations_categories (location_id, category)
 VALUES (33, 'restaurants');
 
 INSERT INTO locations_categories (location_id, category)
-VALUES (34, 'arts & culture');
+VALUES (34, 'artsculture');
 
 INSERT INTO locations_categories (location_id, category)
 VALUES (34, 'historical');
 
 INSERT INTO locations_categories (location_id, category)
-VALUES (35, 'arts & culture');
+VALUES (35, 'artsculture');
 
 INSERT INTO locations_categories (location_id, category)
-VALUES (36, 'arts & culture');
+VALUES (36, 'artsculture');
 
 INSERT INTO locations_categories (location_id, category)
-VALUES (37, 'arts & culture');
+VALUES (37, 'artsculture');
 
 INSERT INTO locations_categories (location_id, category)
-VALUES (38, 'arts & culture');
+VALUES (38, 'artsculture');
 
 INSERT INTO locations_categories (location_id, category)
-VALUES (39, 'arts & culture');
+VALUES (39, 'artsculture');
 
 INSERT INTO locations_categories (location_id, category)
-VALUES (40, 'arts & culture');
+VALUES (40, 'artsculture');
 
 INSERT INTO locations_categories (location_id, category)
 VALUES (40, 'historical');
@@ -388,6 +388,6 @@ INSERT INTO locations_categories (location_id, category)
 VALUES (48, 'historical');
 
 INSERT INTO locations_categories (location_id, category)
-VALUES (48, 'arts & culture');
+VALUES (48, 'artsculture');
 
 COMMIT TRANSACTION;
