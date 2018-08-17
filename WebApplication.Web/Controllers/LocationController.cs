@@ -11,8 +11,19 @@ namespace WebApplication.Web.Controllers
 {
     public class LocationController : Controller
     {
+        /// <summary>
+        /// The provider for all the user authentication/authorization
+        /// </summary>
         private readonly IAuthProvider authProvider;
+
+        /// <summary>
+        /// The DAL used to pull information from the location table in the database.
+        /// </summary>
         private readonly ILocationDAL dal;
+
+        /// <summary>
+        /// The DAL used to get information from the location table
+        /// </summary>
 		private readonly ICategorySqlDAL categoryDal;
 
         /// <summary>
