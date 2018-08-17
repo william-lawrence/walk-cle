@@ -4,16 +4,26 @@
 }
 
 
-@foreach (var location in Model)
-{
-    <div class="category-container">
-        <img src="~/images/@(location.Photo).jpg" alt="Location Photo" class="category-image" />
-        <div class="location-info">
-            <p>@location.Name</p>
-            <p>@(location.Address), @(location.City) @(location.Zip)</p>
-            <p>@(location.Description)</p>
-        </div>
+<div class="home-wrapper">
+    <div class="nearby-map">
+        <div id="map"></div>
     </div>
-}
+    <div class="location-name" id="locations">
+    </div>
+</div>
+
+<template id="nearbyLocation">
+    <div class="location">
+        <label id="location-number">Number</label>
+        <a class="click-link">
+            <label id="location-name">Name</label>
+        </a>
+        <label id="location-desc">Description</label>
+        <hr />
+    </div>
+</template>
+
+<script src="https://maps.googleapis.com/maps/api/js?key="
+        async defer></script>
 
 
