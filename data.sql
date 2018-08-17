@@ -94,6 +94,57 @@ VALUES (30, 'Coastal Taco', '1146 Old River Rd', 'Cleveland', 'OH', '44113', 41.
 INSERT INTO locations(id, name, streetAddy, city, state, zip, photo, latitude, longitude)
 VALUES (31, 'Gallucci''s', '6610 Euclid Ave', 'Cleveland', 'OH', '44103', 'galluccis', 41.5034040, -81.6428820);
 
+INSERT INTO locations (id, name, streetAddy, city, state, zip, latitude, longitude, photo, description)
+VALUES (32, 'Shooters on the Water', '1148 Main Ave', 'Cleveland', 'OH', '44113', 41.498258, -81.707084, 'shooters', 'Established in 1987, Shooters'' inaugural summer season broke all records, as visitors from around the region clamored to share in the spectacular taste of Florida perched on the Cuyahoga River. Shooters was one of the first projects on the West Bank of the Cleveland Flats and led the way in the rapid growth and rebirth of the downtown waterfront area.');
+
+INSERT INTO locations (id, name, streetAddy, city, state, zip, latitude, longitude, photo, description)
+VALUES (33, 'Cowell & Hubbard', '1305 Euclid Ave', 'Cleveland', 'OH', '44115', 41.5011818, -81.6829501, 'cowell&hubbard', 'Cowell & Hubbard, Cleveland’s premier jewelry store, was founded in 1861. As growth of the city spanned further east, Cowell & Hubbard moved their store to 1305 Euclid Avenue. Zack Bruell’s reincarnation of this space welcomes his latest culinary destination into the heart of PlayhouseSquare. With such history attached to the building, Bruell found it not only fitting to pay homage to its past in name, but in plating brilliant treasured dishes that his customers have grown to expect.');
+
+INSERT INTO locations (id, name, streetAddy, city, state, zip, latitude, longitude, photo, description)
+VALUES (34, 'Severance Hall', '11001 Euclid Ave', 'Cleveland', 'OH', '44106', 41.5063477, -81.6093361, 'severance', 'Regarded by many music-lovers as one of the world''s most beautiful concert halls, Severance Hall opened in 1931 as the home of The Cleveland Orchestra. The building is named for John L. Severance and his wife, Elisabeth, who initially pledged $1 million for its construction. Elisabeth died unexpectedly early in the design process, and John Severance made additional contributions toward the building in her memory. The building’s architectural significance has been recognized by local and national preservation societies, including the Cleveland Landmarks Commission and the National Register of Historic Places, and Severance Hall is a recipient of the Honor Award by the National Trust for Historic Preservation.');
+
+INSERT INTO locations (id, name, streetAddy, city, state, zip, latitude, longitude, photo, description)
+VALUES (35, 'Playhouse Square', '1501 Euclid Ave #200', 'Cleveland', 'OH', '44115', 41.5013048, -81.6807947, 'playhouse', 'As the country’s largest performing arts center outside of New York, the not-for-profit performing arts center utilizes the arts to engage individuals and attract more than one million guests per year to its 1,000+ annual events. These audiences act as the catalyst for economic growth and vitality within the region.');
+
+INSERT INTO locations (id, name, streetAddy, city, state, zip, latitude, longitude, photo, description)
+VALUES (36, 'State Theatre', '1519 Euclid Avenue', 'Cleveland', 'OH', '44115', 41.5013048, -81.6807947, 'statetheater', 'The KeyBank State Theatre is a theater located at 1519 Euclid Avenue in downtown Cleveland, Ohio. It is one of the theaters that make up Playhouse Square. It was designed by the noted theater architect Thomas W. Lamb and was built in 1921 by Marcus Loew to be the flagship of the Ohio branch of the Loew''s Theatres company.');
+
+INSERT INTO locations (id, name, streetAddy, city, state, zip, latitude, longitude, photo, description)
+VALUES (37, 'Connor Palace Theatre', '1615 Euclid Ave', 'Cleveland', 'OH', '44115', 41.5012181, -81.6803584, 'connorpalace', 'The last of the four principal Playhouse Square theaters (and the most expensive to build at $3,500,000), the Palace Theatre, renamed Connor Palace in 2014, opened Nov. 6, 1922 as the flagship of B.F. Keith’s vaudeville chain. The sign atop its building advertising the Connor Palace was “the world’s largest electrical sign” circa 1921. The Connor Palace’s elegant lobby was highlighted by a million-dollar art collection and another “world’s largest”…the largest woven-in-one-piece carpet. The venue showcased the likes of Fanny Brice, Bing Crosby, Houdini, Bob Hope, Frank Sinatra and The Three Stooges before changing over to films. In its current role as a “legit theater,” the Connor Palace seats 2,800.');
+
+INSERT INTO locations (id, name, streetAddy, city, state, zip, latitude, longitude, photo, description)
+VALUES (38, 'Allen Theatre', '1407 Euclid Ave', 'Cleveland', 'OH', '44115', 41.5012213, -81.6813178, 'allen', 'The Allen Theatre’s April 1, 1921 opening night attracted more patrons than its 3,080 seat capacity that scores of disappointed filmgoers had to be turned away. Originally built as an opulent silent movie house, the Allen required no backstage facilities (dressing rooms, storage, etc.). To later accommodate legitimate theater presentations, it was necessary to build a “stage house” onto the venue during restoration in preparation for its reopening October 3, 1998, when it began to host long-running, touring Broadway productions and concerts. The Cleveland Ballet’s move to San Jose made the KeyBank State Theatre available for Broadway, and use of the Allen decreased, paving the way for PlayhouseSquare to invite new resident companies to the district.');
+
+INSERT INTO locations (id, name, streetAddy, city, state, zip, latitude, longitude, photo, description)
+VALUES (39, 'Hanna Theatre', '2067 E 14th St', 'Cleveland', 'OH', '44115', 41.5000773, -81.6806887, 'hanna', 'Originally seating 1,397 for legitimate theater, the Hanna Theatre opened March 28, 1921, and would go on to host such stage and film luminaries as Al Jolson, Katherine Hepburn, Henry Fonda, Ethel Barrymore, Ginger Rogers, Helen Hayes, Mary Martin and Yul Brynner. Playhouse Square assumed management of the Hanna in August 1999 following its purchase of the Hanna Office Building, which houses the venue. In 2008, the Hanna underwent a renovation to add a thrust stage, re-work its seating to 550 and become the main performance space for Playhouse Square’s long-time constituent, Great Lakes Theater.');
+
+INSERT INTO locations (id, name, streetAddy, city, state, zip, latitude, longitude, photo, description)
+VALUES (40, 'Western Reserve Historical Society', '10825 East Blvd', 'Cleveland', 'OH', '44106', 41.5133686, -81.6107857, 'wrhs', 'Founded in May 1867, the Western Reserve Historical Society is Cleveland’s oldest existing cultural institution. It was established as the historical branch of the Cleveland Library Association which dated from 1848. The Society’s creation was part of an important trend in the United States, the establishment of private organizations to oversee the collection and preservation of documents and objects relating to various aspects of national, regional and local history. While its original focus was on the history of “…Cleveland and the Western Reserve, and generally what relates to the history of Ohio and the Great West,” it now concentrates on the history of Northeast Ohio.');
+
+INSERT INTO locations (id, name, streetAddy, city, state, zip, latitude, longitude, photo, description)
+VALUES (41, 'Tremont Taphouse', '2572 Scranton Rd', 'Cleveland', '44113', 41.4771844, -81.6953077, 'tremonttaphouse', 'Upscale bar fare is offered along with a long list of craft beers in a warm multilevel space.');
+
+INSERT INTO locations (id, name, streetAddy, city, state, zip, latitude, longitude, photo, description)
+VALUES (42, 'Parallax', '2179 W 11th St', 'Cleveland', 'OH', '44113', 41.4823982, -81.6890059, 'parallax', 'Parallax, located in Cleveland’s Tremont neighborhood, is Chef Zachary Bruell’s flagship restaurant, with a strong emphasis on fusion seafood and sushi.');
+
+INSERT INTO locations (id, name, streetAddy, city, state, zip, latitude, longitude, photo, description)
+VALUES (43, 'Mitchell''s Homemade Ice Cream', '1867 W 25th St', 'Cleveland', 'OH', '44113', 41.4858906, -81.7043063, 'mitchells', 'Each batch is hand-crafted in our Ohio City Kitchen (watch us anytime). Ingredients that grow well in our Ohio climate we get from friends around here. Ingredients that grow best in different climates we get from the world''s best producers. We do a lot of searching, and we''ll never be done.');
+
+INSERT INTO locations (id, name, streetAddy, city, state, zip, latitude, longitude, photo, description)
+VALUES (44, 'Westside Market', '1979 W 25th St', 'Cleveland', 'OH', '44113', 41.4846863, -81.7030619, 'wsmarket', 'The West Side Market is the oldest indoor/outdoor market space in Cleveland, Ohio. This landmark features over 100 vendors and is located in the Ohio City neighborhood.');
+
+INSERT INTO locations (id, name, streetAddy, city, state, zip, latitude, longitude, photo, description)
+VALUES (45, 'Climb Cleveland', '2190 Professor St', 'Cleveland', 'OH', '44113', 41.48198, -81.687347, 'clerockgym', 'Climb Cleveland is here for non-climbers to try something new, for very experienced climbers to build their bodies and skills, and for climbers of all levels in between. We are all climbers, but some are just taking a break from it. We all grew up climbing something, even if it was over the railing of a crib or a tree in our grandparent’s back yard.');
+
+INSERT INTO locations (id, name, streetAddy, city, state, zip, latitude, longitude, photo, description)
+VALUES (46, 'Great Lakes Watersports', '1148 Main Ave', 'Cleveland', 'OH', '44113', 41.4981538, -81.7058435, 'glwatersports', 'Great Lakes Watersports, located at the mouth of the Cuyahoga River, rents jet skis, boats and kayaks. No experience necessary. We provide all safety equipment and instructions.');
+
+INSERT INTO locations (id, name, streetAddy, city, state, zip, latitude, longitude, photo, description)
+VALUES (47, 'The Cleveland Flea', '3615 Superior Ave', 'Cleveland', 'OH', '44114', 41.5128891, -81.6654561, 'flea', 'Part urban treasure hunt. Part culinary adventure. Part maker center. The Cleveland Flea is a small business incubator that draws thousands of Northeast Ohioans to lesser-known neighborhoods in the city to shop curated vintage, culinary all-stars and the most talented makers in the region. But it''s always been more than just a market. Vintage and salvage dealers set up shop next to jewelers, fine artists and bakers, furniture crafters and charcuterie makers. The Flea is at once a foodie feast and community gathering place, a weekend excursion in the city and a movement to back a brilliant creative class.');
+
+INSERT INTO locations (id, name, streetAddy, city, state, zip, latitude, longitude, photo, description)
+VALUES (48, 'Cleveland Public Library', '325 Superior Ave', 'Cleveland', 'OH', '44114', 41.501174, -81.691775, 'cpl', 'The Main Library in downtown Cleveland consists of the historic Main Library Building built in 1925 and renovated in 1999; the Louis Stokes Wing completed in 1997; and the Eastman Reading Garden located between the two buildings. The two buildings and the garden take up an entire city block on Superior Avenue between East 3rd Street and East 6th Street. The Main Library’s Subject Departments are divided between the two buildings.');
+
 SET IDENTITY_INSERT locations OFF;
 
 INSERT INTO locations_categories (location_id, category)
@@ -266,5 +317,77 @@ VALUES (30, 'restaurants');
 
 INSERT INTO locations_categories (location_id, category)
 VALUES (31, 'restaurants');
+
+INSERT INTO locations_categories (location_id, category)
+VALUES (32, 'restaurants');
+
+INSERT INTO locations_categories (location_id, category)
+VALUES (32, 'bars');
+
+INSERT INTO locations_categories (location_id, category)
+VALUES (33, 'restaurants');
+
+INSERT INTO locations_categories (location_id, category)
+VALUES (34, 'arts & culture');
+
+INSERT INTO locations_categories (location_id, category)
+VALUES (34, 'historical');
+
+INSERT INTO locations_categories (location_id, category)
+VALUES (35, 'arts & culture');
+
+INSERT INTO locations_categories (location_id, category)
+VALUES (36, 'arts & culture');
+
+INSERT INTO locations_categories (location_id, category)
+VALUES (37, 'arts & culture');
+
+INSERT INTO locations_categories (location_id, category)
+VALUES (38, 'arts & culture');
+
+INSERT INTO locations_categories (location_id, category)
+VALUES (39, 'arts & culture');
+
+INSERT INTO locations_categories (location_id, category)
+VALUES (40, 'arts & culture');
+
+INSERT INTO locations_categories (location_id, category)
+VALUES (40, 'historical');
+
+INSERT INTO locations_categories (location_id, category)
+VALUES (41, 'bars');
+
+INSERT INTO locations_categories (location_id, category)
+VALUES (41, 'restaurants');
+
+INSERT INTO locations_categories (location_id, category)
+VALUES (42, 'restaurants');
+
+INSERT INTO locations_categories (location_id, category)
+VALUES (43, 'restaurants');
+
+INSERT INTO locations_categories (location_id, category)
+VALUES (44, 'shopping');
+
+INSERT INTO locations_categories (location_id, category)
+VALUES (44, 'restaurants');
+
+INSERT INTO locations_categories (location_id, category)
+VALUES (44, 'historical');
+
+INSERT INTO locations_categories (location_id, category)
+VALUES (45, 'activities');
+
+INSERT INTO locations_categories (location_id, category)
+VALUES (46, 'activities');
+
+INSERT INTO locations_categories (location_id, category)
+VALUES (47, 'shopping');
+
+INSERT INTO locations_categories (location_id, category)
+VALUES (48, 'historical');
+
+INSERT INTO locations_categories (location_id, category)
+VALUES (48, 'arts & culture');
 
 COMMIT TRANSACTION;

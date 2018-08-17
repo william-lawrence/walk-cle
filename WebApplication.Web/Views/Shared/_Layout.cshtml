@@ -42,18 +42,23 @@
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle Navigation</span>
             </button>
-            <label class="checkbox-container" value="5">5
-                <input type="radio" checked="checked" name="radio" />
-                <span class="checkmark"></span>
-            </label>
-            <label class="checkbox-container">10
-                <input type="radio" name="radio" value="10" />
-                <span class="checkmark"></span>
-            </label>
-            <label class="checkbox-container">15
-                <input type="radio" name="radio" value="15" />
-                <span class="checkmark"></span>
-            </label>
+            <form name="radio-buttons">
+                <label class="checkbox-container" id="radio-5">
+                    5
+                    <input type="radio" checked name="radio" value="5" onclick="getNearbyLocations(youAreHere, 5)" />
+                    <span class="checkmark"></span>
+                </label>
+                <label class="checkbox-container" id="radio-10">
+                    10
+                    <input type="radio" name="radio" value="10" />
+                    <span class="checkmark"></span>
+                </label>
+                <label class="checkbox-container" id="radio-15">
+                    15
+                    <input type="radio" name="radio" value="15" />
+                    <span class="checkmark"></span>
+                </label>
+            </form>
         </div>
     </nav>
 
