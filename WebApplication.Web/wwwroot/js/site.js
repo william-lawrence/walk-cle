@@ -4,20 +4,25 @@
     return domNode;
 }
 
+let locationCount;
+
 document.addEventListener('DOMContentLoaded', () => {
     // Code that runs when the DOM is loaded and verifies we have attached event handlers
     console.log('DOM Loaded');
     getLocation();
+
+    locationCount = document.querySelector('input[name="radio"]:checked').value;
 });
 
 //variable to hold our google map API call object
 let map;
 let youAreHere;
+
 /**
  * A function that calls google's maps API and returns a map centered on the user's position (comes from html getLocation function) and puts a marker on the map to denote where they are on the map.  We use the map.setOptions property to hide the standard point of interest markers so that we can throw up our own poi's that we will get from the locations database.
  * @param {Object} position (has latitude and longitude properties)
  */
-async function initMap(position) {
+function initMap(position) {
     youAreHere = { lat: position.coords.latitude, lng: position.coords.longitude };
     map = new google.maps.Map(document.getElementById('map'), {
         center: youAreHere,
@@ -31,47 +36,28 @@ async function initMap(position) {
         title: 'You Are Here!'
     });
 
+    setMarkers(locationArray);
 
-    const locationArray = await getNearbyLocations(youAreHere);
+    const radioButtons = document.querySelectorAll('input[type = radio]');
 
-    /*let dummies = [{ name: "galuccis", latitude: 41.503404, longitude: -81.642882 },
-    { name: "dunham", latitude: 41.5044482, longitude: -81.6473448 },
-        { name: "popeyes", latitude: 41.5013711, longitude: -81.7100359 }
-    ];*/
-    
-    for (let i = 0; i < locationArray.length; i++) {
-        let marker = new google.maps.Marker({
-            position: { lat: locationArray[i].latitude, lng: locationArray[i].longitude },
-            map: map,
-            title: locationArray[i].name,
-            label: {
-                text: `${i+1}`,
-                color: "white",
-                fontWeight: "bold",
-                fontSize: "16px"
-            }
+    radioButtons.forEach((radioButton) => {
+        radioButton.addEventListener('click', (event) => {
+            locationCount = event.currentTarget.value;
+            reloadMarkers();
         });
-        const newLocationDiv = getElementFromTemplate('nearbyLocation');
+    });
 
-        newLocationDiv.querySelector('label#location-name').innerText = locationArray[i].name;
-        newLocationDiv.querySelector('label#location-number').innerText = `${i + 1}.`;
-        newLocationDiv.querySelector('label#location-desc').innerText = ellipsify(locationArray[i].description);
-        newLocationDiv.querySelector('a').setAttribute("href", `location/detail/${locationArray[i].id}`);
-
-        document.querySelector('div.location-name').insertAdjacentElement('beforeend', newLocationDiv);
-    };
-
-    //declares a style to apply to the map object that hides standard poi's
-    let noPoi = [
-        {
-            featureType: "poi",
-            stylers: [
-                { visibility: "off" }
-            ]
-        }
-    ];
-    //tells the map object to honor our hide all standard poi's style
-    map.setOptions({ styles: noPoi });
+//declares a style to apply to the map object that hides standard poi's
+let noPoi = [
+    {
+        featureType: "poi",
+        stylers: [
+            { visibility: "off" }
+        ]
+    }
+];
+//tells the map object to honor our hide all standard poi's style
+map.setOptions({ styles: noPoi });
 }
 
 /*Use html's geolocation service to pull the latitude and longitude of the user's current position, then call google's maps api to return a map centered on the user's position.*/
@@ -87,11 +73,13 @@ function getLocation() {
 
 let locations;
 let locationArray;
+var markers = [];
+
 /**
  * a function that will call our own api and return a json "array" with all of the locations in our db that are within 1mile of the user's current position.
  */
-function getNearbyLocations(youAreHere) {
-    const url = `https://localhost:44392/location/nearbylocations?latitude=${youAreHere.lat}&longitude=${youAreHere.lng}`;
+function getNearbyLocations(youAreHere, locationCount) {
+    const url = `https://localhost:44392/location/nearbynlocations?latitude=${youAreHere.lat}&longitude=${youAreHere.lng}&numberoflocations=${locationCount}`;
     const settings = {
         method: 'GET'
     };
@@ -104,7 +92,7 @@ function getNearbyLocations(youAreHere) {
                 console.log(json);  //<-- it may take a while until this runs
                 resolve(Array.from(json));
             });
-    });    
+    });
 }
 
 function ellipsify(str) {
@@ -114,4 +102,52 @@ function ellipsify(str) {
     else {
         return str;
     }
+}
+
+async function setMarkers(locations) {
+
+    const locationArray = await getNearbyLocations(youAreHere, locationCount);
+
+    for (let i = 0; i < locationArray.length; i++) {
+        let marker = new google.maps.Marker({
+            position: { lat: locationArray[i].latitude, lng: locationArray[i].longitude },
+            map: map,
+            title: locationArray[i].name,
+            label: {
+                text: `${i + 1}`,
+                color: "white",
+                fontWeight: "bold",
+                fontSize: "16px"
+            }
+        });
+        const newLocationDiv = getElementFromTemplate('nearbyLocation');
+
+        newLocationDiv.querySelector('label#location-name').innerText = locationArray[i].name;
+        newLocationDiv.querySelector('label#location-number').innerText = `${i + 1}.`;
+        newLocationDiv.querySelector('label#location-desc').innerText = ellipsify(locationArray[i].description);
+        newLocationDiv.querySelector('a').setAttribute("href", `location/detail/${locationArray[i].id}`);
+
+        document.querySelector('div.location-name').insertAdjacentElement('beforeend', newLocationDiv);
+
+        markers.push(marker);
+    }
+    
+
+}
+
+async function reloadMarkers() {
+
+    const locationArray = await getNearbyLocations(youAreHere, locationCount);
+
+    // Loop through markers and set map to null for each
+    for (var i = 0; i < markers.length; i++) {
+
+        markers[i].setMap(null);
+    }
+
+    // Reset the markers array
+    markers = [];
+
+    // Call set markers to re-add markers
+    setMarkers(locationArray);
 }
