@@ -11,8 +11,19 @@ namespace WebApplication.Web.Controllers
 {
     public class LocationController : Controller
     {
+        /// <summary>
+        /// The provider for all the user authentication/authorization
+        /// </summary>
         private readonly IAuthProvider authProvider;
+
+        /// <summary>
+        /// The DAL used to pull information from the location table in the database.
+        /// </summary>
         private readonly ILocationDAL dal;
+
+        /// <summary>
+        /// The DAL used to get information from the location table
+        /// </summary>
 		private readonly ICategorySqlDAL categoryDal;
 
         /// <summary>
@@ -20,7 +31,7 @@ namespace WebApplication.Web.Controllers
         /// </summary>
         /// <param name="authProvider">Where the authentication asd authoriztion is housed</param>
         /// <param name="dal">The locaion data access layer</param>
-        /// <param name="categoryDal"></param>
+        /// <param name="categoryDal">The class that is used to access the categories table.</param>
         public LocationController(IAuthProvider authProvider, ILocationDAL dal, ICategorySqlDAL categoryDal)
         {
             this.authProvider = authProvider;
