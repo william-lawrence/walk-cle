@@ -20,7 +20,7 @@ namespace WebApplication.Web.Controllers
         /// </summary>
         /// <param name="authProvider">Where the authentication asd authoriztion is housed</param>
         /// <param name="dal">The locaion data access layer</param>
-        /// <param name="categoryDal"></param>
+        /// <param name="categoryDal">The class that is used to access the categories table.</param>
         public LocationController(IAuthProvider authProvider, ILocationDAL dal, ICategorySqlDAL categoryDal)
         {
             this.authProvider = authProvider;
