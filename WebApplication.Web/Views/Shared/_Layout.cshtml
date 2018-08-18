@@ -42,23 +42,14 @@
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle Navigation</span>
             </button>
-            <form name="radio-buttons">
-                <label class="checkbox-container" id="radio-5">
-                    5
-                    <input type="radio" checked name="radio" value="5" onclick="getNearbyLocations(youAreHere, 5)" />
-                    <span class="checkmark"></span>
-                </label>
-                <label class="checkbox-container" id="radio-10">
-                    10
-                    <input type="radio" name="radio" value="10" />
-                    <span class="checkmark"></span>
-                </label>
-                <label class="checkbox-container" id="radio-15">
-                    15
-                    <input type="radio" name="radio" value="15" />
-                    <span class="checkmark"></span>
-                </label>
-            </form>
+            <a asp-controller="search" asp-action="category" asp-route-cat="activities"><i class="fas fa-swimmer"></i></a>
+            <a asp-controller="search" asp-action="category" asp-route-cat="artsculture"><i class="fas fa-theater-masks"></i></a>
+            <a asp-controller="search" asp-action="category" asp-route-cat="bars"><i class="fas fa-beer"></i></a>
+            <a asp-controller="search" asp-action="category" asp-route-cat="historical"><i class="fas fa-monument"></i></a>
+            <a asp-controller="search" asp-action="category" asp-route-cat="parks"><i class="fas fa-tree"></i></a>
+            <a asp-controller="search" asp-action="category" asp-route-cat="restaurants"><i class="fas fa-utensil"></i></a>
+            <a asp-controller="search" asp-action="category" asp-route-cat="shopping"><i class="fas fa-shopping-bag"></i></a>
+            <a asp-controller="search" asp-action="category" asp-route-cat="sports"><i class="fas fa-football-ball"></i></a>
         </div>
     </nav>
 

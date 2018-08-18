@@ -29,7 +29,7 @@ namespace WebApplication.Web.DAL
         /// <param name="longitude">The longitude of the user's location</param>
         /// <param name="maxDistance">The max dstnace form the user in miles. </param>
         /// <returns>A list of the 5 closest locations within 1 mile</returns>
-        public IList<Location> GetNeabyLocations(decimal latitude, decimal longitude, double maxDistance)
+        public IList<Location> GetNearbyLocations(decimal latitude, decimal longitude, double maxDistance)
         {
             IList<Location> nearbyLocations = new List<Location>();
             
@@ -75,15 +75,15 @@ namespace WebApplication.Web.DAL
         /// </summary>
         /// <param name="latitude">The latitude of the user's location.</param>
         /// <param name="longitude">The longitude of the user's location</param>
-        /// <param name="maxDistance">The max dstnace form the user in miles. </param>
+        /// <param name="maxDistance">The max distance from the user in miles. </param>
         /// <param name="numberOfLocations">The number of locations to return within the set distance.</param>
         /// <returns>A list of the 5 closest locations within 1 mile</returns>
-        public IList<Location> GetNeabyNLocations(decimal latitude, decimal longitude, double maxDistance, int numberOfLocations)
+        public IList<Location> GetNearbyNLocations(decimal latitude, decimal longitude, double maxDistance, int numberOfLocations)
         {
             IList<Location> nearbyLocations = new List<Location>();
 
             // In order to prevent a huge amount of calculations on the server, the distnace is squared. 
-            // The formula used technically returs the distance squared, so you need to square the max distance
+            // The formula used technically returns the distance squared, so you need to square the max distance
             // so that the calculation is performed correctly.
             maxDistance = Math.Pow(maxDistance, 2);
 

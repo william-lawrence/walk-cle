@@ -4,17 +4,12 @@
     return domNode;
 }
 
-let locationCount;
-
 document.addEventListener('DOMContentLoaded', () => {
     // Code that runs when the DOM is loaded and verifies we have attached event handlers
     console.log('DOM Loaded');
     getLocation();
-
-    locationCount = document.querySelector('input[name="radio"]:checked').value;
 });
 
-//variable to hold our google map API call object
 let map;
 let youAreHere;
 
@@ -36,31 +31,21 @@ function initMap(position) {
         title: 'You Are Here!'
     });
 
-    setMarkers(locationArray);
+    setCategoryMarkers(locationArray);
 
-    const radioButtons = document.querySelectorAll('input[type = radio]');
-
-    radioButtons.forEach((radioButton) => {
-        radioButton.addEventListener('click', (event) => {
-            locationCount = event.currentTarget.value;
-            reloadMarkers();
-        });
-    });
-
-//declares a style to apply to the map object that hides standard poi's
-let noPoi = [
-    {
-        featureType: "poi",
-        stylers: [
-            { visibility: "off" }
-        ]
-    }
-];
-//tells the map object to honor our hide all standard poi's style
-map.setOptions({ styles: noPoi });
+    //declares a style to apply to the map object that hides standard poi's
+    let noPoi = [
+        {
+            featureType: "poi",
+            stylers: [
+                { visibility: "off" }
+            ]
+        }
+    ];
+    //tells the map object to honor our hide all standard poi's style
+    map.setOptions({ styles: noPoi });
 }
 
-/*Use html's geolocation service to pull the latitude and longitude of the user's current position, then call google's maps api to return a map centered on the user's position.*/
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(initMap);
@@ -69,34 +54,14 @@ function getLocation() {
     }
 }
 
-
-
-let locations;
+let category;
 let locationArray;
 var markers = [];
 
-/**
- * a function that will call our own api and return a json "array" with all of the locations in our db that are within 1mile of the user's current position.
- */
-function getNearbyLocations(youAreHere, locationCount) {
-    const url = `https://localhost:44392/location/nearbynlocations?latitude=${youAreHere.lat}&longitude=${youAreHere.lng}&numberoflocations=${locationCount}`;
-    const settings = {
-        method: 'GET'
-    };
-
-    return new Promise((resolve, reject) => {
-        // Send the request
-        fetch(url, settings)
-            .then(response => response.json())
-            .then(json => {
-                console.log(json);  //<-- it may take a while until this runs
-                resolve(Array.from(json));
-            });
-    });
-}
-
-function CategorySearch(youAreHere, category) {
-    const url = `https://localhost:44392/Home/category?latitude=${youAreHere.lat}&longitude=${youAreHere.lng}&category=${category}`;
+function CategorySearch(youAreHere) {
+    category = document.querySelector('p.hidden').innerText;
+    console.log(category);
+    const url = `https://localhost:44392/Search/CategorySearch?latitude=${youAreHere.lat}&longitude=${youAreHere.lng}&cat=${category}`;
     const settings = {
         method: 'GET'
     };
@@ -121,9 +86,10 @@ function ellipsify(str) {
     }
 }
 
-async function setMarkers(locations) {
+async function setCategoryMarkers(locations) {
 
-    const locationArray = await getNearbyLocations(youAreHere, locationCount);
+    locationArray = await CategorySearch(youAreHere, category);
+    console.log(locationArray);
 
     for (let i = 0; i < locationArray.length; i++) {
         let marker = new google.maps.Marker({
@@ -148,26 +114,4 @@ async function setMarkers(locations) {
 
         markers.push(marker);
     }
-}
-
-async function reloadMarkers() {
-
-    const locationArray = await getNearbyLocations(youAreHere, locationCount);
-
-    // Loop through markers and set map to null for each
-    for (var i = 0; i < markers.length; i++) {
-        markers[i].setMap(null);
-    }
-
-    let elem = document.getElementById("locations");
-    
-    while (elem.firstChild) {
-        elem.removeChild(elem.firstChild)
-    }
-
-    // Reset the markers array
-    markers = [];
-
-    // Call set markers to re-add markers
-    setMarkers(locationArray);
 }
