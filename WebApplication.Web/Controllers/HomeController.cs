@@ -4,23 +4,39 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using WebApplication.Web.DAL;
 using WebApplication.Web.Models;
 
 namespace WebApplication.Web.Controllers
 {
     public class HomeController : Controller
     {
-        /// <summary>
-        /// Shows the home page
-        /// </summary>
-        /// <returns>The view with the home page</returns>
-        public IActionResult Index()
+		//private readonly ICategorySqlDAL dal;
+
+		//public HomeController(ICategorySqlDAL dal)
+		//{
+		//	this.dal = dal;
+		//}
+
+		/// <summary>
+		/// Shows the home page
+		/// </summary>
+		/// <returns>The view with the home page</returns>
+		public IActionResult Index()
         {            
             return View();
         }
 
-        #region Microsoft Boilerplate
-        public IActionResult About()
+		//[HttpGet]
+		//public JsonResult Category(decimal latitude, decimal longitude, string category)
+		//{
+		//	IList<Location> locations = dal.CategorySearch(category);
+
+		//	return Json(locations);
+		//}
+
+		#region Microsoft Boilerplate
+		public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
 

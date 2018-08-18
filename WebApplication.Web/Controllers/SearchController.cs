@@ -20,13 +20,22 @@ namespace WebApplication.Web.Controllers
 			this.locationDal = locationDal;
 		}
 
-        public IActionResult Category(string category)
+		[HttpGet]
+        public JsonResult CategorySearch(string cat)
         {
 			IList<Location> locations = new List<Location>();
 
-			locations = dal.CategorySearch(category);
+			locations = dal.CategorySearch(cat);
 
-            return View(locations);
+            return Json(locations);
         }
-    }
+
+		public IActionResult Category(string cat)
+		{
+			Category category = new Category();
+			category.Name = cat;
+
+			return View(category);
+		}
+	}
 }
