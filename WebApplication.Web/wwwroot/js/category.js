@@ -108,7 +108,7 @@ async function setCategoryMarkers(locations) {
         newLocationDiv.querySelector('label#location-name').innerText = locationArray[i].name;
         newLocationDiv.querySelector('label#location-number').innerText = `${i + 1}.`;
         newLocationDiv.querySelector('label#location-desc').innerText = ellipsify(locationArray[i].description);
-        newLocationDiv.querySelector('a').setAttribute("href", `location/detail/${locationArray[i].id}`);
+        newLocationDiv.querySelector('a').setAttribute("href", `https://localhost:44392/location/detail/${locationArray[i].id}`);
 
         document.querySelector('div.location-name').insertAdjacentElement('beforeend', newLocationDiv);
 

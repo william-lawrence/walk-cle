@@ -85,6 +85,12 @@ li a {
     background-color: #fff;
 }
 
+.search-bar a {
+    font-size: 3em;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
 /*Radio Buttons*/
 .checkbox-container {
     display: inline-block;
