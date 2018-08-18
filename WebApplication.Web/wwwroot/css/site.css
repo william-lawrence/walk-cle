@@ -85,6 +85,10 @@ li a {
     background-color: #fff;
 }
 
+.intro-text {
+    margin-bottom: 50px;
+}
+
 /*Radio Buttons*/
 .checkbox-container {
     display: inline-block;

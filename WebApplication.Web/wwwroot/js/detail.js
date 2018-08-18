@@ -10,6 +10,8 @@
 let directionsMap;
 let startingLocation;
 
+let destinationAddress = locationSerialized.address + ' ' + locationSerialized.city + ' ' + locationSerialized.state + ' ' + locationSerialized.zip;
+
 // override location
 // 41.4995784    -81.6870261
 
@@ -35,12 +37,12 @@ function getDirections(position) {
 
 function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     let start = startingLocation;
-    let endLat = parseFloat(document.getElementById('lat').innerText);
-    let endLng = parseFloat(document.getElementById('lng').innerText);
-    let end = { lat: location.latitude, lng: location.longitude };
+    //let endLat = parseFloat(document.getElementById('lat').innerText);
+    //let endLng = parseFloat(document.getElementById('lng').innerText);
+    let end = destinationAddress;
     directionsService.route({
         origin: start,
-        destination: { lat: endLat, lng: endLng },
+        destination: end,
         travelMode: 'WALKING'
     }, function (response, status) {
         if (status === 'OK') {
