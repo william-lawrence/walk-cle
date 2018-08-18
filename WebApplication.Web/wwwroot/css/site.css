@@ -91,6 +91,10 @@ li a {
     margin-left: 5px;
 }
 
+.intro-text {
+    margin-bottom: 50px;
+}
+
 /*Radio Buttons*/
 .checkbox-container {
     display: inline-block;
@@ -294,6 +298,15 @@ div.image-details-container i {
     font-size: 3em;
 }
 
+.directions-button {
+    display: inline-block;
+    color: white;
+    padding: 10px;
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
+}
+
 .detail-image {
     box-shadow: 8px 8px 5px black;
 }
@@ -330,7 +343,7 @@ div.image-details-container i {
 
 /*Media queries*/
 @media only screen and (min-width: 768px) {
-    div.home-wrapper {
+    div .home-wrapper {
         grid-template-columns: 1fr 1fr;
 
         grid-gap: 15px;
