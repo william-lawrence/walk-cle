@@ -1,11 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using WebApplication.Web.DAL;
 using WebApplication.Web.Models;
-using WebApplication.Web.Providers.Auth;
 
 namespace WebApplication.Web.Controllers
 {
@@ -27,10 +23,10 @@ namespace WebApplication.Web.Controllers
         /// <param name="categoryDal">The category DAL to use.</param>
         /// <param name="locationDal">The location DAL to use.</param>
 		public SearchController(ICategorySqlDAL categoryDal, ILocationDAL locationDal)
-		{
-			this.categroyDal = categoryDal;
-			this.locationDal = locationDal;
-		}
+        {
+            this.categroyDal = categoryDal;
+            this.locationDal = locationDal;
+        }
 
         /// <summary>
         /// Searches for locations by category
@@ -40,9 +36,9 @@ namespace WebApplication.Web.Controllers
 		[HttpGet]
         public JsonResult CategorySearch(string cat)
         {
-			IList<Location> locations = new List<Location>();
+            IList<Location> locations = new List<Location>();
 
-			locations = categroyDal.CategorySearch(cat);
+            locations = categroyDal.CategorySearch(cat);
 
             return Json(locations);
         }
@@ -63,19 +59,55 @@ namespace WebApplication.Web.Controllers
         }
 
         [HttpGet]
-        public JsonResult KeywordSearch(string keyword)
+        public JsonResult KeywordSearch(string keywords)
         {
-            ICollection<Location> results = new HashSet<Location>();
             IList<Location> locations = new List<Location>();
+            IList<Location> results = new List<Location>();
 
-            locations = locationDal.GetLocationsByKeyword(keyword);
+            List<string> searchTerms = new List<string>(keywords.Split(' '));
 
-            foreach (var location in locations)
+            foreach (var searchTerm in searchTerms)
             {
-                results.Add(location);
+                // Gets a list of locations based on a search term
+                // This is over written for each seach term.
+                locations = locationDal.GetLocationsByKeyword(searchTerm);
+
+                // Adds each location from the results of a search term to the results.
+                // This ensures that every location found in the search is added to the results.
+                foreach (Location location in locations)
+                {
+                    results.Add(location);
+                }
             }
+
+            results = RemoveDuplicateLocationsFromResults(results);
 
             return Json(results);
         }
-	}
+
+        /// <summary>
+        /// Removes repeated locations from the search results by comparing the IDs of each location
+        /// </summary>
+        /// <param name="results">the results of the search. It may contain repeats based on the search.</param>
+        /// <returns>A list of locations with no repeated locations</returns>
+        private IList<Location> RemoveDuplicateLocationsFromResults(IList<Location> results)
+        {
+            for (int i = 0; i < results.Count; i++)
+            {
+                for (int j = 0; j < results.Count; j++)
+                {
+                    // If two elements have matching IDs, and they aren't the same element, remove them.
+                    if (results[i].Id == results[j].Id && i != j)
+                    {
+                        results.Remove(results[j]);
+                        // Reset the counting varables so that we start from the beginning of the new shortened list.
+                        i = 0;
+                        j = 0;
+                    }
+                }
+            }
+
+            return results;
+        }
+    }
 }
