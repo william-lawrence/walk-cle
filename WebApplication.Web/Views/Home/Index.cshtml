@@ -22,23 +22,30 @@
                 <span class="checkmark"></span>
             </label>
         </form>
+        <form name="search">
+            <label>Search</label>
+            <input type="text" name="name" value="" />
+            <button class="btn btn-default">Search</button>
+        </form>
+        <br />
+
         <div id="map"></div>
     </div>
     <div class="location-name" id="locations">
     </div>
 </div>
 
-    <template id="nearbyLocation">
-        <div class="location">
-            <label id="location-number">Number</label>
-            <a class="click-link">
-                <label id="location-name">Name</label>
-            </a>
-            <label id="location-desc">Description</label>
-            <hr />
-        </div>
-    </template>
+<template id="nearbyLocation">
+    <div class="location">
+        <label id="location-number">Number</label>
+        <a class="click-link">
+            <label id="location-name">Name</label>
+        </a>
+        <label id="location-desc">Description</label>
+        <hr />
+    </div>
+</template>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key="
-            async defer></script>
-    <script src="~/js/site.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key="
+        async defer></script>
+<script src="~/js/site.js"></script>
