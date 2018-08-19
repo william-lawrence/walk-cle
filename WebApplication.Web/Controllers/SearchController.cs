@@ -61,5 +61,21 @@ namespace WebApplication.Web.Controllers
 
             return View(category);
         }
+
+        [HttpGet]
+        public JsonResult KeywordSearch(string keyword)
+        {
+            ICollection<Location> results = new HashSet<Location>();
+            IList<Location> locations = new List<Location>();
+
+            locations = locationDal.GetLocationsByKeyword(keyword);
+
+            foreach (var location in locations)
+            {
+                results.Add(location);
+            }
+
+            return Json(results);
+        }
 	}
 }
