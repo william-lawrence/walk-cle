@@ -58,6 +58,11 @@ namespace WebApplication.Web.Controllers
             return View(category);
         }
 
+        /// <summary>
+        /// Returns all the locations that are descibed by a keyword that is passed in by the user.
+        /// </summary>
+        /// <param name="keywords">The search parameters that the user added.</param>
+        /// <returns>A list of locations that have the keyword in their name, description, or category.</returns>
         [HttpGet]
         public JsonResult KeywordSearch(string keywords)
         {
