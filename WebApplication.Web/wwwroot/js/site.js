@@ -12,6 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
     getLocation();
 
     locationCount = document.querySelector('input[name="radio"]:checked').value;
+
+    document.querySelector('button#search').addEventListener('click', (event){
+    	event.prevent
+    });
 });
 
 //variable to hold our google map API call object
