@@ -69,7 +69,15 @@ namespace WebApplication.Web.Controllers
             IList<Location> locations = new List<Location>();
             IList<Location> results = new List<Location>();
 
+            // Check to make sure the user has actually searched something
+            if (string.IsNullOrWhiteSpace(keywords))
+            {
+                return Json(results);
+            }
+
             List<string> searchTerms = new List<string>(keywords.Split(' '));
+
+
 
             foreach (var searchTerm in searchTerms)
             {

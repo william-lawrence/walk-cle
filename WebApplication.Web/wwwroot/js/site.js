@@ -14,13 +14,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     locationCount = document.querySelector('input[name="radio"]:checked').value;
 
-    document.querySelector('button#search').addEventListener('click', (event)=> {
+    document.querySelector('button#search').addEventListener('click', (event) => {
         event.preventDefault();
         keywords = document.getElementById('search-terms').value;
 
         locations = KeywordSearch(keywords);
 
-        alert(keywords);
+        addSearchResultMarkers(locations);
     });
 });
 
@@ -57,17 +57,17 @@ function initMap(position) {
         });
     });
 
-//declares a style to apply to the map object that hides standard poi's
-let noPoi = [
-    {
-        featureType: "poi",
-        stylers: [
-            { visibility: "off" }
-        ]
-    }
-];
-//tells the map object to honor our hide all standard poi's style
-map.setOptions({ styles: noPoi });
+    //declares a style to apply to the map object that hides standard poi's
+    let noPoi = [
+        {
+            featureType: "poi",
+            stylers: [
+                { visibility: "off" }
+            ]
+        }
+    ];
+    //tells the map object to honor our hide all standard poi's style
+    map.setOptions({ styles: noPoi });
 }
 
 /*Use html's geolocation service to pull the latitude and longitude of the user's current position, then call google's maps api to return a map centered on the user's position.*/
@@ -122,7 +122,7 @@ function CategorySearch(youAreHere, category) {
     });
 }
 
-function KeywordSearch(keywords) {
+async function KeywordSearch(keywords) {
     const url = `https://localhost:44392/search/keywordsearch?keywords=${keywords}`;
     const settings = {
         method: 'GET'
@@ -187,7 +187,7 @@ async function reloadMarkers() {
     }
 
     let elem = document.getElementById("locations");
-    
+
     while (elem.firstChild) {
         elem.removeChild(elem.firstChild)
     }
@@ -197,4 +197,23 @@ async function reloadMarkers() {
 
     // Call set markers to re-add markers
     setMarkers(locationArray);
+}
+
+async function addSearchResultMarkers(locations) {
+
+    // Loop through markers and set map to null for each
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+    }
+
+    let elem = document.getElementById("locations");
+
+    while (elem.firstChild) {
+        elem.removeChild(elem.firstChild)
+    }
+
+    // Reset the markers array
+    markers = [];
+
+
 }
