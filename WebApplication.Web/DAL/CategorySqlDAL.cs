@@ -34,8 +34,9 @@ namespace WebApplication.Web.DAL
 				{
 					conn.Open();
 
-					string sql = $"SELECT category FROM locations_categories WHERE location_id = {locationId};";
+					string sql = "SELECT category FROM locations_categories WHERE location_id = @locationId;";
 					SqlCommand command = new SqlCommand(sql, conn);
+                    command.Parameters.AddWithValue("@locationId", locationId);
 
 					SqlDataReader reader = command.ExecuteReader();
 

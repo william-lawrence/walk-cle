@@ -159,6 +159,47 @@ namespace WebApplication.Web.DAL
 		}
 
         /// <summary>
+        /// Gets all the locations where their name, category, or description
+        /// </summary>
+        /// <param name="keyword"></param>
+        /// <returns></returns>
+        public IList<Location> GetLocationsByKeyword(string keyword)
+        {
+            IList<Location> locations = new List<Location>();
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    // SQL query to get all the locations that corresspond to the keyword search.
+                    string sql = $@"SELECT * FROM locations
+                                    INNER JOIN locations_categories ON locations.id = locations_categories.location_id
+                                    WHERE locations.[description] LIKE '%' + @keyword + '%' 
+                                    OR locations.name LIKE '%' + @keyword + '%' 
+                                    OR locations_categories.category LIKE '%' + @keyword + '%';";
+
+                    SqlCommand command = new SqlCommand(sql, connection);
+                    command.Parameters.AddWithValue("@keyword", keyword);
+
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while(reader.Read())
+                    {
+                        locations.Add(MapRowtoLocation(reader));
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+
+            return locations;
+        }
+
+        /// <summary>
         /// Maps the rows in the database to a location object.
         /// </summary>
         /// <param name="reader">The reader that is being used to map the info in the database to the location object.</param>
