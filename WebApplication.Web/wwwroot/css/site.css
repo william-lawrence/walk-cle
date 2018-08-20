@@ -1,10 +1,14 @@
 ﻿body {
-    background-color: rgb(12, 12, 62);
+    /*background-color: rgb(12, 12, 62);*/
     font-family: Montserrat;
     font-weight: bold;
-    color: white;
+    color: black;
+    padding-bottom: 250px;
 }
 
+a {
+    color: rgb(12, 12, 125);
+}
 /*for map container*/
 #map {
     height: 400px;
@@ -25,8 +29,6 @@
     margin: 0;
     grid-area: map;
 }
-
-
 
 .latent {
     display: none;
@@ -49,31 +51,32 @@
 
 
 /*Banner*/
-li.white-font {
+/*li.white-font {
     color: #fff;
     padding-top: 15px;
-}
+}*/
 
-li a {
+/*li a {
     color: #fff;
-}
+}*/
 
 #title-font {
     color: #fff;
     font-size: 75px;
 }
 
+.container {
+    padding-bottom: 50px;
+}
+
 .navbar-inverse {
-    background-color: rgb(12, 12, 62);
-    border-color: rgb(12, 12, 62);
+    background-color: #337ab7;
+    border-color: #337ab7;
+    margin-bottom: 0;
 }
 
 .navbar-header {
     font-family: "Merienda";
-}
-
-.nav .navbar-nav {
-    color: #fff;
 }
 
 .search-grid {
@@ -88,7 +91,6 @@ li a {
 }
 
 .search-bar {
-    margin-top: 50px;
     background-color: #fff;
     flex-grow: 1;
 }
@@ -111,7 +113,14 @@ li a {
 }
 
 .intro-text {
-    margin-bottom: 50px;
+    margin: 0 35px 0 35px;
+}
+
+.welcome-banner {
+    background-color: rgba(255, 255, 255, .75);
+}
+#cle-welcome {
+    margin-left: 35px;
 }
 
 /*Radio Buttons*/
@@ -144,7 +153,7 @@ li a {
     background-color: transparent;
     border-radius: 50%;
     border: solid;
-    border-color: white;
+    border-color: black;
     border-width: 1px;
 }
 
@@ -168,7 +177,7 @@ li a {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: white;
+    background: black;
 }
 
 /*Login-in/Register Styling*/
@@ -268,6 +277,8 @@ input, select, textarea {
 /*Home page styling*/
 .home-wrapper {
     display: grid;
+    background-color: rgba(255, 255, 255, 0.75);
+    padding-top: 30px;
 }
 
 .location-name {
@@ -279,34 +290,38 @@ input, select, textarea {
     margin-top: 35px;
 }
 
-.location {
-    color: #fff;
-}
-
 .location hr {
     margin-top: 10px;
     margin-bottom: 10px;
     border-color: lightgray;
 }
 
-#location-number, #location-name {
+#location-number {
+    font-size: 1.5em;
+    font-family: Merienda;
+    color: rgb(10, 10, 200)
+}
+
+#location-name {
     font-size: 1.5em;
     font-family: Merienda;
 }
 
 #location-desc {
     font-family: Montserrat;
-    font-weight: 100;
+    font-weight: 400;
+    color: #000;
 }
 
 a.click-link {
-    color: aqua;
+    color: rgb(10, 10, 200);
 }
 
-a.click-link:hover {
-    color: #fff;
-    text-shadow: 2px 2px 4px #cad4da;
-}
+    a.click-link:hover {
+        color: #337ab7;
+        /*color: rgb(10, 10, 125);*/
+        text-shadow: 2px 2px 4px #cad4da;
+    }
 
 
 /*Scrollbar styling*/
@@ -330,8 +345,11 @@ a.click-link:hover {
 /*Detail page style*/
 div.image-details-container {
     font-family: Montserrat;
-    color: white;
+    color: black;
     display: grid;
+    background-color: rgba(255, 255, 255, .75);
+    margin: 0 15px 0 15px;
+    padding-top: 15px;
 }
 
 div.image-details-container h2 {
@@ -349,10 +367,10 @@ div.image-details-container i {
 
 .directions-button {
     display: inline-block;
-    color: white;
+    color: black;
     padding: 10px;
     border-style: solid;
-    border-color: white;
+    border-color: black;
     border-width: 1px;
 }
 
@@ -362,15 +380,6 @@ div.image-details-container i {
 
 .details {
     grid-area: details;
-}
-
-.directions-button {
-    display: inline-block;
-    color: white;
-    padding: 10px;
-    border-style: solid;
-    border-color: white;
-    border-width: 1px;
 }
 
 /*Category Search Styles*/
@@ -458,4 +467,11 @@ li input#logout {
     background-color: rgb(12, 12, 62);
     color: white;
     font-size: 14px;
+}
+
+.bottom-fixed {
+    position: fixed;
+    bottom: 0px;
+    z-index: -1;
+    width: 100%;
 }
