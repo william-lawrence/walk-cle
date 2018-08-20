@@ -1,8 +1,4 @@
-﻿.container.body-content {
-    /*padding-top: 25px;*/
-}
-
-body {
+﻿body {
     background-color: rgb(12, 12, 62);
     font-family: Montserrat;
     font-weight: bold;
@@ -202,14 +198,14 @@ li a {
     padding: 10px;
 }
 
-.login-container input[type=text], input[type=password], input[type=email] {
-    width: 100%;
-    padding: 15px;
-    margin: 10px 0 10px 0;
-    border: none;
-    background: #f1f1f1;
-    display: inline;
-}
+    .login-container input[type=text], input[type=password], input[type=email] {
+        width: 100%;
+        padding: 15px;
+        margin: 10px 0 10px 0;
+        border: none;
+        background: #f1f1f1;
+        display: inline;
+    }
 
 .search-form input[type=text] {
     margin: 10px 0 10px 0;
@@ -239,16 +235,32 @@ input, select, textarea {
 /*Button styling*/
 .button {
     background-color: white;
-    color: black;
+    color: #008CBA;
     border-radius: 4px;
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
     font-size: 16px;
     border: 2px solid #008CBA;
-    margin-left: 40%;
+    margin-left: 35%;
 }
 
-    .button:hover {
+.button:hover {
+    background-color: #008CBA;
+    color: white;
+}
+
+#search {
+    background-color: white;
+    color: #008CBA;
+    border-radius: 4px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    font-size: 14px;
+    border: 2px solid #008CBA;
+    display: inline;
+}
+
+    #search:hover {
         background-color: #008CBA;
         color: white;
     }
@@ -271,11 +283,11 @@ input, select, textarea {
     color: #fff;
 }
 
-    .location hr {
-        margin-top: 10px;
-        margin-bottom: 10px;
-        border-color: lightgray;
-    }
+.location hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-color: lightgray;
+}
 
 #location-number, #location-name {
     font-size: 1.5em;
@@ -291,10 +303,10 @@ a.click-link {
     color: aqua;
 }
 
-    a.click-link:hover {
-        color: #fff;
-        text-shadow: 2px 2px 4px #cad4da;
-    }
+a.click-link:hover {
+    color: #fff;
+    text-shadow: 2px 2px 4px #cad4da;
+}
 
 
 /*Scrollbar styling*/
@@ -311,9 +323,9 @@ a.click-link {
     border-radius: 10px;
 }
 
-    ::-webkit-scrollbar-thumb:hover {
-        background: #555;
-    }
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
 
 /*Detail page style*/
 div.image-details-container {
@@ -322,18 +334,18 @@ div.image-details-container {
     display: grid;
 }
 
-    div.image-details-container h2 {
-        font-family: Merienda;
-    }
+div.image-details-container h2 {
+    font-family: Merienda;
+}
 
-    div.image-details-container img {
-        position: relative;
-        width: 100%;
-    }
+div.image-details-container img {
+    position: relative;
+    width: 100%;
+}
 
-    div.image-details-container i {
-        font-size: 3em;
-    }
+div.image-details-container i {
+    font-size: 3em;
+}
 
 .directions-button {
     display: inline-block;
@@ -377,6 +389,45 @@ div.image-details-container {
     color: #fff;
 }
 
+#activities :hover {
+    color: blue;
+    text-shadow: 2px 2px 4px darkgray;
+}
+
+#masks :hover {
+    color: purple;
+    text-shadow: 2px 2px 4px darkgray;
+}
+
+#beer :hover {
+    color: yellow;
+    text-shadow: 2px 2px 4px darkgray;
+}
+
+#monument :hover {
+    color: gray;
+    text-shadow: 2px 2px 4px darkgray;
+}
+
+#tree :hover {
+    color: darkgreen;
+    text-shadow: 2px 2px 4px darkgray;
+}
+
+#utensils :hover {
+    color: silver;
+    text-shadow: 2px 2px 4px black;
+}
+
+#bag :hover {
+    color: deeppink;
+    text-shadow: 2px 2px 4px darkgray;
+}
+
+#ball :hover {
+    color: orange;
+    text-shadow: 2px 2px 4px darkgray;
+}
 
 
 /*Media queries*/
