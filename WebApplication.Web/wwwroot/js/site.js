@@ -208,7 +208,7 @@ async function clearMarkers() {
 
 async function addSearchResultsToPage(locations) {
 
-    const locationArray = await getNearbyLocations(youAreHere, locationCount);
+    const locationArray = await KeywordSearch(keywords);
 
     for (let i = 0; i < locationArray.length; i++) {
         let marker = new google.maps.Marker({
