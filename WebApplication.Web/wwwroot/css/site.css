@@ -6,6 +6,15 @@
     padding-bottom: 250px;
 }
 
+#body2 {
+    background-color: rgb(12, 12, 62);
+}
+
+#navbar2 {
+    background-color: rgb(12, 12, 62);
+    border-color: rgb(12, 12, 62);
+}
+
 a {
     color: rgb(12, 12, 125);
 }
