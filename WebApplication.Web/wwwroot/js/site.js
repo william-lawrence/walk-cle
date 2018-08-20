@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
         keywords = document.getElementById('search-terms').value;
 
+        locations = KeywordSearch(keywords);
+
         alert(keywords);
     });
 });
@@ -121,7 +123,20 @@ function CategorySearch(youAreHere, category) {
 }
 
 function KeywordSearch(keywords) {
+    const url = `https://localhost:44392/search/keywordsearch?keywords=${keywords}`;
+    const settings = {
+        method: 'GET'
+    };
 
+    return new Promise((resolve, reject) => {
+        // Send the request
+        fetch(url, settings)
+            .then(response => response.json())
+            .then(json => {
+                console.log(json);  //<-- it may take a while until this runs
+                resolve(Array.from(json));
+            });
+    });
 }
 
 function ellipsify(str) {
