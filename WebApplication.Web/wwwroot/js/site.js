@@ -13,8 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     locationCount = document.querySelector('input[name="radio"]:checked').value;
 
-    document.querySelector('button#search').addEventListener('click', (event){
-    	event.prevent
+    document.querySelector('button#search').addEventListener('click', (event)=> {
+        event.preventDefault();
+        
+        alert('yes');
     });
 });
 
