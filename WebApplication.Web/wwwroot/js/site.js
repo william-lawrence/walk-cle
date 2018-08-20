@@ -5,6 +5,7 @@
 }
 
 let locationCount;
+let keywords;
 
 document.addEventListener('DOMContentLoaded', () => {
     // Code that runs when the DOM is loaded and verifies we have attached event handlers
@@ -15,8 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelector('button#search').addEventListener('click', (event)=> {
         event.preventDefault();
-        
-        alert('yes');
+        keywords = document.getElementById('search-terms').value;
+
+        alert(keywords);
     });
 });
 
@@ -116,6 +118,10 @@ function CategorySearch(youAreHere, category) {
                 resolve(Array.from(json));
             });
     });
+}
+
+function KeywordSearch(keywords) {
+
 }
 
 function ellipsify(str) {
