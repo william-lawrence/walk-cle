@@ -20,7 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         locations = KeywordSearch(keywords);
 
-        addSearchResultMarkers(locations);
+        clearMarkers();
+
+        addSearchResultsToPage();
     });
 });
 
@@ -181,25 +183,13 @@ async function reloadMarkers() {
 
     const locationArray = await getNearbyLocations(youAreHere, locationCount);
 
-    // Loop through markers and set map to null for each
-    for (var i = 0; i < markers.length; i++) {
-        markers[i].setMap(null);
-    }
-
-    let elem = document.getElementById("locations");
-
-    while (elem.firstChild) {
-        elem.removeChild(elem.firstChild)
-    }
-
-    // Reset the markers array
-    markers = [];
+    clearMarkers();
 
     // Call set markers to re-add markers
     setMarkers(locationArray);
 }
 
-async function addSearchResultMarkers(locations) {
+async function clearMarkers() {
 
     // Loop through markers and set map to null for each
     for (var i = 0; i < markers.length; i++) {
@@ -214,6 +204,34 @@ async function addSearchResultMarkers(locations) {
 
     // Reset the markers array
     markers = [];
+}
 
+async function addSearchResultsToPage(locations) {
+
+    const locationArray = await KeywordSearch(keywords);
+
+    for (let i = 0; i < locationArray.length; i++) {
+        let marker = new google.maps.Marker({
+            position: { lat: locationArray[i].latitude, lng: locationArray[i].longitude },
+            map: map,
+            title: locationArray[i].name,
+            label: {
+                text: `${i + 1}`,
+                color: "white",
+                fontWeight: "bold",
+                fontSize: "16px"
+            }
+        });
+        const newLocationDiv = getElementFromTemplate('nearbyLocation');
+
+        newLocationDiv.querySelector('label#location-name').innerText = locationArray[i].name;
+        newLocationDiv.querySelector('label#location-number').innerText = `${i + 1}.`;
+        newLocationDiv.querySelector('label#location-desc').innerText = ellipsify(locationArray[i].description);
+        newLocationDiv.querySelector('a').setAttribute("href", `location/detail/${locationArray[i].id}`);
+
+        document.querySelector('div.location-name').insertAdjacentElement('beforeend', newLocationDiv);
+
+        markers.push(marker);
+    }
 
 }
