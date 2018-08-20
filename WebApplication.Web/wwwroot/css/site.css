@@ -32,11 +32,9 @@ a {
 }
 
 .directions-container {
-    padding: 50px 0 0 0;
-    height: 500px;
-    width: 1000px;
-    margin: 0;
-    grid-area: map;
+    padding: 25px 0 0 0;
+    display: grid;
+    justify-items: center;
 }
 
 .latent {
@@ -44,31 +42,22 @@ a {
 }
 
 .directions-map {
-    display: inline-block;
     height: 300px;
     width: 500px;
+    grid-area: map;
 }
 
 .directions-route {
-    display: inline-block;
     background-color: white;
     height: 300px;
     width: 400px;
     overflow: scroll;
+    grid-area: route;
 }
 
 
 
 /*Banner*/
-/*li.white-font {
-    color: #fff;
-    padding-top: 15px;
-}*/
-
-/*li a {
-    color: #fff;
-}*/
-
 #title-font {
     color: #fff;
     font-size: 75px;
@@ -358,7 +347,7 @@ div.image-details-container {
     display: grid;
     background-color: rgba(255, 255, 255, .75);
     margin: 0 15px 0 15px;
-    padding-top: 15px;
+    padding: 15px;
 }
 
 div.image-details-container h2 {
@@ -466,6 +455,11 @@ div.image-details-container i {
         grid-template-columns: 1fr 1fr;
         grid-gap: 20px;
         grid-template-areas: 'category-image location-info';
+    }
+    div.directions-container {
+        grid-template-columns: auto auto;
+        grid-template-areas:
+            'map route';
     }
 }
 
