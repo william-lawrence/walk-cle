@@ -5,6 +5,17 @@
         console.log('Directions Ahoy')
         getLocation();
     });
+
+    document.querySelector('button#search').addEventListener('click', (event) => {
+        event.preventDefault();
+        keywords = document.getElementById('search-terms').value;
+
+        locations = KeywordSearch(keywords);
+
+        clearMarkers();
+
+        addSearchResultsToPage();
+    });
 });
 
 let directionsMap;
@@ -61,4 +72,66 @@ function getLocation() {
     }
 }
 
+async function KeywordSearch(keywords) {
+    const url = `https://localhost:44392/search/keywordsearch?keywords=${keywords}`;
+    const settings = {
+        method: 'GET'
+    };
 
+    return new Promise((resolve, reject) => {
+        // Send the request
+        fetch(url, settings)
+            .then(response => response.json())
+            .then(json => {
+                console.log(json);  //<-- it may take a while until this runs
+                resolve(Array.from(json));
+            });
+    });
+}
+
+async function addSearchResultsToPage(locations) {
+
+    const locationArray = await KeywordSearch(keywords);
+
+    for (let i = 0; i < locationArray.length; i++) {
+        let marker = new google.maps.Marker({
+            position: { lat: locationArray[i].latitude, lng: locationArray[i].longitude },
+            map: map,
+            title: locationArray[i].name,
+            label: {
+                text: `${i + 1}`,
+                color: "white",
+                fontWeight: "bold",
+                fontSize: "16px"
+            }
+        });
+        const newLocationDiv = getElementFromTemplate('nearbyLocation');
+
+        newLocationDiv.querySelector('label#location-name').innerText = locationArray[i].name;
+        newLocationDiv.querySelector('label#location-number').innerText = `${i + 1}.`;
+        newLocationDiv.querySelector('label#location-desc').innerText = ellipsify(locationArray[i].description);
+        newLocationDiv.querySelector('a').setAttribute("href", `https://localhost:44392/location/detail/${locationArray[i].id}`);
+
+        document.querySelector('div.location-name').insertAdjacentElement('beforeend', newLocationDiv);
+
+        markers.push(marker);
+    }
+
+}
+
+async function clearMarkers() {
+
+    // Loop through markers and set map to null for each
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+    }
+
+    let elem = document.getElementById("locations");
+
+    while (elem.firstChild) {
+        elem.removeChild(elem.firstChild)
+    }
+
+    // Reset the markers array
+    markers = [];
+}

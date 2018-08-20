@@ -38,18 +38,24 @@
         </div>
     </nav>
     <nav class="navbar search-bar">
-        <div>
+        <div class="search-grid">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle Navigation</span>
             </button>
-            <a asp-controller="search" asp-action="category" asp-route-cat="activities"><i class="fas fa-swimmer"></i></a>
-            <a asp-controller="search" asp-action="category" asp-route-cat="artsculture"><i class="fas fa-theater-masks"></i></a>
-            <a asp-controller="search" asp-action="category" asp-route-cat="bars"><i class="fas fa-beer"></i></a>
-            <a asp-controller="search" asp-action="category" asp-route-cat="historical"><i class="fas fa-monument"></i></a>
-            <a asp-controller="search" asp-action="category" asp-route-cat="parks"><i class="fas fa-tree"></i></a>
-            <a asp-controller="search" asp-action="category" asp-route-cat="restaurants"><i class="fas fa-utensils"></i></a>
-            <a asp-controller="search" asp-action="category" asp-route-cat="shopping"><i class="fas fa-shopping-bag"></i></a>
-            <a asp-controller="search" asp-action="category" asp-route-cat="sports"><i class="fas fa-football-ball"></i></a>
+            <label class="category-label">Category Search:</label>
+            <a asp-controller="search" asp-action="category" asp-route-cat="activities" title="Activities"><i class="fas fa-swimmer"></i></a>
+            <a asp-controller="search" asp-action="category" asp-route-cat="artsculture" title="Arts & Culture"><i class="fas fa-theater-masks"></i></a>
+            <a asp-controller="search" asp-action="category" asp-route-cat="bars" title="Bars"><i class="fas fa-beer"></i></a>
+            <a asp-controller="search" asp-action="category" asp-route-cat="historical" title="Historical"><i class="fas fa-monument"></i></a>
+            <a asp-controller="search" asp-action="category" asp-route-cat="parks" title="Parks"><i class="fas fa-tree"></i></a>
+            <a asp-controller="search" asp-action="category" asp-route-cat="restaurants" title="Restaurants"><i class="fas fa-utensils"></i></a>
+            <a asp-controller="search" asp-action="category" asp-route-cat="shopping" title="Shopping"><i class="fas fa-shopping-bag"></i></a>
+            <a asp-controller="search" asp-action="category" asp-route-cat="sports" title="Sports"><i class="fas fa-football-ball"></i></a>
+            <form name="search" class="search-form">
+                <label>Keyword Search:</label>
+                <input id="search-terms" type="text" name="name" value="" />
+                <button id="search" class="btn btn-default">Search</button>
+            </form>
         </div>
     </nav>
 

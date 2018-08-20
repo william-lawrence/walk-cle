@@ -80,19 +80,38 @@ li a {
     color: #fff;
 }
 
+.search-grid {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    color: #337ab7;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+}
+
 .search-bar {
     margin-top: 50px;
     background-color: #fff;
+    flex-grow: 1;
 }
 
-.search-bar div {
-    margin-left: 55px;
+.search-form {
+    display: inline;
+    text-align: right;
+    flex-grow: 1;
+    padding-right: 25px;
 }
 
 .search-bar a {
     font-size: 3em;
     margin-right: 8px;
     margin-left: 8px;
+}
+
+.category-label {
+    padding-left: 25px;
 }
 
 .intro-text {
@@ -114,11 +133,11 @@ li a {
     user-select: none;
 }
 
-.checkbox-container input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-}
+    .checkbox-container input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
 
 .checkmark {
     position: absolute;
@@ -144,7 +163,7 @@ li a {
 }
 
 .checkbox-container input:checked ~ .checkmark:after {
-    display: inline-block ;
+    display: inline-block;
 }
 
 .checkbox-container .checkmark:after {
@@ -183,12 +202,24 @@ li a {
     padding: 10px;
 }
 
-input[type=text], input[type=password], input[type=email] {
+.login-container input[type=text], input[type=password], input[type=email] {
     width: 100%;
     padding: 15px;
-    margin: 5px 0 5px 0;
+    margin: 10px 0 10px 0;
     border: none;
     background: #f1f1f1;
+    display: inline;
+}
+
+.search-form input[type=text] {
+    margin: 10px 0 10px 0;
+    border: none;
+    background: #f1f1f1;
+    display: inline;
+}
+
+.btn btn-default {
+    display: inline;
 }
 
 input, select, textarea {
@@ -217,10 +248,10 @@ input, select, textarea {
     margin-left: 40%;
 }
 
-.button:hover {
-     background-color: #008CBA;
-     color: white;
-}
+    .button:hover {
+        background-color: #008CBA;
+        color: white;
+    }
 
 /*Home page styling*/
 .home-wrapper {
@@ -240,11 +271,11 @@ input, select, textarea {
     color: #fff;
 }
 
-.location hr {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border-color: lightgray;
-}
+    .location hr {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border-color: lightgray;
+    }
 
 #location-number, #location-name {
     font-size: 1.5em;
@@ -255,13 +286,15 @@ input, select, textarea {
     font-family: Montserrat;
     font-weight: 100;
 }
+
 a.click-link {
     color: aqua;
 }
-a.click-link:hover {
-    color: #fff;
-    text-shadow: 2px 2px 4px #cad4da;
-}
+
+    a.click-link:hover {
+        color: #fff;
+        text-shadow: 2px 2px 4px #cad4da;
+    }
 
 
 /*Scrollbar styling*/
@@ -278,9 +311,9 @@ a.click-link:hover {
     border-radius: 10px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
 
 /*Detail page style*/
 div.image-details-container {
@@ -289,18 +322,18 @@ div.image-details-container {
     display: grid;
 }
 
-div.image-details-container h2 {
-    font-family: Merienda;
-}
+    div.image-details-container h2 {
+        font-family: Merienda;
+    }
 
-div.image-details-container img {
-    position: relative;
-    width: 100%;
-}
+    div.image-details-container img {
+        position: relative;
+        width: 100%;
+    }
 
-div.image-details-container i {
-    font-size: 3em;
-}
+    div.image-details-container i {
+        font-size: 3em;
+    }
 
 .directions-button {
     display: inline-block;
@@ -338,6 +371,7 @@ div.image-details-container i {
     position: relative;
     width: 100%;
 }
+
 .location-info {
     grid-area: location-info;
     color: #fff;
@@ -349,23 +383,20 @@ div.image-details-container i {
 @media only screen and (min-width: 768px) {
     div .home-wrapper {
         grid-template-columns: 1fr 1fr;
-
         grid-gap: 15px;
-
-        grid-template-areas:
-            'map info';
+        grid-template-areas: 'map info';
     }
+
     div.image-details-container {
         grid-template-columns: 1fr 1fr;
         grid-gap: 20px;
-        grid-template-areas:
-            'image details';
+        grid-template-areas: 'image details';
     }
+
     div.category-container {
         grid-template-columns: 1fr 1fr;
         grid-gap: 20px;
-        grid-template-areas:
-            'category-image location-info';
+        grid-template-areas: 'category-image location-info';
     }
 }
 
@@ -377,4 +408,3 @@ li input#logout {
     color: white;
     font-size: 14px;
 }
-
