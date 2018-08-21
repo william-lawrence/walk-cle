@@ -108,7 +108,11 @@ namespace WebApplication.Web.DAL
 
                     while (reader.Read())
                     {
-                        nearbyLocations.Add(MapRowtoLocation(reader));
+						Location location = new Location();
+						location = MapRowtoLocation(reader);
+						location.DistanceFromUser = Math.Round(Math.Sqrt(Convert.ToDouble(reader["distance"])), 2);
+
+						nearbyLocations.Add(location);
                     }
                 }
             }
@@ -218,7 +222,7 @@ namespace WebApplication.Web.DAL
 				Longitude = Convert.ToDecimal(reader["longitude"]),
 				Photo = Convert.ToString(reader["photo"]),
 				Description = Convert.ToString(reader["description"]),
-				DistanceFromUser = Math.Round(Math.Sqrt(Convert.ToDouble(reader["distance"])), 2)
+				
 			};
 
 			return location;
