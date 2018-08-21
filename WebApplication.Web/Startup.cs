@@ -51,8 +51,9 @@ namespace WebApplication.Web
             services.AddTransient<IUserDAL>(m => new UserSqlDAL(connectionString));
             services.AddTransient<ILocationDAL>(m => new LocationSqlDAL(connectionString));
 			services.AddTransient<ICategorySqlDAL>(m => new CategorySqlDAL(connectionString));
+            services.AddTransient<ICheckinSqlDAL>(m => new CheckinSqlDAL(connectionString));
 
-			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -72,7 +73,7 @@ namespace WebApplication.Web
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseSession();
-
+                
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

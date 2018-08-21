@@ -1,0 +1,52 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<body>
+    <h2>Profile</h2>\
+
+    <!--This is the area that will display the user information-->
+    <div class="profile">
+        <h2>Hello, (@Model.Username)!</h2>
+        <p>
+            Hello and welcome to your profile! Here you can see all the locations that you have checked in at, as well as the badges that you have earned.
+            If you need to, you can change your passwrod here as well.
+        </p>
+    </div>
+
+    <div>
+        <!--This is where the user's check-in history is displayed.-->
+        <div class="check-in">
+
+        </div>
+
+        <!--This is where the users Awards are displayed.-->
+        <div class="badges">
+
+        </div>
+
+    </div>
+
+    <!--template used for checkins-->
+    <template id="check-in">
+        <div class="check-in">
+            <label>Location:</label>
+            <a>
+                <label id="location-name"></label>
+            </a>
+            <label> class="date-earned"</label>
+            <p class="date-earned"></p>
+        </div>
+    </template>
+
+    <!--template used for badges-->
+    <template id="badge">
+        <div class="badges">
+            <img class="badge-image" />
+            <h3 class="badge-name"></h3>
+            <p class="badge-desctription"></p>
+        </div>
+    </template>
+
+</body>
