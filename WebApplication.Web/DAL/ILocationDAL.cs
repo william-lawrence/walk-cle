@@ -30,7 +30,7 @@ namespace WebApplication.Web.DAL
         Location GetLocationById(int id);
 
 
-        IList<Location> GetLocationsByKeyword(string keyword);
+        IList<Location> GetLocationsByKeyword(decimal latitude, decimal longitude, string keyword);
 
 
     }

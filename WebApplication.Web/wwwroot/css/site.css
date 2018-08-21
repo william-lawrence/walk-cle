@@ -315,6 +315,12 @@ input, select, textarea {
     color: #000;
 }
 
+#distance-from-user {
+    font-size: 1.25em;
+    font-family: Merienda;
+    color: #000;
+}
+
 a.click-link {
     color: #3D7FAB;
 }

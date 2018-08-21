@@ -34,11 +34,11 @@ namespace WebApplication.Web.Controllers
         /// <param name="cat">The category to search by</param>
         /// <returns>A list of all the loccations that fall under a particular category as JSON</returns>
 		[HttpGet]
-        public JsonResult CategorySearch(string cat)
+        public JsonResult CategorySearch(decimal latitude, decimal longitude, string cat)
         {
             IList<Location> locations = new List<Location>();
 
-            locations = categroyDal.CategorySearch(cat);
+            locations = categroyDal.CategorySearch(latitude, longitude, cat);
 
             return Json(locations);
         }
@@ -64,7 +64,7 @@ namespace WebApplication.Web.Controllers
         /// <param name="keywords">The search parameters that the user added.</param>
         /// <returns>A list of locations that have the keyword in their name, description, or category.</returns>
         [HttpGet]
-        public JsonResult KeywordSearch(string keywords)
+        public JsonResult KeywordSearch(decimal latitude, decimal longitude, string keywords)
         {
             IList<Location> locations = new List<Location>();
             IList<Location> results = new List<Location>();
@@ -83,7 +83,7 @@ namespace WebApplication.Web.Controllers
             {
                 // Gets a list of locations based on a search term
                 // This is over written for each seach term.
-                locations = locationDal.GetLocationsByKeyword(searchTerm);
+                locations = locationDal.GetLocationsByKeyword(latitude, longitude, searchTerm);
 
                 // Adds each location from the results of a search term to the results.
                 // This ensures that every location found in the search is added to the results.
