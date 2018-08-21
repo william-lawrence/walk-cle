@@ -14,11 +14,14 @@
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li class="white-font">Greetings and Salutations, @Model.Username</li>
+        <li class="loggedin-greeting"><i>Greetings and Salutations, @Model.Username &nbsp; &nbsp;</i></li>
         <li>
-            <form asp-controller="Account" asp-action="LogOff" method="post">
+            <form asp-controller="Account" asp-action="LogOff" method="post" class="logout">
                 <input id="logout" type="submit" value="Logout">
             </form>
+        </li>
+        <li>
+            <a asp-controller="account" asp-action="profile" asp-route-userid="@Model.Id" id="profile-button">Profile</a>
         </li>
     </ul>
 }

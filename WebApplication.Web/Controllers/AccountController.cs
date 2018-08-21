@@ -133,7 +133,7 @@ namespace WebApplication.Web.Controllers
                 return RedirectToAction("Account", "Register");
             }
 
-            return View();
+            return View(user);
         }
 
         [HttpGet]
