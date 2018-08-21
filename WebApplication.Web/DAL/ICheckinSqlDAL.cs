@@ -9,5 +9,6 @@ namespace WebApplication.Web.DAL
     public interface ICheckinSqlDAL
     {
         IList<Checkin> GetUserCheckins(int userId);
-    }
+		bool SaveCheckIn(int userId, int locationId);
+	}
 }

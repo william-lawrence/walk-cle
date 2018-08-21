@@ -1,4 +1,10 @@
-﻿document.addEventListener('DOMContentLoaded', () => {
+﻿function getElementFromTemplate(id) {
+    let domNode = document.importNode(document.getElementById(id).content, true).firstElementChild;
+
+    return domNode;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
     // Code that runs when the DOM is loaded and verifies we have attached event handlers
     console.log('DOM Loaded');
     document.querySelector('div.directions-button').addEventListener('click', (event) => {
@@ -11,6 +17,8 @@
         keywords = document.getElementById('search-terms').value;
 
         locations = KeywordSearch(keywords);
+        console.log(locations);
+        //window.location.replace("https://localhost:44392/");
 
         clearMarkers();
 
@@ -111,6 +119,12 @@ async function addSearchResultsToPage(locations) {
         newLocationDiv.querySelector('label#location-number').innerText = `${i + 1}.`;
         newLocationDiv.querySelector('label#location-desc').innerText = ellipsify(locationArray[i].description);
         newLocationDiv.querySelector('a').setAttribute("href", `https://localhost:44392/location/detail/${locationArray[i].id}`);
+
+        if (locationArray[i].distanceFromUser <= 0.05) {
+            const button = newLocationDiv.querySelector('button#check-in-button');
+            button.classList.remove('hidden');
+            newLocationDiv.querySelector('input').setAttribute("value", `${locationArray[i].id}`);
+        }
 
         document.querySelector('div.location-name').insertAdjacentElement('beforeend', newLocationDiv);
 

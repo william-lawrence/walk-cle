@@ -2,6 +2,11 @@
     ViewData["Title"] = "Home Page";
 }
 
+@if(TempData["checkedin"] != null)
+{
+    <p><i id="check" class="fas fa-check-circle"></i> You've checked in!</p>
+}
+
 <div class="home-wrapper">
     <div class="nearby-map">
         Number of locations to show:
@@ -26,6 +31,7 @@
         <div id="map"></div>
     </div>
     <div class="location-name" id="locations">
+
     </div>
 </div>
 
@@ -37,6 +43,10 @@
         </a>
         <label id="location-desc">Description</label>
         <label id="distance-from-user">Distance</label>
+        <form asp-controller="location" asp-action="checkin">
+            <input type="hidden" name="id"/>
+            <button id="check-in-button" class="hidden" type="submit">Check In</button>
+        </form>
         <hr />
     </div>
 </template>
