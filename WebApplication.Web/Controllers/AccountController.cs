@@ -114,5 +114,18 @@ namespace WebApplication.Web.Controllers
 
             return View(registerViewModel);
         }
+
+        /// <summary>
+        /// Takes the user to their profile page where they can view the awards that they have earned.
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [AuthorizationFilter] // Ensures that the user is logged to view their profile.
+        public IActionResult Profile()
+        {
+
+
+            return View();
+        }
     }
 }
