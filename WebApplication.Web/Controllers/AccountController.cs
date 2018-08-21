@@ -137,9 +137,11 @@ namespace WebApplication.Web.Controllers
         }
 
         [HttpGet]
-        public JsonResult GetCheckins(int id)
+        public JsonResult GetCheckins(int userId)
         {
             IList<Checkin> checkins = new List<Checkin>();
+
+            checkins = checkinDal.GetUserCheckins(userId);
 
             return Json(checkins);
         }

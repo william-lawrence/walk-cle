@@ -60,6 +60,7 @@ namespace WebApplication.Web.DAL
         private Checkin MapRowToCheckin(SqlDataReader reader)
         {
             Checkin checkin = new Checkin();
+            checkin.Location = new Location();
 
             checkin.Date = Convert.ToDateTime(reader["date"]);
             checkin.Location.Id = Convert.ToInt32(reader["id"]);
