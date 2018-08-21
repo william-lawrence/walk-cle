@@ -11,13 +11,6 @@ namespace WebApplication.Web.Controllers
 {
     public class HomeController : Controller
     {
-		//private readonly ICategorySqlDAL dal;
-
-		//public HomeController(ICategorySqlDAL dal)
-		//{
-		//	this.dal = dal;
-		//}
-
 		/// <summary>
 		/// Shows the home page
 		/// </summary>
@@ -26,14 +19,6 @@ namespace WebApplication.Web.Controllers
         {            
             return View();
         }
-
-		//[HttpGet]
-		//public JsonResult Category(decimal latitude, decimal longitude, string category)
-		//{
-		//	IList<Location> locations = dal.CategorySearch(category);
-
-		//	return Json(locations);
-		//}
 
 		#region Microsoft Boilerplate
 		public IActionResult About()

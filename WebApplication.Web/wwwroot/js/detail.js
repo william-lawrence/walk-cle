@@ -1,4 +1,10 @@
-﻿document.addEventListener('DOMContentLoaded', () => {
+﻿function getElementFromTemplate(id) {
+    let domNode = document.importNode(document.getElementById(id).content, true).firstElementChild;
+
+    return domNode;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
     // Code that runs when the DOM is loaded and verifies we have attached event handlers
     console.log('DOM Loaded');
     document.querySelector('div.directions-button').addEventListener('click', (event) => {
@@ -11,6 +17,8 @@
         keywords = document.getElementById('search-terms').value;
 
         locations = KeywordSearch(keywords);
+        console.log(locations);
+        //window.location.replace("https://localhost:44392/");
 
         clearMarkers();
 

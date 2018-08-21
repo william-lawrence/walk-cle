@@ -77,8 +77,6 @@ namespace WebApplication.Web.Controllers
 
             List<string> searchTerms = new List<string>(keywords.Split(' '));
 
-
-
             foreach (var searchTerm in searchTerms)
             {
                 // Gets a list of locations based on a search term
