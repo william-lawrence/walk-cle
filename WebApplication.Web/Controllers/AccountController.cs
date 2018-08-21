@@ -1,32 +1,32 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using WebApplication.Web.DAL;
+using WebApplication.Web.Models;
 using WebApplication.Web.Models.Account;
 using WebApplication.Web.Providers.Auth;
 
 namespace WebApplication.Web.Controllers
-{    
+{
     public class AccountController : Controller
     {
         private readonly IAuthProvider authProvider;
-		private readonly IUserDAL dal;
+        private readonly IUserDAL userDal;
+        private readonly ICheckinSqlDAL checkinDal;
 
-        public AccountController(IAuthProvider authProvider, IUserDAL dal)
+        public AccountController(IAuthProvider authProvider, IUserDAL userDal, ICheckinSqlDAL checkinDal)
         {
             this.authProvider = authProvider;
-			this.dal = dal;
+            this.userDal = userDal;
+            this.checkinDal = checkinDal;
         }
-        
+
         /// <summary>
         /// Displays the login page that the user can use to login.
         /// </summary>
         /// <returns>View of the login page.</returns>
         [HttpGet]
         public IActionResult Login()
-        {            
+        {
             return View();
         }
 
@@ -42,17 +42,17 @@ namespace WebApplication.Web.Controllers
             // Ensure the fields were filled out
             if (ModelState.IsValid)
             {
-				// Check that they provided correct credentials
+                // Check that they provided correct credentials
                 bool validLogin = authProvider.SignIn(loginViewModel.Username, loginViewModel.Password);
-				if (validLogin)
-				{
-					// Redirect the user where you want them to go after successful login
-					return RedirectToAction("Index", "Home");
-				}
-				else
-				{
-					ModelState.AddModelError("combo-not-correct", "That is not a valid username/password combination. Please try again.");
-				}
+                if (validLogin)
+                {
+                    // Redirect the user where you want them to go after successful login
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ModelState.AddModelError("combo-not-correct", "That is not a valid username/password combination. Please try again.");
+                }
 
             }
 
@@ -95,24 +95,55 @@ namespace WebApplication.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-				// Check to see if username is available
-				if (dal.GetUser(registerViewModel.Username) == null)
-				{
+                // Check to see if username is available
+                if (userDal.GetUser(registerViewModel.Username) == null)
+                {
 
-					// Register them as a new user (and set default role)
-					authProvider.Register(registerViewModel.Username, registerViewModel.Email, registerViewModel.Password, "Role");
+                    // Register them as a new user (and set default role)
+                    authProvider.Register(registerViewModel.Username, registerViewModel.Email, registerViewModel.Password, "Role");
 
-					// Redirect the user where you want them to go after registering
-					return RedirectToAction("Index", "Home");
-				}
+                    // Redirect the user where you want them to go after registering
+                    return RedirectToAction("Index", "Home");
+                }
                 // Displays an errors if the user name is taken.
-				else
-				{
-					ModelState.AddModelError("username-taken", "That username is not available");
-				}
+                else
+                {
+                    ModelState.AddModelError("username-taken", "That username is not available");
+                }
             }
 
             return View(registerViewModel);
+        }
+
+        /// <summary>
+        /// Takes the user to their profile page where they can view the awards that they have earned.
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public IActionResult Profile()
+        {
+            User user = new User();
+
+            // Returns the user if they are registered and logged in. If they are not, it returns null. 
+            user = authProvider.GetCurrentUser();
+
+            // If the user is not logged in, send them to the register page.
+            if (user == null)
+            {
+                return RedirectToAction("Account", "Register");
+            }
+
+            return View();
+        }
+
+        [HttpGet]
+        public JsonResult GetCheckins(int userId)
+        {
+            IList<Checkin> checkins = new List<Checkin>();
+
+            checkins = checkinDal.GetUserCheckins(userId);
+
+            return Json(checkins);
         }
     }
 }

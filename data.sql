@@ -390,4 +390,18 @@ VALUES (48, 'historical');
 INSERT INTO locations_categories (location_id, category)
 VALUES (48, 'artsculture');
 
+-- Test users
+SET IDENTITY_INSERT users ON;
+
+INSERT INTO users (id, username, password, salt, role, visitor, email, avatar)
+VALUES (1, 'BillyShakes', 'drrJ56U5ROBC5qS5THxV3LdEPjY=', 'dWcJOOdOTb0=', 'Role', 0, 'william.lawrence.75@gmail.com', 123);
+
+SET IDENTITY_INSERT users OFF;
+
+-- Test check-ins
+INSERT INTO check_ins(user_id, location_id, date)
+VALUES (1, 31, 08/21/2018);
+
+
 COMMIT TRANSACTION;
+
