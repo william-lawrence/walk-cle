@@ -7,5 +7,6 @@
 // Ensures that the page is fully loaded before scripts run.
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM Loaded');
-    
+
 });
+
