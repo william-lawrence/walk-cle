@@ -21,6 +21,5 @@ namespace WebApplication.Web.Models
         /// The date and time when the user checked in.
         /// </summary>
         DateTime Date { get; set; }
-
     }
 }

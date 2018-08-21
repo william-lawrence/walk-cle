@@ -132,5 +132,13 @@ namespace WebApplication.Web.Controllers
 
             return View();
         }
+
+        [HttpGet]
+        public JsonResult GetCheckins(int id)
+        {
+            Ilist<>
+
+            return Json();
+        }
     }
 }
