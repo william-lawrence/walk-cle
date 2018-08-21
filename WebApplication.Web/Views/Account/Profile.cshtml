@@ -1,7 +1,31 @@
-﻿
+﻿@model User
 @{
     ViewData["Title"] = "Profile";
 }
 
-<h2>Profile</h2>
+<body>
+    <h2>Profile</h2>\
 
+    <!--This is the area that will display the user information-->
+    <div class="profile">
+        <h2>Hello, (@Model.Username)!</h2>
+        <p>
+            Hello and welcome to your profile! Here you can see all the locations that you have checked in at, as well as the badges that you have earned.
+            If you need to, you can change your passwrod here as well.
+        </p>
+    </div>
+
+    <div>
+        <!--This is where the user's check-in history is displayed.-->
+        <div class="check-in">
+
+        </div>
+
+        <!--This is where the users Awards are displayed.-->
+        <div class="badges">
+
+        </div>
+
+    </div>
+
+</body>
