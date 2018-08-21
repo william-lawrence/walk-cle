@@ -218,7 +218,7 @@ namespace WebApplication.Web.DAL
 				Longitude = Convert.ToDecimal(reader["longitude"]),
 				Photo = Convert.ToString(reader["photo"]),
 				Description = Convert.ToString(reader["description"]),
-				DistanceFromUser = Convert.ToDouble(reader["distance"])
+				DistanceFromUser = Math.Round(Math.Sqrt(Convert.ToDouble(reader["distance"])), 2)
 			};
 
 			return location;

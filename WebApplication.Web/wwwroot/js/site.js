@@ -172,7 +172,7 @@ async function setMarkers(locations) {
         newLocationDiv.querySelector('label#location-number').innerText = `${i + 1}.`;
         newLocationDiv.querySelector('label#location-desc').innerText = ellipsify(locationArray[i].description);
         newLocationDiv.querySelector('a').setAttribute("href", `location/detail/${locationArray[i].id}`);
-        newLocationDiv.querySelector('label#distance-from-user').innerText = locationArray[i].name;
+        newLocationDiv.querySelector('label#distance-from-user').innerText = `${locationArray[i].distanceFromUser} mi away`;
 
         document.querySelector('div.location-name').insertAdjacentElement('beforeend', newLocationDiv);
 
@@ -229,7 +229,7 @@ async function addSearchResultsToPage(locations) {
         newLocationDiv.querySelector('label#location-number').innerText = `${i + 1}.`;
         newLocationDiv.querySelector('label#location-desc').innerText = ellipsify(locationArray[i].description);
         newLocationDiv.querySelector('a').setAttribute("href", `location/detail/${locationArray[i].id}`);
-        newLocationDiv.querySelector('label#distance-from-user').innerText = locationArray[i].name;
+        newLocationDiv.querySelector('label#distance-from-user').innerText = `${locationArray[i].distanceFromUser} mi away`;
 
         document.querySelector('div.location-name').insertAdjacentElement('beforeend', newLocationDiv);
 
