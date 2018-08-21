@@ -21,6 +21,10 @@
         </a>
         <label id="location-desc">Description</label>
         <label id="distance-from-user">Distance</label>
+        <form asp-controller="location" asp-action="checkin">
+            <input type="hidden" name="id" />
+            <button id="check-in-button" class="hidden" type="submit">Check In</button>
+        </form>
         <hr />
     </div>
 </template>

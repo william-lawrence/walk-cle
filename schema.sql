@@ -86,7 +86,7 @@ CREATE TABLE check_ins
 	location_id	int			not null,
 	date		datetime	default getdate()
 
-	constraint pk_check_ins_user_id_location_id primary key (user_id, location_id)
+	constraint pk_check_ins_user_id_location_id primary key (user_id, location_id, date)
 );
 
 COMMIT TRANSACTION;

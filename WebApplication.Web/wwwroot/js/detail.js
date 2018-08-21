@@ -120,6 +120,12 @@ async function addSearchResultsToPage(locations) {
         newLocationDiv.querySelector('label#location-desc').innerText = ellipsify(locationArray[i].description);
         newLocationDiv.querySelector('a').setAttribute("href", `https://localhost:44392/location/detail/${locationArray[i].id}`);
 
+        if (locationArray[i].distanceFromUser <= 0.05) {
+            const button = newLocationDiv.querySelector('button#check-in-button');
+            button.classList.remove('hidden');
+            newLocationDiv.querySelector('input').setAttribute("value", `${locationArray[i].id}`);
+        }
+
         document.querySelector('div.location-name').insertAdjacentElement('beforeend', newLocationDiv);
 
         markers.push(marker);

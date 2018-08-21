@@ -52,6 +52,30 @@ namespace WebApplication.Web.DAL
             return checkins;
         }
 
+		public bool SaveCheckIn(int userId, int locationId)
+		{
+			try
+			{
+				using (SqlConnection conn = new SqlConnection(connectionString))
+				{
+					conn.Open();
+
+					string sql = $@"INSERT INTO check_ins (user_id, location_id) VALUES (@userId, @locationId);";
+					SqlCommand cmd = new SqlCommand(sql, conn);
+					cmd.Parameters.AddWithValue("@userId", userId);
+					cmd.Parameters.AddWithValue("@locationId", locationId);
+
+					cmd.ExecuteNonQuery();
+				}
+			}
+			catch (Sqlexception ex)
+			{
+				return false;
+			}
+
+			return true;
+		}
+
         /// <summary>
         /// Maps a row from the database to a chckin object.
         /// </summary>
