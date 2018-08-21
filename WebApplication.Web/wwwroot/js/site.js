@@ -125,7 +125,7 @@ function CategorySearch(youAreHere, category) {
 }
 
 async function KeywordSearch(keywords) {
-    const url = `https://localhost:44392/search/keywordsearch?keywords=${keywords}`;
+    const url = `https://localhost:44392/search/keywordsearch?latitude=${youAreHere.lat}&longitude=${youAreHere.lng}&keywords=${keywords}`;
     const settings = {
         method: 'GET'
     };
@@ -172,6 +172,7 @@ async function setMarkers(locations) {
         newLocationDiv.querySelector('label#location-number').innerText = `${i + 1}.`;
         newLocationDiv.querySelector('label#location-desc').innerText = ellipsify(locationArray[i].description);
         newLocationDiv.querySelector('a').setAttribute("href", `location/detail/${locationArray[i].id}`);
+        newLocationDiv.querySelector('label#distance-from-user').innerText = `${locationArray[i].distanceFromUser} mi away`;
 
         document.querySelector('div.location-name').insertAdjacentElement('beforeend', newLocationDiv);
 
@@ -228,6 +229,7 @@ async function addSearchResultsToPage(locations) {
         newLocationDiv.querySelector('label#location-number').innerText = `${i + 1}.`;
         newLocationDiv.querySelector('label#location-desc').innerText = ellipsify(locationArray[i].description);
         newLocationDiv.querySelector('a').setAttribute("href", `location/detail/${locationArray[i].id}`);
+        newLocationDiv.querySelector('label#distance-from-user').innerText = `${locationArray[i].distanceFromUser} mi away`;
 
         document.querySelector('div.location-name').insertAdjacentElement('beforeend', newLocationDiv);
 

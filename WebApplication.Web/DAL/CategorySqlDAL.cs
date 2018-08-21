@@ -59,7 +59,7 @@ namespace WebApplication.Web.DAL
 		/// </summary>
 		/// <param name="category">The category that you are searching by</param>
 		/// <returns>A list of all the locations that have a particular catagory.</returns>
-		public IList<Location> CategorySearch(string category)
+		public IList<Location> CategorySearch(decimal latitude, decimal longitude, string category)
 		{
 			IList<Location> locationsByCategory = new List<Location>();
 
@@ -70,17 +70,24 @@ namespace WebApplication.Web.DAL
 					connection.Open();
 
 					// The SQL query that is used to get all the locations that are tagged with the specified category
-					string sql = $@"SELECT * FROM locations 
+					string sql = $@"SELECT *, POWER(69.1 * (latitude - @userLatitude), 2) + POWER(69.1 * (@userLongitude - longitude) * COS(latitude / 57.3), 2) AS distance FROM locations
 								INNER JOIN locations_categories on locations.id = locations_categories.location_id 
-								WHERE locations_categories.category = @category;";
+								WHERE locations_categories.category = @category
+								ORDER BY distance;";
 					SqlCommand command = new SqlCommand(sql, connection);
 					command.Parameters.AddWithValue("@category", category);
+					command.Parameters.AddWithValue("@userLatitude", latitude);
+					command.Parameters.AddWithValue("@userLongitude", longitude);
 
 					SqlDataReader reader = command.ExecuteReader();
 
 					while (reader.Read())
 					{
-						locationsByCategory.Add(MapRowtoLocation(reader, category));
+						Location location = new Location();
+						location = MapRowtoLocation(reader, category);
+						location.DistanceFromUser = Math.Round(Math.Sqrt(Convert.ToDouble(reader["distance"])), 2);
+
+						locationsByCategory.Add(location);
 					}
 				}
 			}
@@ -131,6 +138,7 @@ namespace WebApplication.Web.DAL
 				Photo = Convert.ToString(reader["photo"]),
 				Description = Convert.ToString(reader["description"]),
 				Categories = new List<string>()
+
 			};
 
 			location.Categories.Add(category);
