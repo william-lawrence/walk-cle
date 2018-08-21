@@ -125,7 +125,7 @@ function CategorySearch(youAreHere, category) {
 }
 
 async function KeywordSearch(keywords) {
-    const url = `https://localhost:44392/search/keywordsearch?keywords=${keywords}`;
+    const url = `https://localhost:44392/search/keywordsearch?latitude=${youAreHere.lat}&longitude=${youAreHere.lng}&keywords=${keywords}`;
     const settings = {
         method: 'GET'
     };

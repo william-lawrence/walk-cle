@@ -20,6 +20,6 @@ namespace WebApplication.Web.DAL
         /// </summary>
         /// <param name="category">The category that you are searching by</param>
         /// <returns>A list of all the locations that have a particular catagory.</returns>
-		IList<Location> CategorySearch(string category);
+		IList<Location> CategorySearch(decimal latitude, decimal longitude, string category);
     }
 }

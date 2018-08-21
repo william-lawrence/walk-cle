@@ -167,7 +167,7 @@ namespace WebApplication.Web.DAL
         /// </summary>
         /// <param name="keyword"></param>
         /// <returns></returns>
-        public IList<Location> GetLocationsByKeyword(string keyword)
+        public IList<Location> GetLocationsByKeyword(decimal latitude, decimal longitude, string keyword)
         {
             IList<Location> locations = new List<Location>();
 
@@ -178,21 +178,28 @@ namespace WebApplication.Web.DAL
                     connection.Open();
 
                     // SQL query to get all the locations that corresspond to the keyword search.
-                    string sql = $@"SELECT * FROM locations
+                    string sql = $@"SELECT *, POWER(69.1 * (latitude - @userLatitude), 2) + POWER(69.1 * (@userLongitude - longitude) * COS(latitude / 57.3), 2) AS distance FROM locations
                                     INNER JOIN locations_categories ON locations.id = locations_categories.location_id
                                     WHERE locations.[description] LIKE '%' + @keyword + '%' 
                                     OR locations.name LIKE '%' + @keyword + '%' 
-                                    OR locations_categories.category LIKE '%' + @keyword + '%';";
+                                    OR locations_categories.category LIKE '%' + @keyword + '%'
+									ORDER BY distance;";
 
                     SqlCommand command = new SqlCommand(sql, connection);
                     command.Parameters.AddWithValue("@keyword", keyword);
+					command.Parameters.AddWithValue("@userLatitude", latitude);
+					command.Parameters.AddWithValue("@userLongitude", longitude);
 
                     SqlDataReader reader = command.ExecuteReader();
 
                     while(reader.Read())
                     {
-                        locations.Add(MapRowtoLocation(reader));
-                    }
+						Location location = new Location();
+						location = MapRowtoLocation(reader);
+						location.DistanceFromUser = Math.Round(Math.Sqrt(Convert.ToDouble(reader["distance"])), 2);
+
+						locations.Add(location);
+					}
                 }
             }
             catch (SqlException ex)
