@@ -1,14 +1,23 @@
-﻿.container.body-content {
-    /*padding-top: 25px;*/
-}
-
-body {
-    background-color: rgb(12, 12, 62);
+﻿body {
+    /*background-color: rgb(12, 12, 62);*/
     font-family: Montserrat;
     font-weight: bold;
-    color: white;
+    color: black;
+    padding-bottom: 250px;
 }
 
+#body2 {
+    background-color: rgb(12, 12, 62);
+}
+
+#navbar2 {
+    background-color: rgb(12, 12, 62);
+    border-color: rgb(12, 12, 62);
+}
+
+a {
+    color: rgb(12, 12, 125);
+}
 /*for map container*/
 #map {
     height: 400px;
@@ -23,70 +32,72 @@ body {
 }
 
 .directions-container {
-    padding: 50px 0 0 0;
-    height: 500px;
-    width: 1000px;
-    margin: 0;
-    grid-area: map;
+    padding: 25px 0 0 0;
+    display: grid;
+    justify-items: center;
 }
-
-
 
 .latent {
     display: none;
 }
 
 .directions-map {
-    display: inline-block;
     height: 300px;
     width: 500px;
+    grid-area: map;
 }
 
 .directions-route {
-    display: inline-block;
     background-color: white;
     height: 300px;
     width: 400px;
     overflow: scroll;
+    grid-area: route;
 }
 
 
 
 /*Banner*/
-li.white-font {
-    color: #fff;
-    padding-top: 15px;
-}
-
-li a {
-    color: #fff;
-}
-
 #title-font {
     color: #fff;
     font-size: 75px;
 }
 
+.container {
+    padding-bottom: 50px;
+}
+
 .navbar-inverse {
-    background-color: rgb(12, 12, 62);
-    border-color: rgb(12, 12, 62);
+    background-color: #337ab7;
+    border-color: #337ab7;
+    margin-bottom: 0;
 }
 
 .navbar-header {
     font-family: "Merienda";
 }
 
-.nav .navbar-nav {
-    color: #fff;
+.search-grid {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    color: #337ab7;
+    align-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .search-bar {
-    margin-top: 50px;
     background-color: #fff;
+    flex-grow: 1;
 }
 
-.search-bar div {
-    margin-left: 55px;
+.search-form {
+    display: inline;
+    text-align: right;
+    flex-grow: 1;
+    padding-right: 25px;
 }
 
 .search-bar a {
@@ -95,8 +106,19 @@ li a {
     margin-left: 8px;
 }
 
+.category-label {
+    padding-left: 25px;
+}
+
 .intro-text {
-    margin-bottom: 50px;
+    margin: 0 35px 0 35px;
+}
+
+.welcome-banner {
+    background-color: rgba(255, 255, 255, .75);
+}
+#cle-welcome {
+    margin-left: 35px;
 }
 
 /*Radio Buttons*/
@@ -114,11 +136,11 @@ li a {
     user-select: none;
 }
 
-.checkbox-container input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-}
+    .checkbox-container input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
 
 .checkmark {
     position: absolute;
@@ -129,7 +151,7 @@ li a {
     background-color: transparent;
     border-radius: 50%;
     border: solid;
-    border-color: white;
+    border-color: black;
     border-width: 1px;
 }
 
@@ -144,7 +166,7 @@ li a {
 }
 
 .checkbox-container input:checked ~ .checkmark:after {
-    display: inline-block ;
+    display: inline-block;
 }
 
 .checkbox-container .checkmark:after {
@@ -153,7 +175,7 @@ li a {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: white;
+    background: black;
 }
 
 /*Login-in/Register Styling*/
@@ -183,12 +205,24 @@ li a {
     padding: 10px;
 }
 
-input[type=text], input[type=password], input[type=email] {
-    width: 100%;
-    padding: 15px;
-    margin: 5px 0 5px 0;
+    .login-container input[type=text], input[type=password], input[type=email] {
+        width: 100%;
+        padding: 15px;
+        margin: 10px 0 10px 0;
+        border: none;
+        background: #f1f1f1;
+        display: inline;
+    }
+
+.search-form input[type=text] {
+    margin: 10px 0 10px 0;
     border: none;
     background: #f1f1f1;
+    display: inline;
+}
+
+.btn btn-default {
+    display: inline;
 }
 
 input, select, textarea {
@@ -208,23 +242,41 @@ input, select, textarea {
 /*Button styling*/
 .button {
     background-color: white;
-    color: black;
+    color: #008CBA;
     border-radius: 4px;
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
     font-size: 16px;
     border: 2px solid #008CBA;
-    margin-left: 40%;
+    margin-left: 35%;
 }
 
 .button:hover {
-     background-color: #008CBA;
-     color: white;
+    background-color: #008CBA;
+    color: white;
 }
+
+#search {
+    background-color: white;
+    color: #008CBA;
+    border-radius: 4px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    font-size: 14px;
+    border: 2px solid #008CBA;
+    display: inline;
+}
+
+    #search:hover {
+        background-color: #008CBA;
+        color: white;
+    }
 
 /*Home page styling*/
 .home-wrapper {
     display: grid;
+    background-color: rgba(255, 255, 255, 0.75);
+    padding-top: 30px;
 }
 
 .location-name {
@@ -236,32 +288,38 @@ input, select, textarea {
     margin-top: 35px;
 }
 
-.location {
-    color: #fff;
-}
-
 .location hr {
     margin-top: 10px;
     margin-bottom: 10px;
     border-color: lightgray;
 }
 
-#location-number, #location-name {
+#location-number {
+    font-size: 1.5em;
+    font-family: Merienda;
+    color: rgb(10, 10, 200)
+}
+
+#location-name {
     font-size: 1.5em;
     font-family: Merienda;
 }
 
 #location-desc {
     font-family: Montserrat;
-    font-weight: 100;
+    font-weight: 400;
+    color: #000;
 }
+
 a.click-link {
-    color: aqua;
+    color: rgb(10, 10, 200);
 }
-a.click-link:hover {
-    color: #fff;
-    text-shadow: 2px 2px 4px #cad4da;
-}
+
+    a.click-link:hover {
+        color: #337ab7;
+        /*color: rgb(10, 10, 125);*/
+        text-shadow: 2px 2px 4px #cad4da;
+    }
 
 
 /*Scrollbar styling*/
@@ -285,8 +343,11 @@ a.click-link:hover {
 /*Detail page style*/
 div.image-details-container {
     font-family: Montserrat;
-    color: white;
+    color: black;
     display: grid;
+    background-color: rgba(255, 255, 255, .75);
+    margin: 0 15px 0 15px;
+    padding: 15px;
 }
 
 div.image-details-container h2 {
@@ -304,10 +365,10 @@ div.image-details-container i {
 
 .directions-button {
     display: inline-block;
-    color: white;
+    color: black;
     padding: 10px;
     border-style: solid;
-    border-color: white;
+    border-color: black;
     border-width: 1px;
 }
 
@@ -317,15 +378,6 @@ div.image-details-container i {
 
 .details {
     grid-area: details;
-}
-
-.directions-button {
-    display: inline-block;
-    color: white;
-    padding: 10px;
-    border-style: solid;
-    border-color: white;
-    border-width: 1px;
 }
 
 /*Category Search Styles*/
@@ -338,34 +390,76 @@ div.image-details-container i {
     position: relative;
     width: 100%;
 }
+
 .location-info {
     grid-area: location-info;
     color: #fff;
 }
 
+#activities :hover {
+    color: blue;
+    text-shadow: 2px 2px 4px darkgray;
+}
+
+#masks :hover {
+    color: purple;
+    text-shadow: 2px 2px 4px darkgray;
+}
+
+#beer :hover {
+    color: yellow;
+    text-shadow: 2px 2px 4px darkgray;
+}
+
+#monument :hover {
+    color: gray;
+    text-shadow: 2px 2px 4px darkgray;
+}
+
+#tree :hover {
+    color: darkgreen;
+    text-shadow: 2px 2px 4px darkgray;
+}
+
+#utensils :hover {
+    color: silver;
+    text-shadow: 2px 2px 4px black;
+}
+
+#bag :hover {
+    color: deeppink;
+    text-shadow: 2px 2px 4px darkgray;
+}
+
+#ball :hover {
+    color: orange;
+    text-shadow: 2px 2px 4px darkgray;
+}
 
 
 /*Media queries*/
 @media only screen and (min-width: 768px) {
     div .home-wrapper {
         grid-template-columns: 1fr 1fr;
-
         grid-gap: 15px;
-
-        grid-template-areas:
-            'map info';
+        grid-template-areas: 'map info';
     }
+
     div.image-details-container {
         grid-template-columns: 1fr 1fr;
         grid-gap: 20px;
-        grid-template-areas:
-            'image details';
+        grid-template-areas: 'image details';
     }
+
     div.category-container {
         grid-template-columns: 1fr 1fr;
         grid-gap: 20px;
+        grid-template-areas: 'category-image location-info';
+    }
+    div.directions-container {
+        grid-template-columns: auto auto;
         grid-template-areas:
-            'category-image location-info';
+            'map route';
     }
 }
 
@@ -378,3 +472,9 @@ li input#logout {
     font-size: 14px;
 }
 
+.bottom-fixed {
+    position: fixed;
+    bottom: 0px;
+    z-index: -1;
+    width: 100%;
+}

@@ -20,8 +20,8 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     </environment>
 </head>
-<body>
-    <nav class="navbar navbar-inverse">
+<body id="body2">
+    <nav class="navbar navbar-inverse" id="navbar2">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -37,40 +37,15 @@
             </div>
         </div>
     </nav>
-    <nav class="navbar search-bar">
-        <div class="search-grid">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle Navigation</span>
-            </button>
-            <label class="category-label">Category Search:</label>
-            <a asp-controller="search" asp-action="category" asp-route-cat="activities" title="Activities" id="activities"><i class="fas fa-swimmer"></i></a>
-            <a asp-controller="search" asp-action="category" asp-route-cat="artsculture" title="Arts & Culture" id="masks"><i class="fas fa-theater-masks"></i></a>
-            <a asp-controller="search" asp-action="category" asp-route-cat="bars" title="Bars" id="beer"><i class="fas fa-beer"></i></a>
-            <a asp-controller="search" asp-action="category" asp-route-cat="historical" title="Historical" id="monument"><i class="fas fa-monument"></i></a>
-            <a asp-controller="search" asp-action="category" asp-route-cat="parks" title="Parks" id="tree"><i class="fas fa-tree"></i></a>
-            <a asp-controller="search" asp-action="category" asp-route-cat="restaurants" title="Restaurants" id="utensils"><i class="fas fa-utensils"></i></a>
-            <a asp-controller="search" asp-action="category" asp-route-cat="shopping" title="Shopping" id="bag"><i class="fas fa-shopping-bag"></i></a>
-            <a asp-controller="search" asp-action="category" asp-route-cat="sports" title="Sports" id="ball"><i class="fas fa-football-ball"></i></a>
-            <form name="search" class="search-form">
-                <label>Keyword Search:</label>
-                <input id="search-terms" type="text" name="name" value="" />
-                <button id="search">Search</button>
-            </form>
-        </div>
-    </nav>
 
     <partial name="_CookieConsentPartial" />
-    @await Component.InvokeAsync("GreetingForVisitor", new { User })
+   
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
             <p id="white-font">&copy; 2018 - Walk CLE</p>
         </footer>
-    </div>
-
-    <div>
-        <img src="~/images/colorful-cle.jpg" class="bottom-fixed" />
     </div>
 
     <environment include="Development">
