@@ -73,6 +73,7 @@ a {
     background-color: #0e3a6a;
     border-color: #0e3a6a;
     margin-bottom: 0;
+    color: #fff;
 }
 
 .navbar-header {
@@ -379,6 +380,7 @@ div.image-details-container i {
     border-style: solid;
     border-color: black;
     border-width: 1px;
+    margin-top: 10px;
 }
 
 .detail-image {
@@ -387,6 +389,10 @@ div.image-details-container i {
 
 .details {
     grid-area: details;
+}
+
+.detail-cats {
+    display: inline;
 }
 
 /*Category Search Styles*/
@@ -445,21 +451,45 @@ div.image-details-container i {
     text-shadow: 2px 2px 4px darkgray;
 }
 
-li input#logout {
-    padding: 15px;
-    border-style: none;
-    border-width: 0px;
-    background-color: rgb(12, 12, 62);
-    color: white;
-    font-size: 14px;
-}
-
 .bottom-fixed {
     position: fixed;
     bottom: 0px;
     z-index: -1;
     width: 100%;
 }
+
+/*Logged in partial View*/
+.loggedin-greeting {
+    color: white;
+    margin: 15px 0 0 0;
+}
+
+li input#logout {
+    padding: 15px;
+    border: none;
+    background-color: #0E3A6A;
+    color: white;
+    font-size: 14px;
+    display: inline;
+}
+
+    li input#logout:hover {
+        color: #9d9d9d
+    }
+
+#profile-button {
+    color: white;
+}
+
+    #profile-button:hover {
+        color: #9d9d9d;
+    }
+
+/*Profile View*/
+.profile {
+    background-color: rgba(255, 255, 255, .75);
+}
+
 
 /*Media queries*/
 @media only screen and (min-width: 769px) {
