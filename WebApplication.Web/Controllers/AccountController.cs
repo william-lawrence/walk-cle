@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using WebApplication.Web.DAL;
 using WebApplication.Web.Models;
 using WebApplication.Web.Models.Account;
@@ -9,12 +10,14 @@ namespace WebApplication.Web.Controllers
     public class AccountController : Controller
     {
         private readonly IAuthProvider authProvider;
-        private readonly IUserDAL dal;
+        private readonly IUserDAL userDal;
+        private readonly ICheckinSqlDAL checkinDal;
 
-        public AccountController(IAuthProvider authProvider, IUserDAL dal)
+        public AccountController(IAuthProvider authProvider, IUserDAL userDal, ICheckinSqlDAL checkinDal)
         {
             this.authProvider = authProvider;
-            this.dal = dal;
+            this.userDal = userDal;
+            this.checkinDal = checkinDal;
         }
 
         /// <summary>
@@ -93,7 +96,7 @@ namespace WebApplication.Web.Controllers
             if (ModelState.IsValid)
             {
                 // Check to see if username is available
-                if (dal.GetUser(registerViewModel.Username) == null)
+                if (userDal.GetUser(registerViewModel.Username) == null)
                 {
 
                     // Register them as a new user (and set default role)
@@ -136,9 +139,9 @@ namespace WebApplication.Web.Controllers
         [HttpGet]
         public JsonResult GetCheckins(int id)
         {
-            Ilist<>
+            IList<Checkin> checkins = new List<Checkin>();
 
-            return Json();
+            return Json(checkins);
         }
     }
 }
