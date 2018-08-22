@@ -13,16 +13,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.querySelector('button#search').addEventListener('click', (event) => {
-        event.preventDefault();
-        keywords = document.getElementById('search-terms').value;
+        //event.preventDefault();
+        const keywords = document.getElementById('search-terms').value;
+        const redirectUrl = '@Url.Action("home","index",)';
+         
+        window.location.href = redirectUrl;
+        
+        
 
-        locations = KeywordSearch(keywords);
-        console.log(locations);
-        //window.location.replace("https://localhost:44392/");
+        //locations = KeywordSearch(keywords);
+        //console.log(locations);
+        ////window.location.replace("https://localhost:44392/");
 
-        clearMarkers();
+        //clearMarkers();
 
-        addSearchResultsToPage();
+        //addSearchResultsToPage();
     });
 });
 
@@ -72,7 +77,6 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     });
 }
 function getLocation() {
-    indexOrDetail = document.querySelector('div.home-wrapper')
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(getDirections);
     } else {
