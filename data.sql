@@ -408,11 +408,32 @@ VALUES (48, 'historical');
 INSERT INTO locations_categories (location_id, category)
 VALUES (48, 'artsculture');
 
+INSERT INTO locations_categories (location_id, category)
+VALUES (49, 'photoops');
+
+INSERT INTO locations_categories (location_id, category)
+VALUES (50, 'photoops');
+
+INSERT INTO locations_categories (location_id, category)
+VALUES (51, 'photoops');
+
+INSERT INTO locations_categories (location_id, category)
+VALUES (52, 'photoops');
+
+INSERT INTO locations_categories (location_id, category)
+VALUES (53, 'activities');
+
+INSERT INTO locations_categories (location_id, category)
+VALUES (54, 'historical');
+
 -- Test users
 SET IDENTITY_INSERT users ON;
 
 INSERT INTO users (id, username, password, salt, role, visitor, email, avatar)
 VALUES (1, 'BillyShakes', 'drrJ56U5ROBC5qS5THxV3LdEPjY=', 'dWcJOOdOTb0=', 'Role', 0, 'william.lawrence.75@gmail.com', 123);
+
+INSERT INTO users (id, username, password, salt, role, visitor, email, avatar)
+VALUES (2, 'kbrucker', 'IO9rCqbPvw/fDwXH8bIpAhxHxfc=', '7KZ9X4Bhhss=', 'Role', 0, 'kelly@techelevator.com', 234);
 
 SET IDENTITY_INSERT users OFF;
 
