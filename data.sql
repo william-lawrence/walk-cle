@@ -20,7 +20,7 @@ INSERT INTO locations (id, name, streetAddy, city, state, zip, latitude, longitu
 VALUES (6, 'Barrio', '503 Prospect Ave.', 'Cleveland', 'OH', '44114', 41.4986165, -81.6914944, 'barrio', 'Want a custom designed taco with all your favorite fixings? At Barrio, YOU get to select as many or as few items you''d like to have on your taco, bowl, or guac. The atmosphere is casual with a unique energy that''s created from the combination of our decor, music, and staff. We''re also known for our vast selection of tequila, whiskey, and beer.');
 
 INSERT INTO locations (id, name, streetAddy, city, state, zip, latitude, longitude, photo, description)
-VALUES (7, 'Mabel''s', '2050 E 4th St.', 'Cleveland', 'OH', '44115', 41.4989235,-81.6924205, 'mabels', 'Chef Michael Symon''s Mabel''s BBQ is a Cleveland-style barbecue restaurant located in the heart of downtown Cleveland. By incorporating Bertman’s Ballpark Mustard into the barbecue sauce, using Eastern European spices and smoking meat over local fruitwood, Symon has created a barbecue style Clevelanders can call their own. The space’s arched ceilings, industrial lighting and exposed brick are reminiscent of Cleveland landmark West Side Market, evoking the feeling of a rustic smokehouse with a laid back vibe. Friends can kick back at a communal picnic tables and feast on brisket, kielbasa and Cleveland kraut and pickles, pork ribs and loads of pig parts with eastern European inspired seasonal sides.');
+VALUES (7, 'Mabel''s', '2050 E 4th St.', 'Cleveland', 'OH', '44115', 41.4989235,-81.690232, 'mabels', 'Chef Michael Symon''s Mabel''s BBQ is a Cleveland-style barbecue restaurant located in the heart of downtown Cleveland. By incorporating Bertman’s Ballpark Mustard into the barbecue sauce, using Eastern European spices and smoking meat over local fruitwood, Symon has created a barbecue style Clevelanders can call their own. The space’s arched ceilings, industrial lighting and exposed brick are reminiscent of Cleveland landmark West Side Market, evoking the feeling of a rustic smokehouse with a laid back vibe. Friends can kick back at a communal picnic tables and feast on brisket, kielbasa and Cleveland kraut and pickles, pork ribs and loads of pig parts with eastern European inspired seasonal sides.');
 
 INSERT INTO locations (id, name, streetAddy, city, state, zip, latitude, longitude, photo, description)
 VALUES (8, 'Hilarities', '2035 E 4th St', 'Cleveland', 'OH', '44115', 41.4989235,-81.6924205, 'hilarities', 'Hilarities 4th Street Theatre is one of the largest made-for-comedy venues in the country, presenting the best in national stand-up comedy. Hilarities features a tiered showroom that accommodates 400 guests including a mezzanine balcony with 8 individual skyboxes seating between 8 to 12 guests each. The showroom features comfortable custom-made seating. Preferred seating is available for advance ticket purchases.');
@@ -144,6 +144,24 @@ VALUES (47, 'The Cleveland Flea', '3615 Superior Ave', 'Cleveland', 'OH', '44114
 
 INSERT INTO locations (id, name, streetAddy, city, state, zip, latitude, longitude, photo, description)
 VALUES (48, 'Cleveland Public Library', '325 Superior Ave', 'Cleveland', 'OH', '44114', 41.501174, -81.691775, 'cpl', 'The Main Library in downtown Cleveland consists of the historic Main Library Building built in 1925 and renovated in 1999; the Louis Stokes Wing completed in 1997; and the Eastman Reading Garden located between the two buildings. The two buildings and the garden take up an entire city block on Superior Avenue between East 3rd Street and East 6th Street. The Main Library’s Subject Departments are divided between the two buildings.');
+
+INSERT INTO locations (id, name, streetAddy, city, state, zip, latitude, longitude, photo, description)
+VALUES (49, 'Cleveland Script Sign', 'E 9th Street Pier', 'Cleveland', 'OH', '44114', 41.5100927, -81.6973283, 'signE9', 'You may have seen these in your friends'' or family''s Instagram pics, or even on national TV. The Cleveland script signs were installed just before the Republican National Convention and now serve as a permanent tribute to the city. Destination Cleveland originally installed three Cleveland script signs in picturesque locations with the intention that both locals and visitors would seek them out for signature photos they might share with friends and family on social media.');
+
+INSERT INTO locations (id, name, streetAddy, city, state, zip, latitude, longitude, photo, description)
+VALUES (50, 'Cleveland Script Sign', '1502 Abbey Ave', 'Cleveland', 'OH', '44113', 41.4846756, -81.6950563, 'signtre', 'You may have seen these in your friends'' or family''s Instagram pics, or even on national TV. The Cleveland script signs were installed just before the Republican National Convention and now serve as a permanent tribute to the city. Destination Cleveland originally installed three Cleveland script signs in picturesque locations with the intention that both locals and visitors would seek them out for signature photos they might share with friends and family on social media.');
+
+INSERT INTO locations (id, name, streetAddy, city, state, zip, latitude, longitude, photo, description)
+VALUES (51, 'Cleveland Script Sign', 'Upper Edgewater Dr', 'Cleveland', 'OH', '44102', 41.4878889, -81.7434224, 'signedge', 'You may have seen these in your friends'' or family''s Instagram pics, or even on national TV. The Cleveland script signs were installed just before the Republican National Convention and now serve as a permanent tribute to the city. Destination Cleveland originally installed three Cleveland script signs in picturesque locations with the intention that both locals and visitors would seek them out for signature photos they might share with friends and family on social media.');
+
+INSERT INTO locations (id, name, streetAddy, city, state, zip, latitude, longitude, photo, description)
+VALUES (52, 'Cleveland Script Sign', '1831 Columbus Rd', 'Cleveland', 'OH', '44113', 41.4895647, -81.702519, 'signfoundry', 'You may have seen these in your friends'' or family''s Instagram pics, or even on national TV. The Cleveland script signs were installed just before the Republican National Convention and now serve as a permanent tribute to the city. Destination Cleveland originally installed three Cleveland script signs in picturesque locations with the intention that both locals and visitors would seek them out for signature photos they might share with friends and family on social media.');
+
+INSERT INTO locations (id, name, streetAddy, city, state, zip, latitude, longitude, photo, description)
+VALUES (53, 'Inner Bliss Yoga Studio', '1224 Huron Road E', 'Cleveland', 'OH', '44115', 41.500084, -81.682665, 'bliss', 'As you walk into the blissful sanctuary of Inner Bliss Yoga Studio, you will feel a warmth hug you. Delight in the present as you find your breath and journey toward self-discovery through the practices of yoga. Our kind, welcoming teachers create an environment of acceptance, a vibe of joy and lots of fun! We encourage laughter and humility is celebrated!');
+
+INSERT INTO locations (id, name, streetAddy, city, state, zip, latitude, longitude, photo, description)
+VALUES (54, 'Tech Elevator', '7100 Euclid Ave #140', 'Cleveland', 'OH', '44103', 41.503641, -81.639041, 'tekids', 'Where all the mathmagic and squirrel cigar parties happen. Long live the party parrot.');
 
 SET IDENTITY_INSERT locations OFF;
 
@@ -402,6 +420,13 @@ SET IDENTITY_INSERT users OFF;
 INSERT INTO check_ins(user_id, location_id, date)
 VALUES (1, 31, GETDATE());
 
+--Test badges
+SET IDENTITY_INSERT badges ON;
+
+INSERT INTO badges (id, name, description)
+VALUES (1, 'Team Player', 'You root for the home team every time! Earned by checking in at First Energy Stadium, Progressive Field, and Quicken Loans Arena.');
+
+SET IDENTITY_INSERT badges OFF;
 
 COMMIT TRANSACTION;
 
