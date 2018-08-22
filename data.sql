@@ -131,7 +131,7 @@ INSERT INTO locations (id, name, streetAddy, city, state, zip, latitude, longitu
 VALUES (43, 'Mitchell''s Homemade Ice Cream', '1867 W 25th St', 'Cleveland', 'OH', '44113', 41.4858906, -81.7043063, 'mitchells', 'Each batch is hand-crafted in our Ohio City Kitchen (watch us anytime). Ingredients that grow well in our Ohio climate we get from friends around here. Ingredients that grow best in different climates we get from the world''s best producers. We do a lot of searching, and we''ll never be done.');
 
 INSERT INTO locations (id, name, streetAddy, city, state, zip, latitude, longitude, photo, description)
-VALUES (44, 'Westside Market', '1979 W 25th St', 'Cleveland', 'OH', '44113', 41.4846863, -81.7030619, 'wsmarket', 'The West Side Market is the oldest indoor/outdoor market space in Cleveland, Ohio. This landmark features over 100 vendors and is located in the Ohio City neighborhood.');
+VALUES (44, 'West Side Market', '1979 W 25th St', 'Cleveland', 'OH', '44113', 41.4846863, -81.7030619, 'wsmarket', 'The West Side Market is the oldest indoor/outdoor market space in Cleveland, Ohio. This landmark features over 100 vendors and is located in the Ohio City neighborhood.');
 
 INSERT INTO locations (id, name, streetAddy, city, state, zip, latitude, longitude, photo, description)
 VALUES (45, 'Climb Cleveland', '2190 Professor St', 'Cleveland', 'OH', '44113', 41.48198, -81.687347, 'clerockgym', 'Climb Cleveland is here for non-climbers to try something new, for very experienced climbers to build their bodies and skills, and for climbers of all levels in between. We are all climbers, but some are just taking a break from it. We all grew up climbing something, even if it was over the railing of a crib or a tree in our grandparent’s back yard.');
@@ -444,8 +444,55 @@ VALUES (1, 31, GETDATE());
 --Test badges
 SET IDENTITY_INSERT badges ON;
 
-INSERT INTO badges (id, name, description)
-VALUES (1, 'Team Player', 'You root for the home team every time! Earned by checking in at First Energy Stadium, Progressive Field, and Quicken Loans Arena.');
+INSERT INTO badges (id, name, description, criteria)
+VALUES (1, 'Team Player', 'You root for the home team every time!', 'Earned by checking in at First Energy Stadium, Progressive Field, and Quicken Loans Arena.');
+
+INSERT INTO badges (id, name, description, criteria)
+VALUES (2, 'Namaste', 'You''re all about inner peace.', 'Earned by checking in at Inner Bliss Yoga Studio.');
+
+INSERT INTO badges (id, name, description, criteria)
+VALUES (3, 'Oh, Fudge!', 'Only you didn''t say fudge.', 'Earned by checking in at A Christmas Story House.');
+
+INSERT INTO badges (id, name, description, criteria)
+VALUES (4, 'Spook-Seeker', 'Keep your eyes out for the Haserot Angel.', 'Earned by checking in at Lake View Cemetary.');
+
+INSERT INTO badges (id, name, description, criteria)
+VALUES (5, 'CLE-gram', 'Instagram that ASAP. You''re snapping amazing shots of Cleveland''s skyline.', 'Earned by checking in at all four Cleveland Script Signs.');
+
+INSERT INTO badges (id, name, description, criteria)
+VALUES (6, 'Treehugger', 'Whether you''re more a Ron Swanson or a Leslie Knope, you love CLE parks.', 'Earned by checking in at Cleveland Metroparks Zoo, Edgewater Park, Public Square, and Voinovich Park.');
+
+INSERT INTO badges (id, name, description, criteria)
+VALUES (7, 'Barhopper', 'Your world looks better with beer goggles on.', 'Earned by checking in at 5 or more bars.');
+
+INSERT INTO badges (id, name, description, criteria)
+VALUES (8, 'Patron of the Arts', 'Celebrate the finer things in life, like abstract expressionism, surrealism, and statues of naked ladies.', 'Earned by checking in to the Museum of Art, Museum of Natural History, Severance Hall, and Western Reserve Historical Society.');
+
+INSERT INTO badges (id, name, description, criteria)
+VALUES (9, 'Swimmin'' with the Fishes', 'No, you didn''t anger a mob boss, you just wanted to see sharks.', 'Earned by checking in at the Greater Cleveland Aquarium.');
+
+INSERT INTO badges (id, name, description, criteria)
+VALUES (10, 'Fitness Fanatic', 'You''re into working out. The only thing you love more than working out is letting everyone know you work out.', 'Earned by checking in to Climb Cleveland, Great Lakes Watersports, and Inner Bliss Yoga Studio.');
+
+INSERT INTO badges (id, name, description, criteria)
+VALUES (11, 'Elevated', 'Debugging is like being the detective in a crime movie where you''re also the murderer.', 'Earned by checking in to Tech Elevator.');
+
+INSERT INTO badges (id, name, description, criteria)
+VALUES (12, 'Shopaholic', 'Now that you''ve visited all these cool places in Cleveland, don''t you want to have some proof?', 'Earned by checking in at The Arcade, CLE Clothing Co., Cleveland Flea, Tower City Center, and West Side Market.');
+
+INSERT INTO badges (id, name, description, criteria)
+VALUES (13, 'Cleveland Rocks!', 'Set a couch on fire, throw a TV out a window, and demand a bowl of M&Ms with no Brown M&Ms. You''re a rockstar now!', 'Earned by checking in at the Rock & Roll Hall of Fame.');
+
+INSERT INTO badges (id, name, description, criteria)
+VALUES (14, 'CLE Newbie', 'Welcome to the ''Land!', 'Earned by checking in at any location for the first time.');
+
+INSERT INTO badges (id, name, description, criteria)
+VALUES (15, 'Defender of the ''Land', 'You must live here because you''ve checked in to ALL locations.  YOU ROCK!', 'Earned by checking in to all locations.');
+
+INSERT INTO badges (id, name, description, criteria)
+VALUES (16, 'Stuck in a Rut', 'Didn''t you know that variety is the spice of life?', 'Earned by checking into the same location more than 5 times.');
+
+INSERT INTO badges (id, 
 
 SET IDENTITY_INSERT badges OFF;
 
