@@ -137,11 +137,15 @@ namespace WebApplication.Web.Controllers
         }
 
         [HttpGet]
-        public JsonResult GetCheckins(int userId)
+        [AuthorizationFilter]
+        public JsonResult GetCheckins()
         {
             IList<Checkin> checkins = new List<Checkin>();
+            User currentUser = new User();
 
-            checkins = checkinDal.GetUserCheckins(userId);
+            currentUser = authProvider.GetCurrentUser();
+
+            checkins = checkinDal.GetUserCheckins(currentUser.Id);
 
             return Json(checkins);
         }
