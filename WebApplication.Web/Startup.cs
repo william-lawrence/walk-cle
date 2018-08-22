@@ -52,6 +52,7 @@ namespace WebApplication.Web
             services.AddTransient<ILocationDAL>(m => new LocationSqlDAL(connectionString));
 			services.AddTransient<ICategorySqlDAL>(m => new CategorySqlDAL(connectionString));
             services.AddTransient<ICheckinSqlDAL>(m => new CheckinSqlDAL(connectionString));
+            services.AddTransient<IBadgeSqlDAL>(m => new BadgeSqlDAL(connectionString));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

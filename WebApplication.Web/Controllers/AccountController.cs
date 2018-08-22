@@ -12,12 +12,21 @@ namespace WebApplication.Web.Controllers
         private readonly IAuthProvider authProvider;
         private readonly IUserDAL userDal;
         private readonly ICheckinSqlDAL checkinDal;
+        private readonly IBadgeSqlDAL badgeDal;
 
-        public AccountController(IAuthProvider authProvider, IUserDAL userDal, ICheckinSqlDAL checkinDal)
+        /// <summary>
+        /// Constructor that injects all the dependencies for the account controller.
+        /// </summary>
+        /// <param name="authProvider"></param>
+        /// <param name="userDal"></param>
+        /// <param name="checkinDal"></param>
+        /// <param name="badgeDal"></param>
+        public AccountController(IAuthProvider authProvider, IUserDAL userDal, ICheckinSqlDAL checkinDal, IBadgeSqlDAL badgeDal)
         {
             this.authProvider = authProvider;
             this.userDal = userDal;
             this.checkinDal = checkinDal;
+            this.badgeDal = badgeDal;
         }
 
         /// <summary>
@@ -136,14 +145,56 @@ namespace WebApplication.Web.Controllers
             return View(user);
         }
 
+        /// <summary>
+        /// Gets all the check in data for the user that is currently signed in.
+        /// </summary>
+        /// <returns>JSON that represents the list of check-in objects</returns>
         [HttpGet]
-        public JsonResult GetCheckins(int userId)
+        [AuthorizationFilter]
+        public JsonResult GetCheckins()
         {
             IList<Checkin> checkins = new List<Checkin>();
+            User currentUser = new User();
 
-            checkins = checkinDal.GetUserCheckins(userId);
+            currentUser = authProvider.GetCurrentUser();
+
+            // If no user is logged in, They get an empty JSON result.
+            // They shouldn't be able to get to this point without logging in.
+            // Better safe than sorry.
+            if (currentUser == null)
+            {
+                return Json(checkins);
+            }
+
+            checkins = checkinDal.GetUserCheckins(currentUser.Id);
 
             return Json(checkins);
+        }
+
+        /// <summary>
+        /// Gets all the badges for the user that is currently checked in.
+        /// </summary>
+        /// <returns>JSON that represents the list of badge objects.</returns>
+        [HttpGet]
+        [AuthorizationFilter]
+        public JsonResult GetBadges()
+        {
+            IList<Badge> badges = new List<Badge>();
+            User currentUser = new User();
+
+            currentUser = authProvider.GetCurrentUser();
+
+            // If no user is logged in, They get an empty JSON result.
+            // They shouldn't be able to get to this point without logging in.
+            // Better safe than sorry.
+            if (currentUser == null)
+            {
+                return Json(badges);
+            }
+
+            badges = badgeDal.GetUserBadges(currentUser.Id);
+
+            return Json(badges);
         }
     }
 }

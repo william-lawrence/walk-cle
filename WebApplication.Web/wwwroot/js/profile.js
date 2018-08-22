@@ -11,18 +11,18 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM Loaded');
 
     // Once the DOM is fully loaded, get the check-ins for a user.
-    let userId = 1;
-    getUserCheckIns(userId);
+    getUserCheckIns();
 });
 
 /**
  * Gets all the check-ins that a user has performed.
  * @param {number} userId The number that represents the Id of the user.
  */
-function getUserCheckIns(userId) {
-    const url = `https://localhost:44392/account/getcheckins?userid=${userId}`
+function getUserCheckIns() {
+    const url = `https://localhost:44392/account/getcheckins`
     const settings = {
-        method: 'GET'
+        method: 'GET',
+        credentials: 'include'
     };
 
     fetch(url, settings)
@@ -47,6 +47,7 @@ function addCheckInsToPage(checkIns) {
         // Add all information that is received from the API to an element
         newCheckInDiv.querySelector('span.date-earned').innerText = checkIns[i].date.substring(0, 10);
         newCheckInDiv.querySelector('a.location-name').innerText = checkIns[i].locationName;
+        newCheckInDiv.querySelector('a').setAttribute("href", `https://localhost:44392/location/detail/${checkIns[i].locationData.id}`);
 
         // Add the new element to the page
         document.querySelector('div.check-in').insertAdjacentElement('beforeend', newCheckInDiv);

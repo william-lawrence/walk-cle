@@ -4,26 +4,28 @@
 }
 
 <body class="profile">
-    <h2>Profile</h2>
+    <h2 class="profile-header">Profile</h2>
 
     <!--This is the area that will display the user information-->
     <div class="profile">
-        <h2>Hello, (@Model.Username)!</h2>
-        <p>
+        <h2 class="profile-greeting">Hello, @Model.Username!</h2>
+        <p class="profile-info">
             Hello and welcome to your profile! Here you can see all the locations that you have checked in, as well as the badges that you have earned!
 
-            If you need to, you can change your password here as well.
+            @*If you need to, you can change your password here as well.*@
         </p>
     </div>
 
-    <div>
+    <div class="profile-container">
         <!--This is where the user's check-in history is displayed.-->
         <div class="check-in">
+            <h2 class="profile-header">Your Check-Ins!</h2>
 
         </div>
 
         <!--This is where the users Awards are displayed.-->
         <div class="badges">
+            <h2 class="profile-header">Your Badges!</h2>
 
         </div>
 
