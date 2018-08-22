@@ -1,5 +1,4 @@
 ﻿body {
-    /*background-color: rgb(12, 12, 62);*/
     font-family: Montserrat;
     font-weight: bold;
     color: black;
@@ -21,9 +20,10 @@ a {
 
 /*for map container*/
 #map {
-    height: 85%;
+    height: 100%;
     width: 100%;
 }
+
 /* for div that map sits within*/
 .nearby-map {
     height: 100%;
@@ -33,11 +33,12 @@ a {
 }
 
 .directions-container {
-    padding: 25px 0 0 0;
+    padding: 25px 0 0 60px;
     height: 100%;
     width: 100%;
     display: grid;
     justify-items: center;
+    grid-gap: 10px;
 }
 
 .latent {
@@ -48,14 +49,16 @@ a {
     height: 100%;
     width: 100%;
     grid-area: directions-map;
+    border: 2px solid #0e3a6a;
 }
 
 .directions-route {
     background-color: white;
-    height: 300px;
-    width: 400px;
+    height: 100%;
+    width: 100%;
     overflow: scroll;
     grid-area: route;
+    border: 2px solid #0e3a6a;
 }
 
 /*Banner*/
@@ -90,6 +93,10 @@ a {
     width: 100%;
 }
 
+#search-terms {
+    background-color: lightgrey;
+}
+
 .search-bar {
     background-color: #fff;
     flex-grow: 1;
@@ -121,6 +128,21 @@ a {
 }
 #cle-welcome {
     margin-left: 35px;
+}
+
+.profile .search-form {
+    display: none;
+}
+
+.detail .search-form {
+    display: none;
+}
+
+#view-badges {
+    font-size: 15px;
+    text-align: right;
+    flex-grow: 10;
+    color: #E95537;
 }
 
 /*Radio Buttons*/
@@ -567,6 +589,17 @@ li input#logout {
     grid-area: badges;
 }
 
+/*All Badges Styling*/
+.all-badges {
+    background-color: rgba(255, 255, 255, .75);
+}
+
+.all-badges hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-color: lightgray;
+}
+
 
 /*Media queries*/
 @media only screen and (min-width: 769px) {
@@ -589,12 +622,12 @@ li input#logout {
 
     div.category-container {
         grid-template-columns: 1fr 1fr;
-        /*grid-gap: 20px;*/
         grid-template-areas: 'category-image location-info';
     }
 
     div.directions-container {
-        grid-template-columns: 500px auto;
+        grid-template-columns: 500px 500px;
+        grid-template-rows: 500px auto;
         grid-template-areas: 'directions-map route';
     }
 
