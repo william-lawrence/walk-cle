@@ -23,6 +23,11 @@ namespace WebApplication.Web.Models
         public string BadgeDescription { get; set; }
 
         /// <summary>
+        /// The criteria that is needed to earn a particular badge.
+        /// </summary>
+        public string BadgeCriteria { get; set; }
+
+        /// <summary>
         /// The location of the image file for the badge.
         /// </summary>
         public string Image { get; set; }

@@ -9,5 +9,7 @@ namespace WebApplication.Web.DAL
     public interface IBadgeSqlDAL
     {
         IList<Badge> GetUserBadges(int userId);
+
+        void GiveUserBadges(int userId);
     }
 }
