@@ -25,10 +25,26 @@ namespace WebApplication.Web.DAL
         {
             List<Location> locations = GetAllLocations();
 
-
             // The key represents a location, and the value is the number of times that a user has visited a location.
             Dictionary<int, int> checkInCount = GetVisitCount(userId, locations);
 
+            if(TeamPlayer(checkInCount))
+            {
+                //AddBadgeToUser_Badges(int userId, int badgeId)
+            }
+
+        }
+
+        private bool TeamPlayer(Dictionary<int,int> checkInCount)
+        {
+            if(checkInCount[25] > 1 && checkInCount[1] > 1 && checkInCount[2] > 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         /// <summary>
