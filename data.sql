@@ -400,7 +400,7 @@ SET IDENTITY_INSERT users OFF;
 
 -- Test check-ins
 INSERT INTO check_ins(user_id, location_id, date)
-VALUES (1, 31, 08/21/2018);
+VALUES (1, 31, GETDATE());
 
 
 COMMIT TRANSACTION;
