@@ -294,7 +294,7 @@ input, select, textarea {
 .home-wrapper {
     display: grid;
     background-color: rgba(255, 255, 255, 0.75);
-    padding-top: 30px;
+    padding-top: 15px;
 }
 
 .location-name {
@@ -410,6 +410,20 @@ div.image-details-container i {
     display: inline;
 }
 
+.name-container {
+    display: grid;
+    align-items: flex-end;
+}
+
+.detail-name {
+    grid-area: detail-name;
+}
+
+.detail-checkin {
+    grid-area: detail-checkin;
+    padding: 0 0 10px 0;
+}
+
 /*Category Search Styles*/
 .category-container {
     display: grid;
@@ -466,11 +480,25 @@ div.image-details-container i {
     text-shadow: 2px 2px 4px darkgray;
 }
 
+#photos :hover {
+    color: darkturquoise;
+    text-shadow: 2px 2px 4px darkgray;
+}
+
 .bottom-fixed {
     position: fixed;
     bottom: 0px;
     z-index: -1;
     width: 100%;
+}
+
+.category-location-name {
+    grid-area: info;
+    height: 400px;
+    overflow: scroll;
+    background: transparent;
+    padding: 15px;
+    /*margin-top: 35px;*/
 }
 
 /*Logged in partial View*/
@@ -501,7 +529,7 @@ li input#logout {
     }
 
 #check {
-    color: lawngreen;
+    color: green;
     font-size: 25px;
 }
 
@@ -554,6 +582,11 @@ li input#logout {
         grid-template-areas: 'image details';
     }
 
+    div.name-container {
+        grid-template-columns: 250px auto;
+        grid-template-areas: 'detail-name detail-checkin';
+    }
+
     div.category-container {
         grid-template-columns: 1fr 1fr;
         /*grid-gap: 20px;*/
@@ -584,6 +617,11 @@ li input#logout {
         grid-template-areas: 'image' 'details';
     }
 
+    div.name-container {
+        grid-template-columns: 100px auto;
+        grid-template-areas: 'detail-name detail-checkin';
+    }
+
     div.directions-container {
         grid-template-rows: 400px auto;
         grid-template-areas: 'directions-map' 'route';
@@ -607,6 +645,11 @@ li input#logout {
         grid-template-rows: auto auto;
         grid-gap: 20px;
         grid-template-areas: 'image' 'details';
+    }
+
+    div.name-container {
+        grid-template-columns: 100px auto;
+        grid-template-areas: 'detail-name detail-checkin';
     }
 
     div.directions-container {

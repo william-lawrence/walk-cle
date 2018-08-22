@@ -66,13 +66,15 @@ namespace WebApplication.Web.Controllers
         /// </summary>
         /// <param name="location">The location to get the details for.</param>
         /// <returns></returns>
-        public IActionResult Detail(int id)
+        public IActionResult Detail(int id, double distanceFromUser)
         {
 			Location location = dal.GetLocationById(id);
 
 			location.Categories = categoryDal.GetCategoriesForLocation(id);
-			
-            return View(location);
+
+			location.DistanceFromUser = distanceFromUser;
+
+			return View(location);
         }
 
 		public IActionResult Checkin(int id)
