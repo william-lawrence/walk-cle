@@ -136,6 +136,10 @@ namespace WebApplication.Web.Controllers
             return View(user);
         }
 
+        /// <summary>
+        /// Gets all the check in data for the user that iis currently signed in.
+        /// </summary>
+        /// <returns>JSON that represents the check-in object</returns>
         [HttpGet]
         [AuthorizationFilter]
         public JsonResult GetCheckins()
