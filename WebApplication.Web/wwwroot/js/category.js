@@ -126,7 +126,6 @@ async function setCategoryMarkers(locations) {
             const button = newLocationDiv.querySelector('button#check-in-button');
             button.classList.remove('hidden');
             newLocationDiv.querySelector('input').setAttribute("value", `${locationArray[i].id}`);
-            
         }
 
         document.querySelector('div.category-location-name').insertAdjacentElement('beforeend', newLocationDiv);
