@@ -46,7 +46,7 @@ function addCheckInsToPage(checkIns) {
 
         const newCheckInDiv = getElementFromTemplate('check-in');
 
-        // Add all information that is received from the API to an element
+        // Add all information that is received from the check in API to an element
         newCheckInDiv.querySelector('span.date-earned').innerText = checkIns[i].date.substring(0, 10);
         newCheckInDiv.querySelector('a.location-name').innerText = checkIns[i].locationName;
         newCheckInDiv.querySelector('a').setAttribute("href", `https://localhost:44392/location/detail/${checkIns[i].locationData.id}`);
@@ -57,6 +57,9 @@ function addCheckInsToPage(checkIns) {
     }
 }
 
+/**
+ * Gets the badges for the user that is currenly logged in.
+ */
 function getUserBadges() {
     const url = `https://localhost:44392/account/getbadges`
     const settings = {
@@ -74,5 +77,16 @@ function getUserBadges() {
 }
 
 function addBadgesToPage(badges) {
-    
+    for (let i = 0; i < badges.length; i++) {
+
+        const newBadgeDiv = getElementFromTemplate('badge');
+
+        // Add all the information that is received from the badge API to an element
+        newBadgeDiv.querySelector('img.badge-image').setAttribute('src', badges[i].image);
+        newBadgeDiv.querySelector('h3.badge-name').innerText = badges[i].badgeName;
+        newBadgeDiv.querySelector('p.badge-description').innerText = badges[i].badgeDescription;
+
+        // Add the new badge to the page
+        document.querySelector('div.badges').insertAdjacentElement('beforeend', newBadgeDiv);
+    }
 }
