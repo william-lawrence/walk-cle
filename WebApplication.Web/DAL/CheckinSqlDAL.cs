@@ -77,7 +77,7 @@ namespace WebApplication.Web.DAL
 		}
 
         /// <summary>
-        /// Maps a row from the database to a chckin object.
+        /// Maps a row from the database to a checkin object.
         /// </summary>
         /// <param name="reader">The reader used to access the database</param>
         /// <returns>Checkin object with properties corressponding to that row in the database.</returns>
