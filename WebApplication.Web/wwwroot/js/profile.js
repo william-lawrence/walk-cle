@@ -4,6 +4,8 @@
     return domNode;
 }
 
+let checkIns;
+
 // Ensures that the page is fully loaded before scripts run.
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM Loaded');
@@ -27,8 +29,30 @@ function getUserCheckIns(userId) {
         .then(response => response.json())
         .then(json => {
             console.log(json);
+            checkIns = json;
+            addCheckInsToPage(checkIns);
         });
 
+
+}
+
+/**
+ * Uses the check in data to add the elements to the page
+ * @param {} checkIns the json from the database that is used to add the check ins to the page. 
+ */
+function addCheckInsToPage(checkIns) {
+
+    for(let i = 0; i < checkIns.length; i++) {
+         
+        const newCheckInDiv = getElementFromTemplate('check-in');
+        
+        // Add all information that is recieved from the API to an element
+        newCheckInDiv.querySelector('p.date-earned').innerText = checkIns[i].date;
+
+        // Add the new element to the page
+        document.querySelector('div.check-in').insertAdjacentElement('beforeend', newCheckInDiv);
+
+    }
 
 }
 
