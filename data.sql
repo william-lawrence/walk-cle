@@ -492,8 +492,6 @@ VALUES (15, 'Defender of the ''Land', 'You must live here because you''ve checke
 INSERT INTO badges (id, name, description, criteria)
 VALUES (16, 'Stuck in a Rut', 'Didn''t you know that variety is the spice of life?', 'Earned by checking into the same location more than 5 times.');
 
-INSERT INTO badges (id, 
-
 SET IDENTITY_INSERT badges OFF;
 
 -- Give test badge to our test user
