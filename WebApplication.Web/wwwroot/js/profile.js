@@ -11,8 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM Loaded');
 
     // Once the DOM is fully loaded, get the check-ins for a user.
-    let userId = 1;
-    getUserCheckIns(userId);
+    getUserCheckIns();
 });
 
 /**
