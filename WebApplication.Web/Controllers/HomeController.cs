@@ -11,6 +11,14 @@ namespace WebApplication.Web.Controllers
 {
     public class HomeController : Controller
     {
+		private readonly IBadgeSqlDAL dal;
+
+		public HomeController(IBadgeSqlDAL dal)
+		{
+			this.dal = dal;
+		}
+
+
 		/// <summary>
 		/// Shows the home page
 		/// </summary>
@@ -19,6 +27,15 @@ namespace WebApplication.Web.Controllers
         {            
             return View();
         }
+
+		public IActionResult AllBadges()
+		{
+			IList<Badge> badges = new List<Badge>();
+
+			//badges = dal.GetAllBadges();
+
+			return View(badges);
+		}
 
 		#region Microsoft Boilerplate
 		public IActionResult About()
