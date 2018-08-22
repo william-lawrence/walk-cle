@@ -66,6 +66,7 @@ CREATE TABLE badges
 	id			int			identity(1,1),
 	name		varchar(50)	not null,
 	description	varchar(250) not null,
+	criteria	varchar(250) not null,
 	image		varchar(50)
 
 	constraint pk_badges primary key (id)
