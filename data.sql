@@ -408,6 +408,24 @@ VALUES (48, 'historical');
 INSERT INTO locations_categories (location_id, category)
 VALUES (48, 'artsculture');
 
+INSERT INTO locations_categories (location_id, category)
+VALUES (49, 'photoops');
+
+INSERT INTO locations_categories (location_id, category)
+VALUES (50, 'photoops');
+
+INSERT INTO locations_categories (location_id, category)
+VALUES (51, 'photoops');
+
+INSERT INTO locations_categories (location_id, category)
+VALUES (52, 'photoops');
+
+INSERT INTO locations_categories (location_id, category)
+VALUES (53, 'activities');
+
+INSERT INTO locations_categories (location_id, category)
+VALUES (54, 'historical');
+
 -- Test users
 SET IDENTITY_INSERT users ON;
 
