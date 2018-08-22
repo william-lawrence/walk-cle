@@ -510,6 +510,35 @@ li input#logout {
     background-color: rgba(255, 255, 255, .75);
 }
 
+.profile-container {
+    display: grid;
+    background-color: rgba(255, 255, 255, .75);
+    padding: 25px 0 0 0;
+}
+
+.profile-header {
+    font-family: "Merienda";
+    margin: 0px;
+    padding: 10px 0 10px 0;
+    color: #103F9D;
+}
+
+.profile-greeting {
+    margin: 0 0 10px 0;
+}
+
+.profile-info {
+    margin: 0px;
+}
+
+.check-in {
+    grid-area: check-in;
+}
+
+.badges {
+    grid-area: badges;
+}
+
 
 /*Media queries*/
 @media only screen and (min-width: 769px) {
@@ -527,13 +556,19 @@ li input#logout {
 
     div.category-container {
         grid-template-columns: 1fr 1fr;
-        grid-gap: 20px;
+        /*grid-gap: 20px;*/
         grid-template-areas: 'category-image location-info';
     }
 
     div.directions-container {
         grid-template-columns: 500px auto;
         grid-template-areas: 'directions-map route';
+    }
+
+    div.profile-container {
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+        grid-template-areas: 'check-in badges';
     }
 }
 
@@ -553,6 +588,12 @@ li input#logout {
         grid-template-rows: 400px auto;
         grid-template-areas: 'directions-map' 'route';
     }
+
+    div.profile-container {
+        grid-template-rows: 400px auto;
+        grid-gap: 20px;
+        grid-template-areas: 'check-in badges';
+    }
 }
 
 @media only screen and (max-width: 480px) {
@@ -571,5 +612,11 @@ li input#logout {
     div.directions-container {
         grid-template-rows: 200px;
         grid-template-areas: 'directions-map' 'route';
+    }
+
+    div.profile-container {
+        grid-template-rows: auto auto;
+        grid-gap: 20px;
+        grid-template-areas: 'check-in' 'badges';
     }
 }
