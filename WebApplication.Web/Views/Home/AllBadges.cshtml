@@ -1,0 +1,14 @@
+﻿@model List<Badge>
+@{
+    ViewData["Title"] = "AllBadges";
+}
+<div class="all-badges">
+    <h2>All Available Badges</h2>
+
+    @foreach (var badge in Model)
+    {
+        <p>@badge.Image</p>
+        <p>@badge.BadgeName</p>
+        @*<p>@badge.Criteria</p>*@
+    }
+</div>
