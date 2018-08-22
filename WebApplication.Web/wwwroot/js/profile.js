@@ -15,12 +15,14 @@ document.addEventListener('DOMContentLoaded', () => {
     getUserCheckIns(userId);
 });
 
+let base = window.location.protocol + "//" + window.location.host;
+
 /**
  * Gets all the check-ins that a user has performed.
  * @param {number} userId The number that represents the Id of the user.
  */
 function getUserCheckIns(userId) {
-    const url = `https://localhost:44392/account/getcheckins?userid=${userId}`
+    const url = `${base}/account/getcheckins?userid=${userId}`
     const settings = {
         method: 'GET'
     };

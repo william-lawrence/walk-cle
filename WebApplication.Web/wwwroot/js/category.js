@@ -68,11 +68,12 @@ function getLocation() {
 let category;
 let locationArray;
 var markers = [];
+let base = window.location.protocol + "//" + window.location.host;
 
 function CategorySearch(youAreHere) {
     category = document.querySelector('p.hidden').innerText;
     console.log(category);
-    const url = `https://localhost:44392/Search/CategorySearch?latitude=${youAreHere.lat}&longitude=${youAreHere.lng}&cat=${category}`;
+    const url = `${base}/Search/CategorySearch?latitude=${youAreHere.lat}&longitude=${youAreHere.lng}&cat=${category}`;
     const settings = {
         method: 'GET'
     };
@@ -119,7 +120,7 @@ async function setCategoryMarkers(locations) {
         newLocationDiv.querySelector('label#location-name').innerText = locationArray[i].name;
         newLocationDiv.querySelector('label#location-number').innerText = `${i + 1}.`;
         newLocationDiv.querySelector('label#location-desc').innerText = ellipsify(locationArray[i].description);
-        newLocationDiv.querySelector('a').setAttribute("href", `https://localhost:44392/location/detail/${locationArray[i].id}`);
+        newLocationDiv.querySelector('a').setAttribute("href", `${base}/location/detail/${locationArray[i].id}`);
         newLocationDiv.querySelector('label#distance-from-user').innerText = `${locationArray[i].distanceFromUser} mi away`;
 
         if (locationArray[i].distanceFromUser <= 0.05) {
@@ -135,7 +136,7 @@ async function setCategoryMarkers(locations) {
 }
 
 async function KeywordSearch(keywords) {
-    const url = `https://localhost:44392/search/keywordsearch?latitude=${youAreHere.lat}&longitude=${youAreHere.lng}&keywords=${keywords}`;
+    const url = `${base}/search/keywordsearch?latitude=${youAreHere.lat}&longitude=${youAreHere.lng}&keywords=${keywords}`;
     const settings = {
         method: 'GET'
     };
@@ -172,7 +173,7 @@ async function addSearchResultsToPage(locations) {
         newLocationDiv.querySelector('label#location-name').innerText = locationArray[i].name;
         newLocationDiv.querySelector('label#location-number').innerText = `${i + 1}.`;
         newLocationDiv.querySelector('label#location-desc').innerText = ellipsify(locationArray[i].description);
-        newLocationDiv.querySelector('a').setAttribute("href", `https://localhost:44392/location/detail/${locationArray[i].id}`);
+        newLocationDiv.querySelector('a').setAttribute("href", `${base}/location/detail/${locationArray[i].id}`);
         newLocationDiv.querySelector('label#distance-from-user').innerText = `${locationArray[i].distanceFromUser} mi away`;
 
         if (locationArray[i].distanceFromUser <= 0.05) {
@@ -203,4 +204,28 @@ async function clearMarkers() {
 
     // Reset the markers array
     markers = [];
+}
+
+// Here are some of the coordinate ranges that we can choose from
+const coordChoices = [
+    { latitude: 41.4997236, longitude: -81.6958457 },
+    { latitude: 41.498284, longitude: -81.705700 },
+    { latitude: 41.509941, longitude: -81.610130 },
+];
+
+
+// We override the getCurrentPosition function
+// and assign it our own function to run
+navigator.geolocation.getCurrentPosition = (success) => {
+
+    // Get a random index from the location of coordinates
+    const rndIdx = Math.floor(Math.random() * coordChoices.length);
+
+    // Get the position associated with that randomIndex
+    const position = {
+        coords: coordChoices[rndIdx]
+    };
+
+    // Call the function passed to indicate "we're done"
+    success(position);
 }
