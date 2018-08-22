@@ -432,6 +432,9 @@ SET IDENTITY_INSERT users ON;
 INSERT INTO users (id, username, password, salt, role, visitor, email, avatar)
 VALUES (1, 'BillyShakes', 'drrJ56U5ROBC5qS5THxV3LdEPjY=', 'dWcJOOdOTb0=', 'Role', 0, 'william.lawrence.75@gmail.com', 123);
 
+INSERT INTO users (id, username, password, salt, role, visitor, email, avatar)
+VALUES (2, 'kbrucker', 'IO9rCqbPvw/fDwXH8bIpAhxHxfc=', '7KZ9X4Bhhss=', 'Role', 0, 'kelly@techelevator.com', 234);
+
 SET IDENTITY_INSERT users OFF;
 
 -- Test check-ins
