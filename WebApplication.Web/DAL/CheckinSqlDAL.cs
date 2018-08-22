@@ -84,20 +84,20 @@ namespace WebApplication.Web.DAL
         private Checkin MapRowToCheckin(SqlDataReader reader)
         {
             Checkin checkin = new Checkin();
-            checkin.Location = new Location();
-
+            checkin.LocationData = new Location();
+                            
             checkin.Date = Convert.ToDateTime(reader["date"]).Date;
-            checkin.Location.Id = Convert.ToInt32(reader["id"]);
-            checkin.Location.Name = Convert.ToString(reader["name"]);
-            checkin.Location.Address = Convert.ToString(reader["streetAddy"]);
-            checkin.Location.City = Convert.ToString(reader["city"]);
-            checkin.Location.State = Convert.ToString(reader["state"]);
-            checkin.Location.Zip = Convert.ToString(reader["zip"]);
-            checkin.Location.Latitude = Convert.ToDecimal(reader["latitude"]);
-            checkin.Location.Longitude = Convert.ToDecimal(reader["longitude"]);
-            checkin.Location.Photo = Convert.ToString(reader["photo"]);
-            checkin.Location.Description = Convert.ToString(reader["description"]);
-
+            checkin.LocationData.Id = Convert.ToInt32(reader["id"]);
+            checkin.LocationData.Name = Convert.ToString(reader["name"]);
+            checkin.LocationData.Address = Convert.ToString(reader["streetAddy"]);
+            checkin.LocationData.City = Convert.ToString(reader["city"]);
+            checkin.LocationData.State = Convert.ToString(reader["state"]);
+            checkin.LocationData.Zip = Convert.ToString(reader["zip"]);
+            checkin.LocationData.Latitude = Convert.ToDecimal(reader["latitude"]);
+            checkin.LocationData.Longitude = Convert.ToDecimal(reader["longitude"]);
+            checkin.LocationData.Photo = Convert.ToString(reader["photo"]);
+            checkin.LocationData.Description = Convert.ToString(reader["description"]);
+                            
             return checkin;
         }
     }

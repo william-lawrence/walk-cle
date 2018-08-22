@@ -32,8 +32,6 @@ function getUserCheckIns(userId) {
             checkIns = json;
             addCheckInsToPage(checkIns);
         });
-
-
 }
 
 /**
@@ -46,13 +44,13 @@ function addCheckInsToPage(checkIns) {
          
         const newCheckInDiv = getElementFromTemplate('check-in');
         
-        // Add all information that is recieved from the API to an element
-        newCheckInDiv.querySelector('p.date-earned').innerText = checkIns[i].date;
+        // Add all information that is received from the API to an element
+        newCheckInDiv.querySelector('span.date-earned').innerText = checkIns[i].date.substring(0, 10);
+        newCheckInDiv.querySelector('a.location-name').innerText = checkIns[i].locationName;
 
         // Add the new element to the page
         document.querySelector('div.check-in').insertAdjacentElement('beforeend', newCheckInDiv);
 
     }
-
 }
 
