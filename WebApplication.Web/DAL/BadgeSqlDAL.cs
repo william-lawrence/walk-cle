@@ -65,8 +65,8 @@ namespace WebApplication.Web.DAL
             Badge badge = new Badge
             {
                 Id = Convert.ToInt32(reader["badge_id"]),
-                Name = Convert.ToString(reader["name"]),
-                Description = Convert.ToString(reader["description"]),
+                BadgeName = Convert.ToString(reader["name"]),
+                BadgeDescription = Convert.ToString(reader["description"]),
                 Image = Convert.ToString(reader["image"])
             };
 
