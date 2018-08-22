@@ -146,9 +146,9 @@ namespace WebApplication.Web.Controllers
         }
 
         /// <summary>
-        /// Gets all the check in data for the user that iis currently signed in.
+        /// Gets all the check in data for the user that is currently signed in.
         /// </summary>
-        /// <returns>JSON that represents the check-in object</returns>
+        /// <returns>JSON that represents the list of check-in objects</returns>
         [HttpGet]
         [AuthorizationFilter]
         public JsonResult GetCheckins()
@@ -160,10 +160,10 @@ namespace WebApplication.Web.Controllers
 
             // If no user is logged in, They get an empty JSON result.
             // They shouldn't be able to get to this point without logging in.
-            // Better saffe than sorry.
+            // Better safe than sorry.
             if (currentUser == null)
             {
-                Json(checkins);
+                return Json(checkins);
             }
 
             checkins = checkinDal.GetUserCheckins(currentUser.Id);
@@ -171,11 +171,28 @@ namespace WebApplication.Web.Controllers
             return Json(checkins);
         }
 
+        /// <summary>
+        /// Gets all the badges for the user that is currently checked in.
+        /// </summary>
+        /// <returns>JSON that represents the list of badge objects.</returns>
+        [HttpGet]
+        [AuthorizationFilter]
         public JsonResult GetBadges()
         {
             IList<Badge> badges = new List<Badge>();
+            User currentUser = new User();
 
-            badges = badgeDal.GetUserBadges(1);
+            currentUser = authProvider.GetCurrentUser();
+
+            // If no user is logged in, They get an empty JSON result.
+            // They shouldn't be able to get to this point without logging in.
+            // Better safe than sorry.
+            if (currentUser == null)
+            {
+                return Json(badges);
+            }
+
+            badges = badgeDal.GetUserBadges(currentUser.Id);
 
             return Json(badges);
         }
