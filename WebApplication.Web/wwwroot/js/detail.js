@@ -124,6 +124,7 @@ async function addSearchResultsToPage(locations) {
             const button = newLocationDiv.querySelector('button#check-in-button');
             button.classList.remove('hidden');
             newLocationDiv.querySelector('input').setAttribute("value", `${locationArray[i].id}`);
+            newLocationDiv.querySelector('input').setAttribute("value", `${locationArray[i].distanceFromUser}`);
         }
 
         document.querySelector('div.location-name').insertAdjacentElement('beforeend', newLocationDiv);
