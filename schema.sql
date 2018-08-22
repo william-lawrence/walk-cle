@@ -58,7 +58,7 @@ CREATE TABLE locations_categories
 
 	constraint pk_location_category primary key (location_id, category),
 	constraint fk_location foreign key (location_id) references locations (id),
-	CONSTRAINT ck_category_check CHECK (category IN ('bars', 'restaurants', 'sports', 'parks', 'shopping', 'artsculture', 'historical', 'activities'))
+	CONSTRAINT ck_category_check CHECK (category IN ('bars', 'restaurants', 'sports', 'parks', 'shopping', 'artsculture', 'historical', 'activities', 'photoops'))
 );
 
 CREATE TABLE badges
@@ -66,6 +66,7 @@ CREATE TABLE badges
 	id			int			identity(1,1),
 	name		varchar(50)	not null,
 	description	varchar(250) not null,
+	criteria	varchar(250) not null,
 	image		varchar(50)
 
 	constraint pk_badges primary key (id)

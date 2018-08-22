@@ -15,12 +15,17 @@ namespace WebApplication.Web.Models
         /// <summary>
         /// The name of the badge.
         /// </summary>
-        public string Name { get; set; }
+        public string BadgeName { get; set; }
 
         /// <summary>
         /// The description for the badge.
         /// </summary>
-        public string Description { get; set; }
+        public string BadgeDescription { get; set; }
+
+        /// <summary>
+        /// The criteria that is needed to earn a particular badge.
+        /// </summary>
+        public string BadgeCriteria { get; set; }
 
         /// <summary>
         /// The location of the image file for the badge.

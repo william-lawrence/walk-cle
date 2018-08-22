@@ -4,11 +4,22 @@
     ViewData["Title"] = "Detail";
 }
 
-<body>
+<body class="detail">
     <div class="image-details-container">
         <img src="~/images/@(Model.Photo).jpg" alt="Description Image" class="detail-image" />
         <div class="details">
-            <h2>@Model.Name</h2>
+            <div class="name-container">
+                <h2 class="detail-name">@Model.Name</h2>
+                <div class="detail-checkin">
+                    @if (@Model.DistanceFromUser <= 0.05)
+                    {
+                        <form asp-controller="location" asp-action="checkin">
+                            <input type="hidden" name="id" value="@Model.Id" />
+                            <button id="check-in-button" type="submit">Check In</button>
+                        </form>
+                    }
+                </div>
+            </div>
             <p>@Model.Description</p>
             <p>@Model.Address, @Model.Street</p>
             <p>@(Model.City), @Model.State @Model.Zip</p>
@@ -51,12 +62,17 @@
                     <i class="fas fa-shopping-bag"></i>
 
                 }
-                else if (cat == "arts & culture")
+                else if (cat == "artsculture")
                 {
                     <i class="fas fa-theater-masks"></i>
 
                 }
-                <p class="detail-cats">@cat</p>
+                else if (cat == "photoops")
+                {
+                    <i class="fas fa-camera-retro"></i>
+
+                }
+                @*<p class="detail-cats">@cat</p>*@
             }
             <br />
             <div class="directions-button">Get Directions</div>

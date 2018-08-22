@@ -171,12 +171,13 @@ async function setMarkers(locations) {
         newLocationDiv.querySelector('label#location-name').innerText = locationArray[i].name;
         newLocationDiv.querySelector('label#location-number').innerText = `${i + 1}.`;
         newLocationDiv.querySelector('label#location-desc').innerText = ellipsify(locationArray[i].description);
-        newLocationDiv.querySelector('a').setAttribute("href", `location/detail/${locationArray[i].id}`);
+        newLocationDiv.querySelector('a').setAttribute("href", `location/detail/${locationArray[i].id}?distanceFromUser=${locationArray[i].distanceFromUser}`);
         newLocationDiv.querySelector('label#distance-from-user').innerText = `${locationArray[i].distanceFromUser} mi away`;
 
         if (locationArray[i].distanceFromUser <= 0.05) {
             const button = newLocationDiv.querySelector('button#check-in-button');
             button.classList.remove('hidden');
+        
             newLocationDiv.querySelector('input').setAttribute("value", `${locationArray[i].id}`);
         }
         
@@ -234,7 +235,7 @@ async function addSearchResultsToPage(locations) {
         newLocationDiv.querySelector('label#location-name').innerText = locationArray[i].name;
         newLocationDiv.querySelector('label#location-number').innerText = `${i + 1}.`;
         newLocationDiv.querySelector('label#location-desc').innerText = ellipsify(locationArray[i].description);
-        newLocationDiv.querySelector('a').setAttribute("href", `location/detail/${locationArray[i].id}`);
+        newLocationDiv.querySelector('a').setAttribute("href", `location/detail/${locationArray[i].id}?distanceFromUser=${locationArray[i].distanceFromUser}`);
         newLocationDiv.querySelector('label#distance-from-user').innerText = `${locationArray[i].distanceFromUser} mi away`;
 
         if (locationArray[i].distanceFromUser <= 0.05) {
