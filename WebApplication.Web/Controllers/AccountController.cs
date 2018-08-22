@@ -145,6 +145,14 @@ namespace WebApplication.Web.Controllers
 
             currentUser = authProvider.GetCurrentUser();
 
+            // If no user is logged in, They get an empty JSON result.
+            // They shouldn't be able to get to this point without logging in.
+            // Better saffe than sorry.
+            if (currentUser == null)
+            {
+                Json(checkins);
+            }
+
             checkins = checkinDal.GetUserCheckins(currentUser.Id);
 
             return Json(checkins);
