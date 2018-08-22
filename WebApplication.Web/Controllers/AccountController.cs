@@ -12,12 +12,21 @@ namespace WebApplication.Web.Controllers
         private readonly IAuthProvider authProvider;
         private readonly IUserDAL userDal;
         private readonly ICheckinSqlDAL checkinDal;
+        private readonly IBadgeSqlDAL badgeDal;
 
-        public AccountController(IAuthProvider authProvider, IUserDAL userDal, ICheckinSqlDAL checkinDal)
+        /// <summary>
+        /// Constructor that injects all the dependencies for the account controller.
+        /// </summary>
+        /// <param name="authProvider"></param>
+        /// <param name="userDal"></param>
+        /// <param name="checkinDal"></param>
+        /// <param name="badgeDal"></param>
+        public AccountController(IAuthProvider authProvider, IUserDAL userDal, ICheckinSqlDAL checkinDal, IBadgeSqlDAL badgeDal)
         {
             this.authProvider = authProvider;
             this.userDal = userDal;
             this.checkinDal = checkinDal;
+            this.badgeDal = badgeDal;
         }
 
         /// <summary>
