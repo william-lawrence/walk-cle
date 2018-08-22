@@ -86,7 +86,7 @@ namespace WebApplication.Web.DAL
             Checkin checkin = new Checkin();
             checkin.Location = new Location();
 
-            checkin.Date = Convert.ToDateTime(reader["date"]);
+            checkin.Date = Convert.ToDateTime(reader["date"]).Date;
             checkin.Location.Id = Convert.ToInt32(reader["id"]);
             checkin.Location.Name = Convert.ToString(reader["name"]);
             checkin.Location.Address = Convert.ToString(reader["streetAddy"]);
