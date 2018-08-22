@@ -428,5 +428,9 @@ VALUES (1, 'Team Player', 'You root for the home team every time! Earned by chec
 
 SET IDENTITY_INSERT badges OFF;
 
+-- Give test badge to our test user
+INSERT INTO user_badges (user_id, badge_id)
+VALUES (1, 1);
+
 COMMIT TRANSACTION;
 

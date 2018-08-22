@@ -170,5 +170,14 @@ namespace WebApplication.Web.Controllers
 
             return Json(checkins);
         }
+
+        public JsonResult GetBadges()
+        {
+            IList<Badge> badges = new List<Badge>();
+
+            badges = badgeDal.GetUserBadges(1);
+
+            return Json(badges);
+        }
     }
 }
