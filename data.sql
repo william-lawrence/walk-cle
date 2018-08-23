@@ -450,20 +450,20 @@ SET IDENTITY_INSERT badges ON;
 INSERT INTO badges (id, name, description, criteria)
 VALUES (1, 'Team Player', 'You root for the home team every time!', 'Earned by checking in at First Energy Stadium, Progressive Field, and Quicken Loans Arena.');
 
-INSERT INTO badges (id, name, description, criteria)
-VALUES (2, 'Namaste', 'You''re all about inner peace.', 'Earned by checking in at Inner Bliss Yoga Studio.');
+INSERT INTO badges (id, name, description, criteria, image)
+VALUES (2, 'Namaste', 'You''re all about inner peace.', 'Earned by checking in at Inner Bliss Yoga Studio.', 'Yoga');
 
-INSERT INTO badges (id, name, description, criteria)
-VALUES (3, 'Oh, Fudge!', 'Only you didn''t say fudge.', 'Earned by checking in at A Christmas Story House.');
+INSERT INTO badges (id, name, description, criteria, image)
+VALUES (3, 'Oh, Fudge!', 'Only you didn''t say fudge.', 'Earned by checking in at A Christmas Story House.', 'LegLamp');
 
 INSERT INTO badges (id, name, description, criteria)
 VALUES (4, 'Spook-Seeker', 'Keep your eyes out for the Haserot Angel.', 'Earned by checking in at Lake View Cemetary.');
 
-INSERT INTO badges (id, name, description, criteria)
-VALUES (5, 'CLE-gram', 'Instagram that ASAP. You''re snapping amazing shots of Cleveland''s skyline.', 'Earned by checking in at all four Cleveland Script Signs.');
+INSERT INTO badges (id, name, description, criteria, image)
+VALUES (5, 'CLE-gram', 'Instagram that ASAP. You''re snapping amazing shots of Cleveland''s skyline.', 'Earned by checking in at all four Cleveland Script Signs.', 'CLEgram');
 
-INSERT INTO badges (id, name, description, criteria)
-VALUES (6, 'Treehugger', 'Whether you''re more a Ron Swanson or a Leslie Knope, you love CLE parks.', 'Earned by checking in at Cleveland Metroparks Zoo, Edgewater Park, Public Square, and Voinovich Park.');
+INSERT INTO badges (id, name, description, criteria, image)
+VALUES (6, 'Treehugger', 'Whether you''re more a Ron Swanson or a Leslie Knope, you love CLE parks.', 'Earned by checking in at Cleveland Metroparks Zoo, Edgewater Park, Public Square, and Voinovich Park.', 'TreeHugger');
 
 INSERT INTO badges (id, name, description, criteria)
 VALUES (7, 'Barhopper', 'Your world looks better with beer goggles on.', 'Earned by checking in at 5 or more bars.');
