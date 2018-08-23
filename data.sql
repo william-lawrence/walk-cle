@@ -441,6 +441,9 @@ SET IDENTITY_INSERT users OFF;
 INSERT INTO check_ins(user_id, location_id, date)
 VALUES (1, 31, GETDATE());
 
+INSERT INTO check_ins(user_id, location_id, date)
+VALUES (1, 23, GETDATE() - 1);
+
 --Test badges
 SET IDENTITY_INSERT badges ON;
 
