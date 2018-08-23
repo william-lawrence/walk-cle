@@ -139,7 +139,7 @@ namespace WebApplication.Web.DAL
 			}
 		}
 
-		private void AddBadgeToUserBadges(int userId, int badgeId)
+        private void AddBadgeToUserBadges(int userId, int badgeId)
 		{
 			try
 			{
@@ -177,7 +177,9 @@ namespace WebApplication.Web.DAL
 			}
 		}
 
-		private bool TeamPlayer(Dictionary<int, int> checkInCount)
+        #region Badge Logic
+
+        private bool TeamPlayer(Dictionary<int, int> checkInCount)
 		{
 			if (checkInCount[25] > 0 && checkInCount[1] > 0 && checkInCount[2] > 0)
 			{
@@ -390,11 +392,14 @@ namespace WebApplication.Web.DAL
 			return false;
 		}
 
-		/// <summary>
-		/// Gets all the locations in the database
-		/// </summary>
-		/// <returns>A list of all the categories that</returns>
-		private List<Location> GetAllLocations()
+        #endregion
+
+
+        /// <summary>
+        /// Gets all the locations in the database
+        /// </summary>
+        /// <returns>A list of all the categories that</returns>
+        private List<Location> GetAllLocations()
 		{
 			List<Location> allLocations = new List<Location>();
 
