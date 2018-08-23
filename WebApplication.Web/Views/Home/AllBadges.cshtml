@@ -7,7 +7,7 @@
 
     @foreach (var badge in Model)
     {
-        <p>@badge.Image</p>
+        <img src="~/images/@(badge.Image).svg" alt="Description Image" class="detail-image" />
         <p>@badge.BadgeName</p>
         <p>@badge.BadgeCriteria</p>
     }
