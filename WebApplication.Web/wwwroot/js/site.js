@@ -174,7 +174,8 @@ async function setMarkers(locations) {
         newLocationDiv.querySelector('a').setAttribute("href", `location/detail/${locationArray[i].id}?distanceFromUser=${locationArray[i].distanceFromUser}`);
         newLocationDiv.querySelector('label#distance-from-user').innerText = `${locationArray[i].distanceFromUser} mi away`;
 
-        if (locationArray[i].distanceFromUser <= 0.05) {
+        //changing max distance for demo purposes from 0.05 to
+        if (locationArray[i].distanceFromUser <= 0.25) {
             const button = newLocationDiv.querySelector('button#check-in-button');
             button.classList.remove('hidden');
         
@@ -238,7 +239,8 @@ async function addSearchResultsToPage(locations) {
         newLocationDiv.querySelector('a').setAttribute("href", `location/detail/${locationArray[i].id}?distanceFromUser=${locationArray[i].distanceFromUser}`);
         newLocationDiv.querySelector('label#distance-from-user').innerText = `${locationArray[i].distanceFromUser} mi away`;
 
-        if (locationArray[i].distanceFromUser <= 0.05) {
+        //changing max distance for demo purposes from 0.05 to
+        if (locationArray[i].distanceFromUser <= 0.25) {
             const button = newLocationDiv.querySelector('button#check-in-button');
             button.classList.remove('hidden');
             newLocationDiv.querySelector('input').setAttribute("value", `${locationArray[i].id}`);
