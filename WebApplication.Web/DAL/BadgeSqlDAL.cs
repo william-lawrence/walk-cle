@@ -139,7 +139,7 @@ namespace WebApplication.Web.DAL
 			}
 		}
 
-		private void AddBadgeToUserBadges(int userId, int badgeId)
+        private void AddBadgeToUserBadges(int userId, int badgeId)
 		{
 			try
 			{
@@ -176,6 +176,7 @@ namespace WebApplication.Web.DAL
 				throw ex;
 			}
 		}
+
         #region Badge Logic
 
         private bool TeamPlayer(Dictionary<int, int> checkInCount)
@@ -392,6 +393,7 @@ namespace WebApplication.Web.DAL
 		}
 
         #endregion
+
 
         /// <summary>
         /// Gets all the locations in the database
