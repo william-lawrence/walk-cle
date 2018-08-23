@@ -76,7 +76,7 @@ CREATE TABLE user_badges
 (
 	user_id		int			not null,
 	badge_id	int			not null,
-	date		datetime	default getdate()
+	date		date		default CAST(getdate() as date)
 
 	constraint pk_user_badges_user_id_badge_id primary key (user_id, badge_id)
 );

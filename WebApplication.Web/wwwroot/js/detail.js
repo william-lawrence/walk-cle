@@ -120,7 +120,8 @@ async function addSearchResultsToPage(locations) {
         newLocationDiv.querySelector('label#location-desc').innerText = ellipsify(locationArray[i].description);
         newLocationDiv.querySelector('a').setAttribute("href", `${base}/location/detail/${locationArray[i].id}`);
 
-        if (locationArray[i].distanceFromUser <= 0.05) {
+        //changing max distance for demo purposes from 0.05 to
+        if (locationArray[i].distanceFromUser <= 0.25) {
             const button = newLocationDiv.querySelector('button#check-in-button');
             button.classList.remove('hidden');
             newLocationDiv.querySelector('input').setAttribute("value", `${locationArray[i].id}`);
