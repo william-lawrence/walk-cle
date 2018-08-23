@@ -31,12 +31,6 @@ let startingLocation;
 
 let destinationAddress = locationSerialized.address + ' ' + locationSerialized.city + ' ' + locationSerialized.state + ' ' + locationSerialized.zip;
 
-// override location
-// 41.4995784    -81.6870261
-
-// destination
-// 41.4974835    -81.6927965
-
 function getDirections(position) {
     startingLocation = { lat: position.coords.latitude, lng: position.coords.longitude };
     let directionsDisplay = new google.maps.DirectionsRenderer;
@@ -80,8 +74,10 @@ function getLocation() {
     }
 }
 
+let base = window.location.protocol + "//" + window.location.host;
+
 async function KeywordSearch(keywords) {
-    const url = `https://localhost:44392/search/keywordsearch?keywords=${keywords}`;
+    const url = `${base}/search/keywordsearch?keywords=${keywords}`;
     const settings = {
         method: 'GET'
     };
@@ -118,7 +114,7 @@ async function addSearchResultsToPage(locations) {
         newLocationDiv.querySelector('label#location-name').innerText = locationArray[i].name;
         newLocationDiv.querySelector('label#location-number').innerText = `${i + 1}.`;
         newLocationDiv.querySelector('label#location-desc').innerText = ellipsify(locationArray[i].description);
-        newLocationDiv.querySelector('a').setAttribute("href", `https://localhost:44392/location/detail/${locationArray[i].id}`);
+        newLocationDiv.querySelector('a').setAttribute("href", `${base}/location/detail/${locationArray[i].id}`);
 
         if (locationArray[i].distanceFromUser <= 0.05) {
             const button = newLocationDiv.querySelector('button#check-in-button');

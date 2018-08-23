@@ -32,7 +32,7 @@ namespace WebApplication.Web.Controllers
 		{
 			IList<Badge> badges = new List<Badge>();
 
-			//badges = dal.GetAllBadges();
+			badges = dal.GetAllBadges();
 
 			return View(badges);
 		}
