@@ -10,9 +10,8 @@ let keywords;
 document.addEventListener('DOMContentLoaded', () => {
     // Code that runs when the DOM is loaded and verifies we have attached event handlers
     console.log('DOM Loaded');
-    getLocation();
-
     locationCount = document.querySelector('input[name="radio"]:checked').value;
+    getLocation();
 
     document.querySelector('button#search').addEventListener('click', (event) => {
         event.preventDefault();
@@ -86,12 +85,13 @@ function getLocation() {
 let locations;
 let locationArray;
 var markers = [];
+let base = window.location.protocol + "//" + window.location.host;
 
 /**
  * a function that will call our own api and return a json "array" with all of the locations in our db that are within 1mile of the user's current position.
  */
 function getNearbyLocations(youAreHere, locationCount) {
-    const url = `https://localhost:44392/location/nearbynlocations?latitude=${youAreHere.lat}&longitude=${youAreHere.lng}&numberoflocations=${locationCount}`;
+    const url = `${base}/location/nearbynlocations?latitude=${youAreHere.lat}&longitude=${youAreHere.lng}&numberoflocations=${locationCount}`;
     const settings = {
         method: 'GET'
     };
@@ -108,7 +108,7 @@ function getNearbyLocations(youAreHere, locationCount) {
 }
 
 function CategorySearch(youAreHere, category) {
-    const url = `https://localhost:44392/Home/category?latitude=${youAreHere.lat}&longitude=${youAreHere.lng}&category=${category}`;
+    const url = `${base}/Home/category?latitude=${youAreHere.lat}&longitude=${youAreHere.lng}&category=${category}`;
     const settings = {
         method: 'GET'
     };
@@ -125,7 +125,7 @@ function CategorySearch(youAreHere, category) {
 }
 
 async function KeywordSearch(keywords) {
-    const url = `https://localhost:44392/search/keywordsearch?latitude=${youAreHere.lat}&longitude=${youAreHere.lng}&keywords=${keywords}`;
+    const url = `${base}/search/keywordsearch?latitude=${youAreHere.lat}&longitude=${youAreHere.lng}&keywords=${keywords}`;
     const settings = {
         method: 'GET'
     };
@@ -249,4 +249,30 @@ async function addSearchResultsToPage(locations) {
         markers.push(marker);
     }
 
+}
+
+
+
+// Here are some of the coordinate ranges that we can choose from
+const coordChoices = [
+    { latitude: 41.4997236, longitude: -81.6958457 },
+    { latitude: 41.498284, longitude: -81.705700 },
+    { latitude: 41.509941, longitude: -81.610130 },
+];
+
+
+// We override the getCurrentPosition function
+// and assign it our own function to run
+navigator.geolocation.getCurrentPosition = (success) => {
+
+    // Get a random index from the location of coordinates
+    const rndIdx = Math.floor(Math.random() * coordChoices.length);
+
+    // Get the position associated with that randomIndex
+    const position = {
+        coords: coordChoices[rndIdx]
+    };
+
+    // Call the function passed to indicate "we're done"
+    success(position);
 }

@@ -16,12 +16,19 @@ document.addEventListener('DOMContentLoaded', () => {
     getUserBadges();
 });
 
+let base = window.location.protocol + "//" + window.location.host;
+
 /**
  * Gets all the check-ins that a user has performed.
  * @param {number} userId The number that represents the Id of the user.
  */
+<<<<<<< HEAD
+function getUserCheckIns(userId) {
+    const url = `${base}/account/getcheckins?userid=${userId}`
+=======
 function getUserCheckIns() {
     const url = `https://localhost:44392/account/getcheckins`
+>>>>>>> 62f0574b0f2c80089c2cc79246e6269a12af1e10
     const settings = {
         method: 'GET',
         credentials: 'include'

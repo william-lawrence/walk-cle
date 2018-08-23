@@ -43,6 +43,8 @@ namespace WebApplication.Web
                 options.Cookie.HttpOnly = true;
             });
 
+			string googleKey = Configuration["GoogleKey"];
+
 			string connectionString = Configuration["ConnectionStrings:default"];
 			// Dependency Injection
 			// For Authentication
